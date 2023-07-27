@@ -111,6 +111,13 @@
                                                    <https://w3id.org/pmd/co/abbreviation> "PLM"@en .
 
 
+###  https://w3id.org/pmd/mo/Reconstruction
+<https://w3id.org/pmd/mo/Reconstruction> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://w3id.org/pmd/co/Object> ;
+                                         rdfs:label "Reconstruction"@en ,
+                                                    "Rekonstruktion"@de .
+
+
 ###  https://w3id.org/pmd/mo/ScanningElectronMicroscopy
 <https://w3id.org/pmd/mo/ScanningElectronMicroscopy> rdf:type owl:Class ;
                                                      rdfs:subClassOf <https://w3id.org/pmd/co/ElectronMicroscopy> ;
@@ -139,6 +146,27 @@
 <https://w3id.org/pmd/mo/ScanningTunnelingMicroscopy> rdf:type owl:Class ;
                                                       rdfs:subClassOf <https://w3id.org/pmd/mo/ScanningProbeMicroscopy> ;
                                                       <https://w3id.org/pmd/co/abbreviation> "STM"@en .
+
+
+###  https://w3id.org/pmd/mo/SurfaceStructure
+<https://w3id.org/pmd/mo/SurfaceStructure> rdf:type owl:Class ;
+                                           rdfs:subClassOf <https://w3id.org/pmd/co/Object> ;
+                                           rdfs:label "Oberflächenstruktur"@de ,
+                                                      "Surface Structure"@en .
+
+
+###  https://w3id.org/pmd/mo/TomographicReconstruction
+<https://w3id.org/pmd/mo/TomographicReconstruction> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <https://w3id.org/pmd/mo/Reconstruction> ;
+                                                    rdfs:label "Tomographic Reconstruction"@en ,
+                                                               "Tomographische Rekonstruktion"@de .
+
+
+###  https://w3id.org/pmd/mo/3DReconstruction
+<https://w3id.org/pmd/mo/3DReconstruction> rdf:type owl:Class ;
+                                           rdfs:subClassOf <https://w3id.org/pmd/mo/Reconstruction> ;
+                                           rdfs:label "Dreidimensionale Rekonstruktion"@de ,
+                                                      "Three dimensional reconstruction"@en .
 
 
 ###  https://w3id.org/pmd/mo/4D-ScanningTransmissionElectronMicroscopy
