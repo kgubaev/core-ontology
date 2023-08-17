@@ -7,7 +7,7 @@
 @base <https://w3id.org/pmd/mo> .
 
 <https://w3id.org/pmd/mo> rdf:type owl:Ontology ;
-                           owl:imports <https://w3id.org/pmd/co/2.0.1> ;
+                           owl:imports <https://w3id.org/pmd/co/2.0.2> ;
                            <http://purl.org/dc/elements/1.1/creator> <https://orcid.org/0000-0002-3717-7104> ,
                                                                      <https://orcid.org/0000-0002-7094-5371> ;
                            <http://purl.org/dc/elements/1.1/license> <http://creativecommons.org/licenses/by/4.0> ;
@@ -19,17 +19,169 @@
 #    Classes
 #################################################################
 
+###  http://w3id.org/pmd/co/Aberration
+<http://w3id.org/pmd/co/Aberration> rdf:type owl:Class ;
+                                    rdfs:subClassOf <https://w3id.org/pmd/co/ValueObject> ;
+                                    rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                    rdfs:label "Aberration"@de ,
+                                               "Aberration"@en .
+
+
+###  http://w3id.org/pmd/co/Anode
+<http://w3id.org/pmd/co/Anode> rdf:type owl:Class ;
+                               rdfs:subClassOf <http://w3id.org/pmd/co/Electrode> ;
+                               rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                               rdfs:label "Anode"@de ,
+                                          "Anode"@en .
+
+
+###  http://w3id.org/pmd/co/AtomicResolution
+<http://w3id.org/pmd/co/AtomicResolution> rdf:type owl:Class ;
+                                          rdfs:subClassOf <http://w3id.org/pmd/co/Resolution> ;
+                                          rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                          rdfs:label "Atomare Auflösung"@de ,
+                                                     "Atomic Resolution"@en .
+
+
+###  http://w3id.org/pmd/co/AugerElectronSpectroscopy
+<http://w3id.org/pmd/co/AugerElectronSpectroscopy> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://w3id.org/pmd/co/Spectroscopy> ;
+                                                   rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                   rdfs:label "Auger Electron Spectroscopy"@en ,
+                                                              "Auger-Elektronen-Spektroskopie"@de ;
+                                                   <https://w3id.org/pmd/co/abbreviation> "AES"@en .
+
+
+###  http://w3id.org/pmd/co/BeamCurrent
+<http://w3id.org/pmd/co/BeamCurrent> rdf:type owl:Class ;
+                                     rdfs:subClassOf <http://w3id.org/pmd/co/Current> ;
+                                     rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                     rdfs:label "Beam Current"@en ,
+                                                "Strahlungsstrom"@de .
+
+
+###  http://w3id.org/pmd/co/BeamEnergy
+<http://w3id.org/pmd/co/BeamEnergy> rdf:type owl:Class ;
+                                    rdfs:subClassOf <http://w3id.org/pmd/co/Energy> ;
+                                    rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                    rdfs:label "Beam Energy"@en ,
+                                               "Strahlungsenergie"@de .
+
+
+###  http://w3id.org/pmd/co/Cathode
+<http://w3id.org/pmd/co/Cathode> rdf:type owl:Class ;
+                                 rdfs:subClassOf <http://w3id.org/pmd/co/Electrode> ;
+                                 rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                 rdfs:label "Cathode"@en ,
+                                            "Kathode"@de .
+
+
+###  http://w3id.org/pmd/co/ChromaticAberration
+<http://w3id.org/pmd/co/ChromaticAberration> rdf:type owl:Class ;
+                                             rdfs:subClassOf <http://w3id.org/pmd/co/Aberration> ;
+                                             rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                             rdfs:label "Chromatic Aberration"@en ,
+                                                        "Chromatische Aberration"@de .
+
+
+###  http://w3id.org/pmd/co/CollectionEfficiency
+<http://w3id.org/pmd/co/CollectionEfficiency> rdf:type owl:Class ;
+                                              rdfs:subClassOf <http://w3id.org/pmd/co/Efficiency> ;
+                                              rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                              rdfs:label "Collection Efficiency"@en ,
+                                                         "Kollektoreffizienz"@de .
+
+
+###  http://w3id.org/pmd/co/CondensorLense
+<http://w3id.org/pmd/co/CondensorLense> rdf:type owl:Class ;
+                                        rdfs:subClassOf <https://w3id.org/pmd/co/ProcessingNode> ;
+                                        rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                        rdfs:label "Condensor Lense"@en ,
+                                                   "Kondensorlinse"@de .
+
+
+###  http://w3id.org/pmd/co/CryoElectronTomography
+<http://w3id.org/pmd/co/CryoElectronTomography> rdf:type owl:Class ;
+                                                rdfs:subClassOf <http://w3id.org/pmd/co/ElectronTomography> ;
+                                                rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                rdfs:label "Cryo Electron Tomography"@en ,
+                                                           "Kryo-Elektronentomographie"@de ;
+                                                <https://w3id.org/pmd/co/abbreviation> "cryo-ET"@en .
+
+
 ###  http://w3id.org/pmd/co/CryoTransmissionElectronMicroscope
 <http://w3id.org/pmd/co/CryoTransmissionElectronMicroscope> rdf:type owl:Class ;
                                                             rdfs:subClassOf <https://w3id.org/pmd/co/TransmissionElectronMicroscope> ;
+                                                            rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                             rdfs:label "Cryo Transmission Electron Microscope"@en ,
                                                                        "Kryo-Transmissionselektronenmikroskop"@de ;
                                                             <https://w3id.org/pmd/co/abbreviation> "cryo-TEM"@en .
 
 
+###  http://w3id.org/pmd/co/Current
+<http://w3id.org/pmd/co/Current> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://w3id.org/pmd/co/ValueObject> ;
+                                 rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                 <http://www.w3.org/2004/02/skos/core#altLabel> "Stromstärke"@de ;
+                                 <http://www.w3.org/2004/02/skos/core#prefLabel> "Current"@en ,
+                                                                                 "Strom"@de .
+
+
+###  http://w3id.org/pmd/co/DetectorQuantumEfficiency
+<http://w3id.org/pmd/co/DetectorQuantumEfficiency> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <http://w3id.org/pmd/co/Efficiency> ;
+                                                   rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                   rdfs:label "Detector Quantum Efficiency"@en ,
+                                                              "Detektor Quantenausbeute"@de .
+
+
+###  http://w3id.org/pmd/co/Diffraction
+<http://w3id.org/pmd/co/Diffraction> rdf:type owl:Class ;
+                                     rdfs:subClassOf <http://w3id.org/pmd/co/PhysicalProcess> ;
+                                     rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                     rdfs:label "Diffraction"@en ;
+                                     <http://www.w3.org/2004/02/skos/core#altLabel> "Beugung"@de ;
+                                     <http://www.w3.org/2004/02/skos/core#prefLabel> "Diffraktion"@de .
+
+
+###  http://w3id.org/pmd/co/Efficiency
+<http://w3id.org/pmd/co/Efficiency> rdf:type owl:Class ;
+                                    rdfs:subClassOf <https://w3id.org/pmd/co/ValueObject> ;
+                                    rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                    rdfs:label "Efficiency"@en ,
+                                               "Effizienz"@de .
+
+
+###  http://w3id.org/pmd/co/Electrode
+<http://w3id.org/pmd/co/Electrode> rdf:type owl:Class ;
+                                   rdfs:subClassOf <https://w3id.org/pmd/co/ProcessingNode> ;
+                                   rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                   rdfs:label "Electrode"@en ,
+                                              "Elektrode"@de .
+
+
+###  http://w3id.org/pmd/co/ElectronBackscatterDiffraction
+<http://w3id.org/pmd/co/ElectronBackscatterDiffraction> rdf:type owl:Class ;
+                                                        rdfs:subClassOf <http://w3id.org/pmd/co/Diffraction> ;
+                                                        rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                        rdfs:label "Electron Backscatter Diffraction"@en ,
+                                                                   "Rückstreuelektronenbeugung"@de ;
+                                                        <https://w3id.org/pmd/co/abbreviation> "EBSD"@en .
+
+
+###  http://w3id.org/pmd/co/ElectronEnergyLossSpectroscopy
+<http://w3id.org/pmd/co/ElectronEnergyLossSpectroscopy> rdf:type owl:Class ;
+                                                        rdfs:subClassOf <http://w3id.org/pmd/co/Spectroscopy> ;
+                                                        rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                        rdfs:label "Electron Energy Loss Spectroscopy"@en ,
+                                                                   "Elektronenenergieverlustspektroskopie"@de ;
+                                                        <https://w3id.org/pmd/co/abbreviation> "EELS"@en .
+
+
 ###  http://w3id.org/pmd/co/ElectronMicroprobe
 <http://w3id.org/pmd/co/ElectronMicroprobe> rdf:type owl:Class ;
                                             rdfs:subClassOf <https://w3id.org/pmd/co/ElectronMicroscope> ;
+                                            rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                             rdfs:label "Electron Microprobe"@en ,
                                                        "Elektronenmikrosonde"@de .
 
@@ -37,6 +189,7 @@
 ###  http://w3id.org/pmd/co/ElectronProbeMicroAnalyzer
 <http://w3id.org/pmd/co/ElectronProbeMicroAnalyzer> rdf:type owl:Class ;
                                                     rdfs:subClassOf <http://w3id.org/pmd/co/ElectronMicroprobe> ;
+                                                    rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                     rdfs:label "Electron Probe Micro Analyzer"@en ,
                                                                "Elektronensonden-Mikro-Analysator"@de .
 
@@ -44,21 +197,112 @@
 ###  http://w3id.org/pmd/co/ElectronTomograph
 <http://w3id.org/pmd/co/ElectronTomograph> rdf:type owl:Class ;
                                            rdfs:subClassOf <https://w3id.org/pmd/co/TransmissionElectronMicroscope> ;
+                                           rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                            rdfs:label "Electron Tomograph"@en ,
                                                       "Elektronentomograph"@de ;
                                            <https://w3id.org/pmd/co/abbreviation> "ET"@en .
 
 
+###  http://w3id.org/pmd/co/ElectronTomography
+<http://w3id.org/pmd/co/ElectronTomography> rdf:type owl:Class ;
+                                            rdfs:subClassOf <https://w3id.org/pmd/co/TransmissionElectronMicroscopy> ;
+                                            rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                            rdfs:label "Electron Tomography"@en ,
+                                                       "Elektronentomographie"@de ;
+                                            <https://w3id.org/pmd/co/abbreviation> "ET"@en .
+
+
+###  http://w3id.org/pmd/co/Energy
+<http://w3id.org/pmd/co/Energy> rdf:type owl:Class ;
+                                rdfs:subClassOf <https://w3id.org/pmd/co/ValueObject> ;
+                                rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                rdfs:label "Energie"@de ,
+                                           "Energy"@en .
+
+
+###  http://w3id.org/pmd/co/EnergyDispersiveXRaySpectroscopy
+<http://w3id.org/pmd/co/EnergyDispersiveXRaySpectroscopy> rdf:type owl:Class ;
+                                                          rdfs:subClassOf <http://w3id.org/pmd/co/XRayMicroanalysis> ;
+                                                          rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                          rdfs:label "Energy Dispersive X-ray Spectroscopy"@en ;
+                                                          <http://www.w3.org/2004/02/skos/core#altLabel> "energiedispersive Röntgenmikroanalyse"@de ;
+                                                          <http://www.w3.org/2004/02/skos/core#prefLabel> "energiedispersive Röntgenanalyse"@de ;
+                                                          <https://w3id.org/pmd/co/abbreviation> "EDS"@en ,
+                                                                                                 "EDX"@en ,
+                                                                                                 "XEDS"@en .
+
+
 ###  http://w3id.org/pmd/co/EnergyFilteredTransmissionElectronMicroscope
 <http://w3id.org/pmd/co/EnergyFilteredTransmissionElectronMicroscope> rdf:type owl:Class ;
                                                                       rdfs:subClassOf <https://w3id.org/pmd/co/TransmissionElectronMicroscope> ;
+                                                                      rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                                       rdfs:label "Energiegefiltertes Transmissionselektronenmikroskop"@de ,
                                                                                  "Energy-filtered Transmission Electron Microscope"@en .
+
+
+###  http://w3id.org/pmd/co/EnergyLoss
+<http://w3id.org/pmd/co/EnergyLoss> rdf:type owl:Class ;
+                                    rdfs:subClassOf <http://w3id.org/pmd/co/Energy> ;
+                                    rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                    rdfs:label "Energieverlust"@de ,
+                                               "Energy Loss"@en .
+
+
+###  http://w3id.org/pmd/co/EnergyResolution
+<http://w3id.org/pmd/co/EnergyResolution> rdf:type owl:Class ;
+                                          rdfs:subClassOf <http://w3id.org/pmd/co/Resolution> ;
+                                          rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                          rdfs:label "Energieauflösung"@de ,
+                                                     "Energy Resolution"@en .
+
+
+###  http://w3id.org/pmd/co/FieldEmissionGun
+<http://w3id.org/pmd/co/FieldEmissionGun> rdf:type owl:Class ;
+                                          rdfs:subClassOf <http://w3id.org/pmd/co/Gun> ;
+                                          rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                          rdfs:label "Feldemissionskanone"@de ,
+                                                     "Field Emission Gun"@en ;
+                                          <https://w3id.org/pmd/co/abbreviation> "FEG"@en .
+
+
+###  http://w3id.org/pmd/co/FocusedIonBeamScanningElectronMicroscopy
+<http://w3id.org/pmd/co/FocusedIonBeamScanningElectronMicroscopy> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf <https://w3id.org/pmd/co/IonMicroscopy> ;
+                                                                  rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                                  rdfs:label "Focused Ion Beam Scanning Electron Microscopy"@en ,
+                                                                             "Fokussierte Ionenstrahl-Rasterelektronenmikroskopie"@de ;
+                                                                  <https://w3id.org/pmd/co/abbreviation> "FIB-SEM"@en .
+
+
+###  http://w3id.org/pmd/co/FourierTransformInfraredSpectroscopy
+<http://w3id.org/pmd/co/FourierTransformInfraredSpectroscopy> rdf:type owl:Class ;
+                                                              rdfs:subClassOf <http://w3id.org/pmd/co/Spectroscopy> ;
+                                                              rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                              rdfs:label "Fourier Transform Infrared Spectroscopy"@en ,
+                                                                         "Fourier-Transformations-Infrarotspektroskopie"@de ;
+                                                              <https://w3id.org/pmd/co/abbreviation> "FTIR"@en .
+
+
+###  http://w3id.org/pmd/co/GatanImageFilter
+<http://w3id.org/pmd/co/GatanImageFilter> rdf:type owl:Class ;
+                                          rdfs:subClassOf <http://w3id.org/pmd/co/ImageFilter> ;
+                                          rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                          rdfs:label "Gatan Abbildungsfilter"@de ,
+                                                     "Gatan Image Filter"@en .
+
+
+###  http://w3id.org/pmd/co/Gun
+<http://w3id.org/pmd/co/Gun> rdf:type owl:Class ;
+                             rdfs:subClassOf <https://w3id.org/pmd/co/ProcessingNode> ;
+                             rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                             rdfs:label "Gun"@en ,
+                                        "Kanone"@de .
 
 
 ###  http://w3id.org/pmd/co/HighAngleAnnularDarkFieldScanningTransmissionElectronMicroscope
 <http://w3id.org/pmd/co/HighAngleAnnularDarkFieldScanningTransmissionElectronMicroscope> rdf:type owl:Class ;
                                                                                          rdfs:subClassOf <http://w3id.org/pmd/co/ScanningTransmissionElectronMicroscope> ;
+                                                                                         rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                                                          rdfs:label "High-angle Annular Dark-field Scanning Transmission Electron Microscope"@en ,
                                                                                                     "Hochwinkel-Dunkelfeld-Rastertransmissionselektronenmikroskop mit annularem Winkel"@de ;
                                                                                          <https://w3id.org/pmd/co/abbreviation> "HAADF-STEM"@en .
@@ -67,14 +311,105 @@
 ###  http://w3id.org/pmd/co/HighResolutionTransmissionElectronMicroscope
 <http://w3id.org/pmd/co/HighResolutionTransmissionElectronMicroscope> rdf:type owl:Class ;
                                                                       rdfs:subClassOf <https://w3id.org/pmd/co/TransmissionElectronMicroscope> ;
+                                                                      rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                                       rdfs:label "High Resolution Transmission Electron Microscope"@en ,
                                                                                  "Hochauflösendes Transmissionselektronenmikroskop"@de ;
                                                                       <https://w3id.org/pmd/co/abbreviation> "HRTEM"@en .
 
 
+###  http://w3id.org/pmd/co/ImageFilter
+<http://w3id.org/pmd/co/ImageFilter> rdf:type owl:Class ;
+                                     rdfs:subClassOf <https://w3id.org/pmd/co/ProcessingNode> ;
+                                     rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                     rdfs:label "Abbildungsfilter"@de ,
+                                                "Image Filter"@en .
+
+
+###  http://w3id.org/pmd/co/InelasticScattering
+<http://w3id.org/pmd/co/InelasticScattering> rdf:type owl:Class ;
+                                             rdfs:subClassOf <http://w3id.org/pmd/co/PhysicalProcess> ;
+                                             rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                             rdfs:label "Inelastic Scattering"@en ,
+                                                        "Inelastische Streuung"@de .
+
+
+###  http://w3id.org/pmd/co/InteractionVolume
+<http://w3id.org/pmd/co/InteractionVolume> rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://w3id.org/pmd/co/Volume> ;
+                                           rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                           rdfs:label "Interaction Volume"@en ,
+                                                      "Überlagerungsvolumen"@de .
+
+
+###  http://w3id.org/pmd/co/Magnification
+<http://w3id.org/pmd/co/Magnification> rdf:type owl:Class ;
+                                       rdfs:subClassOf <https://w3id.org/pmd/co/ValueObject> ;
+                                       rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                       rdfs:label "Magnification"@en ,
+                                                  "Vergrößerung"@de .
+
+
+###  http://w3id.org/pmd/co/MechanicalPolishing
+<http://w3id.org/pmd/co/MechanicalPolishing> rdf:type owl:Class ;
+                                             rdfs:subClassOf <https://w3id.org/pmd/co/ManufacturingProcess> ;
+                                             rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                             rdfs:label "Mechanical Polishing"@en ,
+                                                        "Mechanisches Polieren"@de .
+
+
+###  http://w3id.org/pmd/co/Monochromator
+<http://w3id.org/pmd/co/Monochromator> rdf:type owl:Class ;
+                                       rdfs:subClassOf <https://w3id.org/pmd/co/ProcessingNode> ;
+                                       rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                       rdfs:label "Monochromator"@de ,
+                                                  "Monochromator"@en .
+
+
+###  http://w3id.org/pmd/co/PhysicalProcess
+<http://w3id.org/pmd/co/PhysicalProcess> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://w3id.org/pmd/co/Process> ;
+                                         rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                         rdfs:label "Physical Process"@en ,
+                                                    "Physikalischer Prozess"@de .
+
+
+###  http://w3id.org/pmd/co/PixelSize
+<http://w3id.org/pmd/co/PixelSize> rdf:type owl:Class ;
+                                   rdfs:subClassOf <https://w3id.org/pmd/co/ValueObject> ;
+                                   rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                   rdfs:label "Pixel Size"@en ,
+                                              "Pixelgröße"@en .
+
+
+###  http://w3id.org/pmd/co/ProbeCurrent
+<http://w3id.org/pmd/co/ProbeCurrent> rdf:type owl:Class ;
+                                      rdfs:subClassOf <http://w3id.org/pmd/co/Current> ;
+                                      rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                      rdfs:label "Probe Current"@en ,
+                                                 "Sondenstrom"@de .
+
+
+###  http://w3id.org/pmd/co/ProbeSize
+<http://w3id.org/pmd/co/ProbeSize> rdf:type owl:Class ;
+                                   rdfs:subClassOf <https://w3id.org/pmd/co/ValueObject> ;
+                                   rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                   rdfs:label "Probe Size"@en ;
+                                   <http://www.w3.org/2004/02/skos/core#altLabel> "Messfühlergröße"@de ;
+                                   <http://www.w3.org/2004/02/skos/core#prefLabel> "Sensorgröße"@de .
+
+
+###  http://w3id.org/pmd/co/Resolution
+<http://w3id.org/pmd/co/Resolution> rdf:type owl:Class ;
+                                    rdfs:subClassOf <https://w3id.org/pmd/co/ValueObject> ;
+                                    rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                    rdfs:label "Auflösung"@de ,
+                                               "Resolution"@en .
+
+
 ###  http://w3id.org/pmd/co/ScanningProbeMicroscope
 <http://w3id.org/pmd/co/ScanningProbeMicroscope> rdf:type owl:Class ;
                                                  rdfs:subClassOf <https://w3id.org/pmd/co/ElectronMicroscope> ;
+                                                 rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                  rdfs:label "Rastersondenmikroskop"@de ,
                                                             "Scanning Probe Microscope"@en .
 
@@ -82,6 +417,7 @@
 ###  http://w3id.org/pmd/co/ScanningTransmissionElectronMicroscope
 <http://w3id.org/pmd/co/ScanningTransmissionElectronMicroscope> rdf:type owl:Class ;
                                                                 rdfs:subClassOf <https://w3id.org/pmd/co/TransmissionElectronMicroscope> ;
+                                                                rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                                 rdfs:label "Rastertransmissionselektronenmikroskop"@de ,
                                                                            "Scanning Transmission Electron Microscope"@en ;
                                                                 <https://w3id.org/pmd/co/abbreviation> "STEM"@en .
@@ -90,52 +426,227 @@
 ###  http://w3id.org/pmd/co/ScanningTunnelingMicroscope
 <http://w3id.org/pmd/co/ScanningTunnelingMicroscope> rdf:type owl:Class ;
                                                      rdfs:subClassOf <http://w3id.org/pmd/co/ScanningProbeMicroscope> ;
+                                                     rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                      rdfs:label "Rastertunnelmikroskop"@de ,
                                                                 "Scanning Tunneling Microscope"@en ;
                                                      <https://w3id.org/pmd/co/abbreviation> "STM"@en .
 
 
+###  http://w3id.org/pmd/co/Scintillator
+<http://w3id.org/pmd/co/Scintillator> rdf:type owl:Class ;
+                                      rdfs:subClassOf <https://w3id.org/pmd/co/ProcessingNode> ;
+                                      rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                      rdfs:label "Scintillator"@en ,
+                                                 "Szintillator"@de .
+
+
+###  http://w3id.org/pmd/co/SecondaryIonMassSpectrometry
+<http://w3id.org/pmd/co/SecondaryIonMassSpectrometry> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <http://w3id.org/pmd/co/Spectroscopy> ;
+                                                      rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                      rdfs:label "Secondary Ion Mass Spectrometry"@en ,
+                                                                 "Sekundärionen-Massenspektrometrie"@de ;
+                                                      <https://w3id.org/pmd/co/abbreviation> "SIMS"@en .
+
+
+###  http://w3id.org/pmd/co/SelectedAreaElectronDiffraction
+<http://w3id.org/pmd/co/SelectedAreaElectronDiffraction> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://w3id.org/pmd/co/Diffraction> ;
+                                                         rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                         rdfs:label "Elektronenbeugung ausgewählter Regionen"@de ,
+                                                                    "Selected Area Electron Diffraction"@en ;
+                                                         <https://w3id.org/pmd/co/abbreviation> "SAD"@en ,
+                                                                                                "SAED"@en .
+
+
+###  http://w3id.org/pmd/co/SiliconDriftDetector
+<http://w3id.org/pmd/co/SiliconDriftDetector> rdf:type owl:Class ;
+                                              rdfs:subClassOf <https://w3id.org/pmd/co/ProcessingNode> ;
+                                              rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                              rdfs:label "Silicon Drift Detector"@en ,
+                                                         "Silizium-Driftdetektor"@de ;
+                                              <https://w3id.org/pmd/co/abbreviation> "SDD"@en .
+
+
+###  http://w3id.org/pmd/co/SpatialResolution
+<http://w3id.org/pmd/co/SpatialResolution> rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://w3id.org/pmd/co/Resolution> ;
+                                           rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                           rdfs:label "Ortsauflösung"@de ,
+                                                      "Spatial Resolution"@en .
+
+
+###  http://w3id.org/pmd/co/Spectroscopy
+<http://w3id.org/pmd/co/Spectroscopy> rdf:type owl:Class ;
+                                      rdfs:subClassOf <https://w3id.org/pmd/co/AnalysingProcess> ;
+                                      rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                      <http://www.w3.org/2004/02/skos/core#altLabel> "Spectrometry"@en ,
+                                                                                     "Spektrometrie"@de ;
+                                      <http://www.w3.org/2004/02/skos/core#prefLabel> "Spectroscopy"@en ,
+                                                                                      "Spektroskopie"@de .
+
+
+###  http://w3id.org/pmd/co/SphericalAberration
+<http://w3id.org/pmd/co/SphericalAberration> rdf:type owl:Class ;
+                                             rdfs:subClassOf <http://w3id.org/pmd/co/Aberration> ;
+                                             rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                             rdfs:label "Spherical Aberration"@en ,
+                                                        "Sphärische Aberration"@de .
+
+
+###  http://w3id.org/pmd/co/TimeOfFlightSecondaryIonMassSpectrometry
+<http://w3id.org/pmd/co/TimeOfFlightSecondaryIonMassSpectrometry> rdf:type owl:Class ;
+                                                                  rdfs:subClassOf <http://w3id.org/pmd/co/Spectroscopy> ;
+                                                                  rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                                  rdfs:label "Flugzeit-Sekundärionen-Massenspektrometrie"@de ,
+                                                                             "Time Of Flight Secondary Ion Mass Spectrometry"@en ;
+                                                                  <https://w3id.org/pmd/co/abbreviation> "TOF-SIMS"@en .
+
+
 ###  http://w3id.org/pmd/co/TransmissionElectronAberrationCorrectedMicroscope
 <http://w3id.org/pmd/co/TransmissionElectronAberrationCorrectedMicroscope> rdf:type owl:Class ;
                                                                            rdfs:subClassOf <https://w3id.org/pmd/co/TransmissionElectronMicroscope> ;
+                                                                           rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                                            rdfs:label "Transmission Electron Aberration-corrected Microscope"@en ,
                                                                                       "Transmissionselektronen-Aberrations-korrigiertes Mikroskop"@de ;
                                                                            <https://w3id.org/pmd/co/abbreviation> "TEAM"@en .
 
 
+###  http://w3id.org/pmd/co/Volume
+<http://w3id.org/pmd/co/Volume> rdf:type owl:Class ;
+                                rdfs:subClassOf <https://w3id.org/pmd/co/ValueObject> ;
+                                rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                rdfs:label "Volume"@en ,
+                                           "Volumen"@de .
+
+
+###  http://w3id.org/pmd/co/WorkingDistance
+<http://w3id.org/pmd/co/WorkingDistance> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://w3id.org/pmd/co/Distance> ;
+                                         rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                         rdfs:label "Arbeitsabstand"@de ,
+                                                    "Working Distance"@en .
+
+
+###  http://w3id.org/pmd/co/XRayAbsorptionNearEdgeSpectroscopy
+<http://w3id.org/pmd/co/XRayAbsorptionNearEdgeSpectroscopy> rdf:type owl:Class ;
+                                                            rdfs:subClassOf <http://w3id.org/pmd/co/Spectroscopy> ;
+                                                            rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                            rdfs:label "Röntgenabsorptionsspektroskopie im Nahbereich"@de ,
+                                                                       "X-ray Absorption Near Edge Spectroscopy"@en ;
+                                                            <https://w3id.org/pmd/co/abbreviation> "XANES"@en .
+
+
+###  http://w3id.org/pmd/co/XRayAbsorptionSpectroscopy
+<http://w3id.org/pmd/co/XRayAbsorptionSpectroscopy> rdf:type owl:Class ;
+                                                    rdfs:subClassOf <http://w3id.org/pmd/co/XRayMapping> ;
+                                                    rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                    rdfs:label "Röntgenabsorptionsspektroskopie"@de ,
+                                                               "X-ray Absorption Spectroscopy"@en ;
+                                                    <https://w3id.org/pmd/co/abbreviation> "XAS"@en .
+
+
+###  http://w3id.org/pmd/co/XRayAnalysis
+<http://w3id.org/pmd/co/XRayAnalysis> rdf:type owl:Class ;
+                                      rdfs:subClassOf <https://w3id.org/pmd/co/AnalysingProcess> ;
+                                      rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                      rdfs:label "Röntgenanalyse"@de ,
+                                                 "X-ray Analysis"@en .
+
+
+###  http://w3id.org/pmd/co/XRayDiffraction
+<http://w3id.org/pmd/co/XRayDiffraction> rdf:type owl:Class ;
+                                         rdfs:subClassOf <http://w3id.org/pmd/co/Diffraction> ;
+                                         rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                         rdfs:label "X-ray Diffraction"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#altLabel> "Röntgenstrahlbeugung"@de ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "Röntgenbeugung"@de ;
+                                         <https://w3id.org/pmd/co/abbreviation> "XRD"@en .
+
+
+###  http://w3id.org/pmd/co/XRayFluorescence
+<http://w3id.org/pmd/co/XRayFluorescence> rdf:type owl:Class ;
+                                          rdfs:subClassOf <http://w3id.org/pmd/co/XRayMapping> ;
+                                          rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                          rdfs:label "Röntgenfluoreszenz"@de ,
+                                                     "X-ray Fluorescence"@en ;
+                                          <https://w3id.org/pmd/co/abbreviation> "XRF"@en .
+
+
+###  http://w3id.org/pmd/co/XRayMapping
+<http://w3id.org/pmd/co/XRayMapping> rdf:type owl:Class ;
+                                     rdfs:subClassOf <http://w3id.org/pmd/co/XRayAnalysis> ;
+                                     rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                     rdfs:label "Röntgen-Mapping"@de ,
+                                                "X-ray Mapping"@en .
+
+
+###  http://w3id.org/pmd/co/XRayMicroanalysis
+<http://w3id.org/pmd/co/XRayMicroanalysis> rdf:type owl:Class ;
+                                           rdfs:subClassOf <http://w3id.org/pmd/co/XRayAnalysis> ;
+                                           rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                           rdfs:label "Röntgen-Mikroanalyse"@de ,
+                                                      "X-ray Microanalysis"@en .
+
+
+###  http://w3id.org/pmd/co/XRayPhotoelectronSpectroscopy
+<http://w3id.org/pmd/co/XRayPhotoelectronSpectroscopy> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://w3id.org/pmd/co/XRayMapping> ;
+                                                       rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                       rdfs:label "Röntgenphotoelektronenspektroskopie"@de ,
+                                                                  "X-ray Photoelectron Spectroscopy"@en ;
+                                                       <https://w3id.org/pmd/co/abbreviation> "XPS"@en .
+
+
 ###  https://w3id.org/pmd/co/AnnularBrightFieldScanningTransmissionElectronMicroscopy
 <https://w3id.org/pmd/co/AnnularBrightFieldScanningTransmissionElectronMicroscopy> rdf:type owl:Class ;
                                                                                    rdfs:subClassOf <https://w3id.org/pmd/co/ScanningTransmissionElectronMicroscopy> ;
+                                                                                   rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                                                   rdfs:label "Annular Bright Field Scanning Transmission Electron Microscopy"@en ,
+                                                                                              "Ringförmige Hellfeld-Rastertransmissionselektronenmikroskopie"@de ;
                                                                                    <https://w3id.org/pmd/co/abbreviation> "ABF-STEM"@en .
 
 
 ###  https://w3id.org/pmd/co/AnnularDarkFieldScanningTransmissionElectronMicroscopy
 <https://w3id.org/pmd/co/AnnularDarkFieldScanningTransmissionElectronMicroscopy> rdf:type owl:Class ;
                                                                                  rdfs:subClassOf <https://w3id.org/pmd/co/ScanningTransmissionElectronMicroscopy> ;
+                                                                                 rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                                                 rdfs:label "Annular Dark Field Scanning Transmission Electron Microscopy"@en ,
+                                                                                            "Ringförmige Dunkelfeld-Rastertransmissionselektronenmikroskopie"@de ;
                                                                                  <https://w3id.org/pmd/co/abbreviation> "ADF-STEM"@en .
 
 
 ###  https://w3id.org/pmd/co/AtmosphericScanningElectronMicroscopy
 <https://w3id.org/pmd/co/AtmosphericScanningElectronMicroscopy> rdf:type owl:Class ;
                                                                 rdfs:subClassOf <https://w3id.org/pmd/co/ScanningElectronMicroscopy> ;
+                                                                rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                                rdfs:label "Atmospheric Scanning Electron Microscopy"@en ,
+                                                                           "Atmosphärische Rasterelektronenmikroskopie"@de ;
                                                                 <https://w3id.org/pmd/co/abbreviation> "ASEM"@en .
 
 
 ###  https://w3id.org/pmd/co/BrightFieldTransmissionElectronMicroscopy
 <https://w3id.org/pmd/co/BrightFieldTransmissionElectronMicroscopy> rdf:type owl:Class ;
                                                                     rdfs:subClassOf <https://w3id.org/pmd/co/TransmissionElectronMicroscopy> ;
+                                                                    rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                                    rdfs:label "Bright Field Transmission Electron Microscopy"@en ,
+                                                                               "Hellfeld-Transmissionselektronenmikroskopie"@de ;
                                                                     <https://w3id.org/pmd/co/abbreviation> "BFTEM"@en .
 
 
 ###  https://w3id.org/pmd/co/ConfocalLaserScanningMicroscopy
 <https://w3id.org/pmd/co/ConfocalLaserScanningMicroscopy> rdf:type owl:Class ;
                                                           rdfs:subClassOf <https://w3id.org/pmd/co/LightMicroscopy> ;
+                                                          rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                          rdfs:label "Confocal Laser Scanning Microscopy"@en ,
+                                                                     "Konfokale Laser-Scanning-Mikroskopie"@de ;
                                                           <https://w3id.org/pmd/co/abbreviation> "CLSM"@en .
 
 
 ###  https://w3id.org/pmd/co/Cryo-ScanningElectronMicroscope
 <https://w3id.org/pmd/co/Cryo-ScanningElectronMicroscope> rdf:type owl:Class ;
                                                           rdfs:subClassOf <https://w3id.org/pmd/co/ScanningElectronMicroscope> ;
+                                                          rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                           rdfs:label "Cryo Scanning Electron Microscope"@en ,
                                                                      "Kryo-Rasterelektronenmikroskop"@de ,
                                                                      "cryo-SEM"@en .
@@ -144,12 +655,16 @@
 ###  https://w3id.org/pmd/co/DynamicTransmissionElectronMicroscopy
 <https://w3id.org/pmd/co/DynamicTransmissionElectronMicroscopy> rdf:type owl:Class ;
                                                                 rdfs:subClassOf <https://w3id.org/pmd/co/TransmissionElectronMicroscopy> ;
+                                                                rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                                rdfs:label "Dynamic Transmission Electron Microscopy"@en ,
+                                                                           "Dynamische Transmissionselektronenmikroskopie"@de ;
                                                                 <https://w3id.org/pmd/co/abbreviation> "DTEM"@en .
 
 
 ###  https://w3id.org/pmd/co/ElectronChannelingContrastImaging
 <https://w3id.org/pmd/co/ElectronChannelingContrastImaging> rdf:type owl:Class ;
                                                             rdfs:subClassOf <https://w3id.org/pmd/co/ScanningElectronMicroscopy> ;
+                                                            rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                             rdfs:label "Electron Channeling Contrast Imaging"@en ,
                                                                        "Elektronenkanal-Kontrastbildgebung"@de ;
                                                             <https://w3id.org/pmd/co/abbreviation> "ECCI"@en .
@@ -158,6 +673,7 @@
 ###  https://w3id.org/pmd/co/EnvironmentalScanningElectronMicroscope
 <https://w3id.org/pmd/co/EnvironmentalScanningElectronMicroscope> rdf:type owl:Class ;
                                                                   rdfs:subClassOf <https://w3id.org/pmd/co/ScanningElectronMicroscope> ;
+                                                                  rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                                   rdfs:label "Environmental Scanning Electron Microscope"@en ,
                                                                              "Umwelt-Rasterelektronenmikroskop"@de ;
                                                                   <https://w3id.org/pmd/co/abbreviation> "ESEM"@en .
@@ -166,35 +682,51 @@
 ###  https://w3id.org/pmd/co/EnvironmentalScanningElectronMicroscopy
 <https://w3id.org/pmd/co/EnvironmentalScanningElectronMicroscopy> rdf:type owl:Class ;
                                                                   rdfs:subClassOf <https://w3id.org/pmd/co/ScanningElectronMicroscopy> ;
+                                                                  rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                                  rdfs:label "Environmental Scanning Electron Microscopy"@en ,
+                                                                             "Umgebungs-Rasterelektronenmikroskopie"@de ;
                                                                   <https://w3id.org/pmd/co/abbreviation> "ESEM"@en .
 
 
 ###  https://w3id.org/pmd/co/EnvironmentalTransmissionElectronMicroscopy
 <https://w3id.org/pmd/co/EnvironmentalTransmissionElectronMicroscopy> rdf:type owl:Class ;
                                                                       rdfs:subClassOf <https://w3id.org/pmd/co/TransmissionElectronMicroscopy> ;
+                                                                      rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                                      rdfs:label "Environmental Transmission Electron Microscopy"@en ,
+                                                                                 "Umgebungs-Transmissionselektronenmikroskopie"@de ;
                                                                       <https://w3id.org/pmd/co/abbreviation> "ETEM"@en .
 
 
 ###  https://w3id.org/pmd/co/FieldEmissionScanningElectronMicroscopy
 <https://w3id.org/pmd/co/FieldEmissionScanningElectronMicroscopy> rdf:type owl:Class ;
                                                                   rdfs:subClassOf <https://w3id.org/pmd/co/ScanningElectronMicroscopy> ;
+                                                                  rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                                  rdfs:label "Feldemissions-Rasterelektronenmikroskopie"@de ,
+                                                                             "Field Emission Scanning Electron Microscopy"@en ;
                                                                   <https://w3id.org/pmd/co/abbreviation> "FESEM"@en .
 
 
 ###  https://w3id.org/pmd/co/FieldIonMicroscopy
 <https://w3id.org/pmd/co/FieldIonMicroscopy> rdf:type owl:Class ;
                                              rdfs:subClassOf <https://w3id.org/pmd/co/IonMicroscopy> ;
+                                             rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                             rdfs:label "Feldionenmikroskopie"@de ,
+                                                        "Field Ion Microscopy"@en ;
                                              <https://w3id.org/pmd/co/abbreviation> "FIM"@en .
 
 
 ###  https://w3id.org/pmd/co/FluorescenceMicroscopy
 <https://w3id.org/pmd/co/FluorescenceMicroscopy> rdf:type owl:Class ;
-                                                 rdfs:subClassOf <https://w3id.org/pmd/co/LightMicroscopy> .
+                                                 rdfs:subClassOf <https://w3id.org/pmd/co/LightMicroscopy> ;
+                                                 rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                 rdfs:label "Fluorescence Microscopy"@en ,
+                                                            "Fluoreszenzmikroskopie"@de .
 
 
 ###  https://w3id.org/pmd/co/FocusedIonBeam-ScanningElectronMicroscope
 <https://w3id.org/pmd/co/FocusedIonBeam-ScanningElectronMicroscope> rdf:type owl:Class ;
                                                                     rdfs:subClassOf <https://w3id.org/pmd/co/IonMicroscope> ;
+                                                                    rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                                     rdfs:label "Focus(ed) Ion Beam - Scanning Electron Microscope"@en ,
                                                                                "Fokussierter Ionenstrahl - Rasterelektronenmikroskop"@de ;
                                                                     <https://w3id.org/pmd/co/abbreviation> "FIB-SEM"@en .
@@ -203,6 +735,7 @@
 ###  https://w3id.org/pmd/co/HeliumIonMicroscope
 <https://w3id.org/pmd/co/HeliumIonMicroscope> rdf:type owl:Class ;
                                               rdfs:subClassOf <https://w3id.org/pmd/co/FocusedIonBeam-ScanningElectronMicroscope> ;
+                                              rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                               rdfs:label "Helium Ion Microscope"@en ,
                                                          "Helium-Ionen-Mikroskop"@de ;
                                               <https://w3id.org/pmd/co/abbreviation> "HIM"@en .
@@ -211,30 +744,41 @@
 ###  https://w3id.org/pmd/co/HeliumIonMicroscopy
 <https://w3id.org/pmd/co/HeliumIonMicroscopy> rdf:type owl:Class ;
                                               rdfs:subClassOf <https://w3id.org/pmd/co/IonMicroscopy> ;
+                                              rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                              rdfs:label "Helium Ion Microscopy"@en ,
+                                                         "Helium-Ionen-Mikroskopie"@de ;
                                               <https://w3id.org/pmd/co/abbreviation> "HIM"@en .
 
 
 ###  https://w3id.org/pmd/co/HighResolutionTransmissionElectronMicroscopy
 <https://w3id.org/pmd/co/HighResolutionTransmissionElectronMicroscopy> rdf:type owl:Class ;
                                                                        rdfs:subClassOf <https://w3id.org/pmd/co/TransmissionElectronMicroscopy> ;
+                                                                       rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                                       rdfs:label "High Resolution Transmission Electron Microscopy"@en ,
+                                                                                  "Hochauflösende Transmissionselektronenmikroskopie"@de ;
                                                                        <https://w3id.org/pmd/co/abbreviation> "HRTEM"@en .
 
 
 ###  https://w3id.org/pmd/co/IonMicroscope
 <https://w3id.org/pmd/co/IonMicroscope> rdf:type owl:Class ;
                                         rdfs:subClassOf <https://w3id.org/pmd/co/Micropscope> ;
+                                        rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                         rdfs:label "Ion Microscope"@en ,
                                                    "Ionenmikroskop"@de .
 
 
 ###  https://w3id.org/pmd/co/IonMicroscopy
 <https://w3id.org/pmd/co/IonMicroscopy> rdf:type owl:Class ;
-                                        rdfs:subClassOf <https://w3id.org/pmd/co/MicroscopyProcess> .
+                                        rdfs:subClassOf <https://w3id.org/pmd/co/MicroscopyProcess> ;
+                                        rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                        rdfs:label "Ion Microscopy"@en ,
+                                                   "Ionenmikroskopie"@de .
 
 
 ###  https://w3id.org/pmd/co/LightMicroscope
 <https://w3id.org/pmd/co/LightMicroscope> rdf:type owl:Class ;
                                           rdfs:subClassOf <https://w3id.org/pmd/co/OpticalMicroscope> ;
+                                          rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                           rdfs:label "Lichtmikroskop"@de ,
                                                      "Light Microscope"@en .
 
@@ -242,6 +786,7 @@
 ###  https://w3id.org/pmd/co/OpticalMicroscope
 <https://w3id.org/pmd/co/OpticalMicroscope> rdf:type owl:Class ;
                                             rdfs:subClassOf <https://w3id.org/pmd/co/Micropscope> ;
+                                            rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                             rdfs:label "Optical Microscope"@en ,
                                                        "Optisches Mikroskop"@de .
 
@@ -249,6 +794,7 @@
 ###  https://w3id.org/pmd/co/OrientationImagingMicroscopy
 <https://w3id.org/pmd/co/OrientationImagingMicroscopy> rdf:type owl:Class ;
                                                        rdfs:subClassOf <https://w3id.org/pmd/co/ScanningElectronMicroscopy> ;
+                                                       rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                        rdfs:label "Bildgebende Orientierungsmikroskopie"@de ,
                                                                   "Orientation Imaging Microscopy"@en ;
                                                        <https://w3id.org/pmd/co/abbreviation> "OIM"@en .
@@ -257,6 +803,7 @@
 ###  https://w3id.org/pmd/co/PolarizedLightMicroscope
 <https://w3id.org/pmd/co/PolarizedLightMicroscope> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://w3id.org/pmd/co/LightMicroscope> ;
+                                                   rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                    rdfs:label "Polarisiertes Lichtmikroskop"@de ,
                                                               "Polarized Light Microscope"@en ;
                                                    <https://w3id.org/pmd/co/abbreviation> "PLM"@en .
@@ -265,12 +812,16 @@
 ###  https://w3id.org/pmd/co/PolarizedLightMicroscopy
 <https://w3id.org/pmd/co/PolarizedLightMicroscopy> rdf:type owl:Class ;
                                                    rdfs:subClassOf <https://w3id.org/pmd/co/LightMicroscopy> ;
+                                                   rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                   rdfs:label "Polarisationslichtmikroskopie"@de ,
+                                                              "Polarized Light Microscopy"@en ;
                                                    <https://w3id.org/pmd/co/abbreviation> "PLM"@en .
 
 
 ###  https://w3id.org/pmd/co/ScanningElectronMicroscope
 <https://w3id.org/pmd/co/ScanningElectronMicroscope> rdf:type owl:Class ;
                                                      rdfs:subClassOf <https://w3id.org/pmd/co/ElectronMicroscope> ;
+                                                     rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                      rdfs:label "Rasterelektronenmikroskop"@de ,
                                                                 "Scanning Electron Microscope"@en ;
                                                      <https://w3id.org/pmd/co/abbreviation> "REM"@de ,
@@ -280,36 +831,52 @@
 ###  https://w3id.org/pmd/co/ScanningElectronMicroscopy
 <https://w3id.org/pmd/co/ScanningElectronMicroscopy> rdf:type owl:Class ;
                                                      rdfs:subClassOf <https://w3id.org/pmd/co/ElectronMicroscopy> ;
+                                                     rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                     rdfs:label "Rasterelektronenmikroskopie"@de ,
+                                                                "Scanning Electron Microscopy"@en ;
                                                      <https://w3id.org/pmd/co/abbreviation> "SEM"@en .
 
 
 ###  https://w3id.org/pmd/co/ScanningProbeMicroscopy
 <https://w3id.org/pmd/co/ScanningProbeMicroscopy> rdf:type owl:Class ;
                                                   rdfs:subClassOf <https://w3id.org/pmd/co/ElectronMicroscopy> ;
+                                                  rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                  rdfs:label "Rastersondenmikroskopie"@de ,
+                                                             "Scanning Probe Microscopy"@en ;
                                                   <https://w3id.org/pmd/co/abbreviation> "SPM"@en .
 
 
 ###  https://w3id.org/pmd/co/ScanningTransmissionElectronMicroscopy
 <https://w3id.org/pmd/co/ScanningTransmissionElectronMicroscopy> rdf:type owl:Class ;
                                                                  rdfs:subClassOf <https://w3id.org/pmd/co/TransmissionElectronMicroscopy> ;
+                                                                 rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                                 rdfs:label "Rastertransmissionselektronenmikroskopie"@de ,
+                                                                            "Scanning Transmission Electron Microscopy"@en ;
                                                                  <https://w3id.org/pmd/co/abbreviation> "STEM"@en .
 
 
 ###  https://w3id.org/pmd/co/ScanningTransmissionElectronMicroscopy-ElectronEnergyLossSpectroscopy
 <https://w3id.org/pmd/co/ScanningTransmissionElectronMicroscopy-ElectronEnergyLossSpectroscopy> rdf:type owl:Class ;
                                                                                                 rdfs:subClassOf <https://w3id.org/pmd/co/ScanningTransmissionElectronMicroscopy> ;
+                                                                                                rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                                                                rdfs:label "Rastertransmissionselektronenmikroskopie Elektronen-Energieverlust-Spektroskopie"@de ,
+                                                                                                           "Scanning Transmission Electron Microscopy Electron Energy Loss Spectroscopy"@en ;
                                                                                                 <https://w3id.org/pmd/co/abbreviation> "STEM-EELS"@en .
 
 
 ###  https://w3id.org/pmd/co/ScanningTunnelingMicroscopy
 <https://w3id.org/pmd/co/ScanningTunnelingMicroscopy> rdf:type owl:Class ;
                                                       rdfs:subClassOf <https://w3id.org/pmd/co/ScanningProbeMicroscopy> ;
+                                                      rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                      rdfs:label "Rastertunnelmikroskopie"@de ,
+                                                                 "Scanning Tunneling Microscopy"@en ;
                                                       <https://w3id.org/pmd/co/abbreviation> "STM"@en .
 
 
 ###  https://w3id.org/pmd/co/SoftXRayEmissionSpectrometer
 <https://w3id.org/pmd/co/SoftXRayEmissionSpectrometer> rdf:type owl:Class ;
                                                        rdfs:subClassOf <https://w3id.org/pmd/co/Spectrometer> ;
+                                                       rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                        rdfs:label "Röntgenemissionsspektrometer mit weicher Röntgenstrahlung"@de ,
                                                                   "Soft X-ray Emission Spectrometer"@en ;
                                                        <https://w3id.org/pmd/co/abbreviation> "SXES"@en .
@@ -318,6 +885,7 @@
 ###  https://w3id.org/pmd/co/Spectrometer
 <https://w3id.org/pmd/co/Spectrometer> rdf:type owl:Class ;
                                        rdfs:subClassOf <https://w3id.org/pmd/co/ProcessingNode> ;
+                                       rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                        rdfs:label "Spectrometer"@en ,
                                                   "Spektrometer"@de .
 
@@ -329,12 +897,16 @@
 ###  https://w3id.org/pmd/co/4D-ScanningTransmissionElectronMicroscopy
 <https://w3id.org/pmd/co/4D-ScanningTransmissionElectronMicroscopy> rdf:type owl:Class ;
                                                                     rdfs:subClassOf <https://w3id.org/pmd/co/ScanningTransmissionElectronMicroscopy> ;
+                                                                    rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+                                                                    rdfs:label "4D Scanning Transmission Electron Microscopy"@en ,
+                                                                               "4D-Rastertransmissionselektronenmikroskopie"@de ;
                                                                     <https://w3id.org/pmd/co/abbreviation> "4D-STEM"@en .
 
 
 ###  https://w3id.org/pmd/mo/FieldIonMicroscope
 <https://w3id.org/pmd/mo/FieldIonMicroscope> rdf:type owl:Class ;
                                              rdfs:subClassOf <https://w3id.org/pmd/co/IonMicroscope> ;
+                                             rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                              rdfs:label "Feldionenmikroskop"@de ,
                                                         "Field Ion Microscope"@en ;
                                              <https://w3id.org/pmd/co/abbreviation> "FIM"@en .
@@ -343,6 +915,7 @@
 ###  https://w3id.org/pmd/mo/Reconstruction
 <https://w3id.org/pmd/mo/Reconstruction> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://w3id.org/pmd/co/Object> ;
+                                         rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                          rdfs:label "Reconstruction"@en ,
                                                     "Rekonstruktion"@de .
 
@@ -350,6 +923,7 @@
 ###  https://w3id.org/pmd/mo/SurfaceStructure
 <https://w3id.org/pmd/mo/SurfaceStructure> rdf:type owl:Class ;
                                            rdfs:subClassOf <https://w3id.org/pmd/co/Object> ;
+                                           rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                            rdfs:label "Oberflächenstruktur"@de ,
                                                       "Surface Structure"@en .
 
@@ -357,6 +931,7 @@
 ###  https://w3id.org/pmd/mo/TomographicReconstruction
 <https://w3id.org/pmd/mo/TomographicReconstruction> rdf:type owl:Class ;
                                                     rdfs:subClassOf <https://w3id.org/pmd/mo/Reconstruction> ;
+                                                    rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                     rdfs:label "Tomographic Reconstruction"@en ,
                                                                "Tomographische Rekonstruktion"@de .
 
@@ -364,6 +939,7 @@
 ###  https://w3id.org/pmd/mo/3DReconstruction
 <https://w3id.org/pmd/mo/3DReconstruction> rdf:type owl:Class ;
                                            rdfs:subClassOf <https://w3id.org/pmd/mo/Reconstruction> ;
+                                           rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                            rdfs:label "Dreidimensionale Rekonstruktion"@de ,
                                                       "Three dimensional reconstruction"@en .
 
