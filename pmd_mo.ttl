@@ -110,7 +110,9 @@ By analyzing the energy spectrum of the emitted Auger electrons, researchers can
                                                 rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                 rdfs:label "Cryo Electron Tomography"@en ,
                                                            "Kryo-Elektronentomographie"@de ;
-                                                <https://w3id.org/pmd/co/abbreviation> "cryo-ET"@en .
+                                                <http://www.w3.org/2004/02/skos/core#definition> "Cryo Electron Tomography is a form of electron tomography that is performed at cryogenic temperatures. It is used to study the three-dimensional structure of frozen-hydrated samples."@en ;
+                                                <https://w3id.org/pmd/co/abbreviation> "cryo-ET"@en ;
+                                                <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  http://w3id.org/pmd/co/CryoTransmissionElectronMicroscope
@@ -145,7 +147,9 @@ By analyzing the energy spectrum of the emitted Auger electrons, researchers can
                                      rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                      rdfs:label "Diffraction"@en ;
                                      <http://www.w3.org/2004/02/skos/core#altLabel> "Beugung"@de ;
-                                     <http://www.w3.org/2004/02/skos/core#prefLabel> "Diffraktion"@de .
+                                     <http://www.w3.org/2004/02/skos/core#definition> "Diffraction is a phenomenon that occurs when waves encounter an obstacle or aperture and bend around it, creating a pattern of alternating light and dark regions. It is commonly observed with various types of waves, such as light, sound, and electromagnetic radiation. Diffraction patterns provide information about the size, shape, and properties of the obstacles or apertures."@en ;
+                                     <http://www.w3.org/2004/02/skos/core#prefLabel> "Diffraktion"@de ;
+                                     <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  http://w3id.org/pmd/co/Efficiency
@@ -170,7 +174,9 @@ By analyzing the energy spectrum of the emitted Auger electrons, researchers can
                                                         rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                         rdfs:label "Electron Backscatter Diffraction"@en ,
                                                                    "Rückstreuelektronenbeugung"@de ;
-                                                        <https://w3id.org/pmd/co/abbreviation> "EBSD"@en .
+                                                        <http://www.w3.org/2004/02/skos/core#definition> "Electron Backscatter Diffraction is a microscopy technique used to analyze the crystallographic orientation and microstructure of materials. It involves directing an electron beam onto a sample's surface and measuring the backscattered electrons. By analyzing the diffraction patterns of these electrons, researchers can determine the crystallographic orientation of the material's grains."@en ;
+                                                        <https://w3id.org/pmd/co/abbreviation> "EBSD"@en ;
+                                                        <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  http://w3id.org/pmd/co/ElectronEnergyLossSpectroscopy
@@ -217,7 +223,9 @@ By studying the energy loss spectrum, researchers can identify the types of atom
                                             rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                             rdfs:label "Electron Tomography"@en ,
                                                        "Elektronentomographie"@de ;
-                                            <https://w3id.org/pmd/co/abbreviation> "ET"@en .
+                                            <http://www.w3.org/2004/02/skos/core#definition> "Electron Tomography is a technique that involves collecting a series of transmission electron microscopy (TEM) images from different angles to reconstruct a three-dimensional image of a sample."@en ;
+                                            <https://w3id.org/pmd/co/abbreviation> "ET"@en ;
+                                            <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  http://w3id.org/pmd/co/Energy
@@ -234,10 +242,12 @@ By studying the energy loss spectrum, researchers can identify the types of atom
                                                           rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                           rdfs:label "Energy Dispersive X-ray Spectroscopy"@en ;
                                                           <http://www.w3.org/2004/02/skos/core#altLabel> "energiedispersive Röntgenmikroanalyse"@de ;
+                                                          <http://www.w3.org/2004/02/skos/core#definition> "Energy Dispersive X-ray Spectroscopy is a technique used to analyze the elemental composition of a sample by detecting the X-rays emitted when the sample is bombarded with electrons in an electron microscope or other instrument. EDS provides information about the elements present in the sample and their relative concentrations."@en ;
                                                           <http://www.w3.org/2004/02/skos/core#prefLabel> "energiedispersive Röntgenanalyse"@de ;
                                                           <https://w3id.org/pmd/co/abbreviation> "EDS"@en ,
                                                                                                  "EDX"@en ,
-                                                                                                 "XEDS"@en .
+                                                                                                 "XEDS"@en ;
+                                                          <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  http://w3id.org/pmd/co/EnergyFilteredTransmissionElectronMicroscope
@@ -279,7 +289,9 @@ By studying the energy loss spectrum, researchers can identify the types of atom
                                                                   rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                                   rdfs:label "Focused Ion Beam Scanning Electron Microscopy"@en ,
                                                                              "Fokussierte Ionenstrahl-Rasterelektronenmikroskopie"@de ;
-                                                                  <https://w3id.org/pmd/co/abbreviation> "FIB-SEM"@en .
+                                                                  <http://www.w3.org/2004/02/skos/core#definition> "Focused Ion Beam Scanning Electron Microscopy is a combination of two techniques: focused ion beam (FIB) and scanning electron microscopy (SEM). FIB-SEM systems use a focused ion beam to both image and modify a sample's surface. The ion beam can be used for milling, cutting, and deposition processes, making FIB-SEM a versatile tool for materials analysis, sample preparation, and three-dimensional imaging."@en ;
+                                                                  <https://w3id.org/pmd/co/abbreviation> "FIB-SEM"@en ;
+                                                                  <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  http://w3id.org/pmd/co/FourierTransformInfraredSpectroscopy
@@ -343,7 +355,9 @@ FTIR is extensively used in a wide range of fields, including chemistry, biology
                                              rdfs:subClassOf <http://w3id.org/pmd/co/PhysicalProcess> ;
                                              rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                              rdfs:label "Inelastic Scattering"@en ,
-                                                        "Inelastische Streuung"@de .
+                                                        "Inelastische Streuung"@de ;
+                                             <http://www.w3.org/2004/02/skos/core#definition> "Inelastic scattering is a scattering process that involves the transfer of energy and momentum between the incident particle (e.g., photon, electron) and the target particle. During inelastic scattering, the energy of the scattered particle changes, and the interaction may result in various outcomes, such as excitation, emission, or other energy transfers that alter the internal state of the target particle."@en ;
+                                             <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  http://w3id.org/pmd/co/InteractionVolume
@@ -383,7 +397,9 @@ FTIR is extensively used in a wide range of fields, including chemistry, biology
                                          rdfs:subClassOf <https://w3id.org/pmd/co/Process> ;
                                          rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                          rdfs:label "Physical Process"@en ,
-                                                    "Physikalischer Prozess"@de .
+                                                    "Physikalischer Prozess"@de ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "A physical process refers to a sequence of events or interactions that occur in the physical world and can be described and analyzed based on the principles of physics. These processes involve the transformation of energy, matter, or both, and they often follow established laws and theories of physics. In particular, a physical process may just occur due to natural circumstances and does not necessarily have to be induced by human activities or interactions."@en ;
+                                         <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  http://w3id.org/pmd/co/PixelSize
@@ -473,8 +489,10 @@ SIMS has applications in diverse fields, including materials characterization, s
                                                          rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                          rdfs:label "Elektronenbeugung ausgewählter Regionen"@de ,
                                                                     "Selected Area Electron Diffraction"@en ;
+                                                         <http://www.w3.org/2004/02/skos/core#definition> "Selected Area Electron Diffraction is a technique used in transmission electron microscopy (TEM) to study the crystallographic orientation of small regions within a sample. By selecting a specific area of the sample and directing an electron beam onto it, diffraction patterns are generated. These patterns offer insights into the sample's crystal structure and orientation."@en ;
                                                          <https://w3id.org/pmd/co/abbreviation> "SAD"@en ,
-                                                                                                "SAED"@en .
+                                                                                                "SAED"@en ;
+                                                         <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  http://w3id.org/pmd/co/SiliconDriftDetector
@@ -573,7 +591,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                                     rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                     rdfs:label "Röntgenabsorptionsspektroskopie"@de ,
                                                                "X-ray Absorption Spectroscopy"@en ;
-                                                    <https://w3id.org/pmd/co/abbreviation> "XAS"@en .
+                                                    <http://www.w3.org/2004/02/skos/core#definition> "X-ray Absorption Spectroscopy is a technique used to study the electronic and local structural properties of materials by analyzing the absorption of X-rays. It involves measuring how X-rays are absorbed by a sample at various energies, providing insights into the electronic states and chemical environments of specific elements."@en ;
+                                                    <https://w3id.org/pmd/co/abbreviation> "XAS"@en ;
+                                                    <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  http://w3id.org/pmd/co/XRayAnalysis
@@ -581,7 +601,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                       rdfs:subClassOf <https://w3id.org/pmd/co/AnalysingProcess> ;
                                       rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                       rdfs:label "Röntgenanalyse"@de ,
-                                                 "X-ray Analysis"@en .
+                                                 "X-ray Analysis"@en ;
+                                      <http://www.w3.org/2004/02/skos/core#definition> "X-ray analysis is a technique used to investigate the composition and structure of materials by exposing them to X-rays. When X-rays interact with a material, they can be absorbed, scattered, or diffracted in ways that provide information about the material's internal arrangement of atoms and its elemental composition."@en ;
+                                      <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  http://w3id.org/pmd/co/XRayDiffraction
@@ -590,8 +612,10 @@ This technique is widely used in various scientific fields, including chemistry,
                                          rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                          rdfs:label "X-ray Diffraction"@en ;
                                          <http://www.w3.org/2004/02/skos/core#altLabel> "Röntgenstrahlbeugung"@de ;
+                                         <http://www.w3.org/2004/02/skos/core#definition> "X-ray Diffraction is a technique that utilizes the diffraction of X-rays by crystals to determine their atomic arrangement and lattice structure. X-ray diffraction patterns are produced when X-rays strike a crystalline sample, and the resulting pattern provides information about the arrangement of atoms in the crystal lattice."@en ;
                                          <http://www.w3.org/2004/02/skos/core#prefLabel> "Röntgenbeugung"@de ;
-                                         <https://w3id.org/pmd/co/abbreviation> "XRD"@en .
+                                         <https://w3id.org/pmd/co/abbreviation> "XRD"@en ;
+                                         <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  http://w3id.org/pmd/co/XRayFluorescence
@@ -600,7 +624,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                           rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                           rdfs:label "Röntgenfluoreszenz"@de ,
                                                      "X-ray Fluorescence"@en ;
-                                          <https://w3id.org/pmd/co/abbreviation> "XRF"@en .
+                                          <http://www.w3.org/2004/02/skos/core#definition> "X-ray Fluorescence is a method used to determine the elemental composition of a sample by analyzing the X-rays emitted when the sample is exposed to high-energy X-rays. The X-rays emitted are characteristic of the elements present, allowing for quantitative analysis of the sample's elemental composition."@en ;
+                                          <https://w3id.org/pmd/co/abbreviation> "XRF"@en ;
+                                          <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  http://w3id.org/pmd/co/XRayMapping
@@ -608,7 +634,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                      rdfs:subClassOf <http://w3id.org/pmd/co/XRayAnalysis> ;
                                      rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                      rdfs:label "Röntgen-Mapping"@de ,
-                                                "X-ray Mapping"@en .
+                                                "X-ray Mapping"@en ;
+                                     <http://www.w3.org/2004/02/skos/core#definition> "X-ray mapping is a process that involves generating spatially resolved images of the distribution of specific elements within a sample. By collecting X-ray signals emitted or scattered from a sample at different points, an elemental map can be created, showing the varying concentrations of elements across the sample's surface."@en ;
+                                     <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  http://w3id.org/pmd/co/XRayMicroanalysis
@@ -616,7 +644,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                            rdfs:subClassOf <http://w3id.org/pmd/co/XRayAnalysis> ;
                                            rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                            rdfs:label "Röntgen-Mikroanalyse"@de ,
-                                                      "X-ray Microanalysis"@en .
+                                                      "X-ray Microanalysis"@en ;
+                                           <http://www.w3.org/2004/02/skos/core#definition> "X-ray Microanalysis is a technique that combines microscopy and X-ray analysis to study the elemental composition of small regions within a sample. It involves focusing an electron or X-ray beam on a specific area of the sample and measuring the X-rays emitted from that area to determine the elemental composition."@en ;
+                                           <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  http://w3id.org/pmd/co/XRayPhotoelectronSpectroscopy
@@ -625,7 +655,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                                        rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                        rdfs:label "Röntgenphotoelektronenspektroskopie"@de ,
                                                                   "X-ray Photoelectron Spectroscopy"@en ;
-                                                       <https://w3id.org/pmd/co/abbreviation> "XPS"@en .
+                                                       <http://www.w3.org/2004/02/skos/core#definition> "X-ray Photoelectron Spectroscopy, also known as Electron Spectroscopy for Chemical Analysis (ESCA), is a technique used to study the surface chemistry of materials. XPS involves bombarding a sample's surface with X-rays to emit photoelectrons, which are then analyzed to determine the elemental composition and chemical states of the elements on the surface."@en ;
+                                                       <https://w3id.org/pmd/co/abbreviation> "XPS"@en ;
+                                                       <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  https://w3id.org/pmd/co/AnnularBrightFieldScanningTransmissionElectronMicroscopy
@@ -634,7 +666,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                                                                    rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                                                    rdfs:label "Annular Bright Field Scanning Transmission Electron Microscopy"@en ,
                                                                                               "Ringförmige Hellfeld-Rastertransmissionselektronenmikroskopie"@de ;
-                                                                                   <https://w3id.org/pmd/co/abbreviation> "ABF-STEM"@en .
+                                                                                   <http://www.w3.org/2004/02/skos/core#definition> "ABF STEM is a technique that utilizes a specific arrangement of detectors to enhance contrast in STEM images, particularly for heavy elements."@en ;
+                                                                                   <https://w3id.org/pmd/co/abbreviation> "ABF-STEM"@en ;
+                                                                                   <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  https://w3id.org/pmd/co/AnnularDarkFieldScanningTransmissionElectronMicroscopy
@@ -643,7 +677,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                                                                  rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                                                  rdfs:label "Annular Dark Field Scanning Transmission Electron Microscopy"@en ,
                                                                                             "Ringförmige Dunkelfeld-Rastertransmissionselektronenmikroskopie"@de ;
-                                                                                 <https://w3id.org/pmd/co/abbreviation> "ADF-STEM"@en .
+                                                                                 <http://www.w3.org/2004/02/skos/core#definition> "ADF STEM is a technique that utilizes a specific arrangement of detectors to create contrast in STEM images based on the scattered electrons."@en ;
+                                                                                 <https://w3id.org/pmd/co/abbreviation> "ADF-STEM"@en ;
+                                                                                 <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  https://w3id.org/pmd/co/AtmosphericScanningElectronMicroscopy
@@ -652,7 +688,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                                                 rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                                 rdfs:label "Atmospheric Scanning Electron Microscopy"@en ,
                                                                            "Atmosphärische Rasterelektronenmikroskopie"@de ;
-                                                                <https://w3id.org/pmd/co/abbreviation> "ASEM"@en .
+                                                                <http://www.w3.org/2004/02/skos/core#definition> "Atmospheric Scanning Electron Microscopy is a technique that allows samples to be imaged in their natural, hydrated state at atmospheric pressure. It enables the observation of biological and other hydrated specimens without the need for dehydration or coating."@en ;
+                                                                <https://w3id.org/pmd/co/abbreviation> "ASEM"@en ;
+                                                                <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  https://w3id.org/pmd/co/BrightFieldTransmissionElectronMicroscopy
@@ -661,7 +699,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                                                     rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                                     rdfs:label "Bright Field Transmission Electron Microscopy"@en ,
                                                                                "Hellfeld-Transmissionselektronenmikroskopie"@de ;
-                                                                    <https://w3id.org/pmd/co/abbreviation> "BFTEM"@en .
+                                                                    <http://www.w3.org/2004/02/skos/core#definition> "Bright Field TEM is an imaging mode in transmission electron microscopy where regions of the sample that scatter electrons less appear brighter in the resulting image."@en ;
+                                                                    <https://w3id.org/pmd/co/abbreviation> "BFTEM"@en ;
+                                                                    <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  https://w3id.org/pmd/co/ConfocalLaserScanningMicroscopy
@@ -688,7 +728,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                                                 rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                                 rdfs:label "Dynamic Transmission Electron Microscopy"@en ,
                                                                            "Dynamische Transmissionselektronenmikroskopie"@de ;
-                                                                <https://w3id.org/pmd/co/abbreviation> "DTEM"@en .
+                                                                <http://www.w3.org/2004/02/skos/core#definition> "Dynamic Transmission Electron Microscopy is a technique that uses ultrafast electron pulses to capture rapid processes in materials with nanosecond to picosecond time resolution."@en ;
+                                                                <https://w3id.org/pmd/co/abbreviation> "DTEM"@en ;
+                                                                <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  https://w3id.org/pmd/co/ElectronChannelingContrastImaging
@@ -697,7 +739,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                                             rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                             rdfs:label "Electron Channeling Contrast Imaging"@en ,
                                                                        "Elektronenkanal-Kontrastbildgebung"@de ;
-                                                            <https://w3id.org/pmd/co/abbreviation> "ECCI"@en .
+                                                            <http://www.w3.org/2004/02/skos/core#definition> "Electron Channeling Contrast Imaging is a technique used in SEM or TEM to study crystallographic defects, such as dislocations, in crystalline materials. It utilizes the contrast resulting from the deviation of electron trajectories due to crystal defects."@en ;
+                                                            <https://w3id.org/pmd/co/abbreviation> "ECCI"@en ;
+                                                            <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  https://w3id.org/pmd/co/EnvironmentalScanningElectronMicroscope
@@ -715,7 +759,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                                                   rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                                   rdfs:label "Environmental Scanning Electron Microscopy"@en ,
                                                                              "Umgebungs-Rasterelektronenmikroskopie"@de ;
-                                                                  <https://w3id.org/pmd/co/abbreviation> "ESEM"@en .
+                                                                  <http://www.w3.org/2004/02/skos/core#definition> "Environmental Scanning Electron Microscopy is a technique that allows imaging of samples in a gaseous environment. It is particularly useful for observing hydrated or non-conductive samples without the need for extensive sample preparation."@en ;
+                                                                  <https://w3id.org/pmd/co/abbreviation> "ESEM"@en ;
+                                                                  <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  https://w3id.org/pmd/co/EnvironmentalTransmissionElectronMicroscopy
@@ -724,7 +770,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                                                       rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                                       rdfs:label "Environmental Transmission Electron Microscopy"@en ,
                                                                                  "Umgebungs-Transmissionselektronenmikroskopie"@de ;
-                                                                      <https://w3id.org/pmd/co/abbreviation> "ETEM"@en .
+                                                                      <http://www.w3.org/2004/02/skos/core#definition> "Environmental Transmission Electron Microscopy allows imaging and analysis of materials in controlled gaseous environments, simulating real-world conditions."@en ;
+                                                                      <https://w3id.org/pmd/co/abbreviation> "ETEM"@en ;
+                                                                      <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  https://w3id.org/pmd/co/FieldEmissionScanningElectronMicroscopy
@@ -733,7 +781,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                                                   rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                                   rdfs:label "Feldemissions-Rasterelektronenmikroskopie"@de ,
                                                                              "Field Emission Scanning Electron Microscopy"@en ;
-                                                                  <https://w3id.org/pmd/co/abbreviation> "FESEM"@en .
+                                                                  <http://www.w3.org/2004/02/skos/core#definition> "Field Emission Scanning Electron Microscopy is an advanced form of SEM that uses a field emitter to produce a highly focused electron beam, enabling high-resolution imaging and surface analysis."@en ;
+                                                                  <https://w3id.org/pmd/co/abbreviation> "FESEM"@en ;
+                                                                  <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  https://w3id.org/pmd/co/FieldIonMicroscopy
@@ -742,7 +792,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                              rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                              rdfs:label "Feldionenmikroskopie"@de ,
                                                         "Field Ion Microscopy"@en ;
-                                             <https://w3id.org/pmd/co/abbreviation> "FIM"@en .
+                                             <http://www.w3.org/2004/02/skos/core#definition> "Field Ion Microscopy is a specialized microscopy technique that uses a strong electric field to ionize atoms on the surface of a metal sample. These ionized atoms are then repelled from the surface and can be detected to create an image of the sample's surface topography at atomic resolution. FIM is especially powerful for imaging the arrangement of atoms on metallic surfaces."@en ;
+                                             <https://w3id.org/pmd/co/abbreviation> "FIM"@en ;
+                                             <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  https://w3id.org/pmd/co/FluorescenceMicroscopy
@@ -777,7 +829,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                               rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                               rdfs:label "Helium Ion Microscopy"@en ,
                                                          "Helium-Ionen-Mikroskopie"@de ;
-                                              <https://w3id.org/pmd/co/abbreviation> "HIM"@en .
+                                              <http://www.w3.org/2004/02/skos/core#definition> "Helium Ion Microscopy is a microscopy technique that uses a beam of helium ions instead of electrons to interact with a sample's surface. The smaller mass of helium ions compared to electrons allows for higher resolution imaging and reduced sample damage. HIM provides high-resolution images and is often used for imaging delicate or sensitive samples."@en ;
+                                              <https://w3id.org/pmd/co/abbreviation> "HIM"@en ;
+                                              <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  https://w3id.org/pmd/co/HighResolutionTransmissionElectronMicroscopy
@@ -786,7 +840,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                                                        rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                                        rdfs:label "High Resolution Transmission Electron Microscopy"@en ,
                                                                                   "Hochauflösende Transmissionselektronenmikroskopie"@de ;
-                                                                       <https://w3id.org/pmd/co/abbreviation> "HRTEM"@en .
+                                                                       <http://www.w3.org/2004/02/skos/core#definition> "High Resolution TEM is a technique that provides exceptionally high-resolution images of a sample's internal structure, revealing atomic-level details."@en ;
+                                                                       <https://w3id.org/pmd/co/abbreviation> "HRTEM"@en ;
+                                                                       <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  https://w3id.org/pmd/co/IonMicroscope
@@ -802,7 +858,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                         rdfs:subClassOf <https://w3id.org/pmd/co/MicroscopyProcess> ;
                                         rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                         rdfs:label "Ion Microscopy"@en ,
-                                                   "Ionenmikroskopie"@de .
+                                                   "Ionenmikroskopie"@de ;
+                                        <http://www.w3.org/2004/02/skos/core#definition> "Ion Microscopy refers to a group of microscopy techniques that use focused ion beams to image and analyze samples. These techniques utilize ions, such as protons or heavy ions, instead of electrons or photons to interact with the sample, providing valuable information about its composition and structure."@en ;
+                                        <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  https://w3id.org/pmd/co/LightMicroscope
@@ -827,7 +885,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                                        rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                        rdfs:label "Bildgebende Orientierungsmikroskopie"@de ,
                                                                   "Orientation Imaging Microscopy"@en ;
-                                                       <https://w3id.org/pmd/co/abbreviation> "OIM"@en .
+                                                       <http://www.w3.org/2004/02/skos/core#definition> "Orientation Imaging Microscopy is a microscopy technique used to map the crystallographic orientations of grains within a material. It is commonly applied in SEM to study the microstructural properties of polycrystalline materials."@en ;
+                                                       <https://w3id.org/pmd/co/abbreviation> "OIM"@en ;
+                                                       <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  https://w3id.org/pmd/co/PolarizedLightMicroscope
@@ -864,7 +924,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                                      rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                      rdfs:label "Rasterelektronenmikroskopie"@de ,
                                                                 "Scanning Electron Microscopy"@en ;
-                                                     <https://w3id.org/pmd/co/abbreviation> "SEM"@en .
+                                                     <http://www.w3.org/2004/02/skos/core#definition> "Scanning Electron Microscopy is a microscopy technique that uses a focused beam of electrons to scan the surface of a sample. The interaction of the electrons with the sample generates signals that provide information about the sample's topography, morphology, and composition."@en ;
+                                                     <https://w3id.org/pmd/co/abbreviation> "SEM"@en ;
+                                                     <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  https://w3id.org/pmd/co/ScanningProbeMicroscopy
@@ -873,7 +935,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                                   rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                   rdfs:label "Rastersondenmikroskopie"@de ,
                                                              "Scanning Probe Microscopy"@en ;
-                                                  <https://w3id.org/pmd/co/abbreviation> "SPM"@en .
+                                                  <http://www.w3.org/2004/02/skos/core#definition> "Scanning Probe Microscopy encompasses various techniques, such as Atomic Force Microscopy (AFM) and Scanning Tunneling Microscopy (STM), that use a sharp probe to scan a sample's surface. These techniques provide high-resolution images and information about surface properties on the nanometer scale."@en ;
+                                                  <https://w3id.org/pmd/co/abbreviation> "SPM"@en ;
+                                                  <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  https://w3id.org/pmd/co/ScanningTransmissionElectronMicroscopy
@@ -882,7 +946,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                                                  rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                                  rdfs:label "Rastertransmissionselektronenmikroskopie"@de ,
                                                                             "Scanning Transmission Electron Microscopy"@en ;
-                                                                 <https://w3id.org/pmd/co/abbreviation> "STEM"@en .
+                                                                 <http://www.w3.org/2004/02/skos/core#definition> "Scanning Transmission Electron Microscopy is a technique that combines the principles of scanning and transmission electron microscopy. It allows imaging and spectroscopy with high spatial resolution."@en ;
+                                                                 <https://w3id.org/pmd/co/abbreviation> "STEM"@en ;
+                                                                 <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  https://w3id.org/pmd/co/ScanningTransmissionElectronMicroscopy-ElectronEnergyLossSpectroscopy
@@ -891,7 +957,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                                                                                 rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                                                                 rdfs:label "Rastertransmissionselektronenmikroskopie Elektronen-Energieverlust-Spektroskopie"@de ,
                                                                                                            "Scanning Transmission Electron Microscopy Electron Energy Loss Spectroscopy"@en ;
-                                                                                                <https://w3id.org/pmd/co/abbreviation> "STEM-EELS"@en .
+                                                                                                <http://www.w3.org/2004/02/skos/core#definition> "STEM-EELS combines STEM imaging with electron energy loss spectroscopy to provide information about the elemental composition and electronic structure of a sample at high spatial resolution."@en ;
+                                                                                                <https://w3id.org/pmd/co/abbreviation> "STEM-EELS"@en ;
+                                                                                                <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  https://w3id.org/pmd/co/ScanningTunnelingMicroscopy
@@ -900,7 +968,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                                       rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                       rdfs:label "Rastertunnelmikroskopie"@de ,
                                                                  "Scanning Tunneling Microscopy"@en ;
-                                                      <https://w3id.org/pmd/co/abbreviation> "STM"@en .
+                                                      <http://www.w3.org/2004/02/skos/core#definition> "Scanning Tunneling Microscopy is a technique that uses a conducting probe to measure the tunneling current between the probe and the sample's surface. It provides atomic-scale images of surfaces and is often used to study conductive materials."@en ;
+                                                      <https://w3id.org/pmd/co/abbreviation> "STM"@en ;
+                                                      <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  https://w3id.org/pmd/co/SoftXRayEmissionSpectrometer
@@ -921,7 +991,9 @@ This technique is widely used in various scientific fields, including chemistry,
 
 
 ###  https://w3id.org/pmd/co/TransmissionElectronMicroscopy
-<https://w3id.org/pmd/co/TransmissionElectronMicroscopy> <https://w3id.org/pmd/co/abbreviation> "TEM"@en .
+<https://w3id.org/pmd/co/TransmissionElectronMicroscopy> <http://www.w3.org/2004/02/skos/core#definition> "Transmission Electron Microscopy is a microscopy technique that involves transmitting a beam of electrons through a thin sample to create high-resolution images. It is used to study the internal structure and morphology of materials at the nanometer scale."@en ;
+                                                         <https://w3id.org/pmd/co/abbreviation> "TEM"@en ;
+                                                         <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  https://w3id.org/pmd/co/4D-ScanningTransmissionElectronMicroscopy
@@ -930,7 +1002,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                                                     rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                                     rdfs:label "4D Scanning Transmission Electron Microscopy"@en ,
                                                                                "4D-Rastertransmissionselektronenmikroskopie"@de ;
-                                                                    <https://w3id.org/pmd/co/abbreviation> "4D-STEM"@en .
+                                                                    <http://www.w3.org/2004/02/skos/core#definition> "4D-STEM is a technique that adds an additional dimension of information, time, to STEM imaging, allowing the study of dynamic processes in materials at high spatial and temporal resolutions."@en ;
+                                                                    <https://w3id.org/pmd/co/abbreviation> "4D-STEM"@en ;
+                                                                    <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  https://w3id.org/pmd/mo/FieldIonMicroscope
