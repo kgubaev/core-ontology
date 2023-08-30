@@ -14,5 +14,5 @@ If you like to contribute, please feel free to add any issues or participate in 
 * [OWL Documentation in HTML](https://w3id.org/pmd/co) 
 * [Miro Board Documentation](https://miro.com/app/board/uXjVPn5wGiA=)
 
-For the microscopy ontology (MO) module, an open [MO HackMD document](https://hackmd.io/21tFuZTITq2draxRPbepzg?view) used for collaborative work on shared vocabulary / thesaurus is available. Please feel free to contribute but highlight changes in the thesaurus.
+For the microscopy ontology (MO) module [pmd_mo.ttl](https://github.com/materialdigital/core-ontology/blob/mo-module/pmd_mo.ttl), an open [MO HackMD document](https://hackmd.io/21tFuZTITq2draxRPbepzg?view) used for collaborative work on shared vocabulary / thesaurus is available. Please feel free to contribute but highlight changes in the thesaurus.
 
