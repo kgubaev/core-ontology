@@ -32,7 +32,9 @@
                                rdfs:subClassOf <http://w3id.org/pmd/co/Electrode> ;
                                rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                rdfs:label "Anode"@de ,
-                                          "Anode"@en .
+                                          "Anode"@en ;
+                               <http://www.w3.org/2004/02/skos/core#definition> "The anode is the positively charged electrode in an electrochemical cell or other electrically driven systems. It serves as the site where oxidation occurs, meaning electrons are released from the anode, typically moving towards the cathode. In devices like batteries, the anode is where electrons are produced during the discharge process."@en ;
+                               <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  http://w3id.org/pmd/co/AtomicResolution
@@ -77,7 +79,9 @@ By analyzing the energy spectrum of the emitted Auger electrons, researchers can
                                  rdfs:subClassOf <http://w3id.org/pmd/co/Electrode> ;
                                  rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                  rdfs:label "Cathode"@en ,
-                                            "Kathode"@de .
+                                            "Kathode"@de ;
+                                 <http://www.w3.org/2004/02/skos/core#definition> "The cathode is the negatively charged electrode in an electrochemical cell or other electrical systems. It is the site where reduction occurs, leading to the acceptance of electrons from the external circuit. In batteries, for instance, the cathode is where electrons are consumed during the discharge process."@en ;
+                                 <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  http://w3id.org/pmd/co/ChromaticAberration
@@ -101,7 +105,9 @@ By analyzing the energy spectrum of the emitted Auger electrons, researchers can
                                         rdfs:subClassOf <https://w3id.org/pmd/co/ProcessingNode> ;
                                         rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                         rdfs:label "Condensor Lense"@en ,
-                                                   "Kondensorlinse"@de .
+                                                   "Kondensorlinse"@de ;
+                                        <http://www.w3.org/2004/02/skos/core#definition> "A condenser lens is an optical element used in microscopy and other optical systems to focus and control the illumination on the sample being observed. It is positioned below the light source and directs light rays onto the specimen, making the illumination uniform and optimizing the quality of the sample's image. The condenser lens helps enhance contrast, resolution, and overall image quality by ensuring that a consistent and concentrated light beam illuminates the specimen."@en ;
+                                        <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  http://w3id.org/pmd/co/CryoElectronTomography
@@ -165,7 +171,9 @@ By analyzing the energy spectrum of the emitted Auger electrons, researchers can
                                    rdfs:subClassOf <https://w3id.org/pmd/co/ProcessingNode> ;
                                    rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                    rdfs:label "Electrode"@en ,
-                                              "Elektrode"@de .
+                                              "Elektrode"@de ;
+                                   <http://www.w3.org/2004/02/skos/core#definition> "An electrode is a conductor through which electric current enters or exits a substance. In the context of electrochemical systems, an electrode facilitates the transfer of electrons between a solid material and an electrolyte. Electrodes are essential components in batteries, fuel cells, electroplating, and other electrochemical processes. They play a critical role in facilitating chemical reactions and energy storage or conversion."@en ;
+                                   <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  http://w3id.org/pmd/co/ElectronBackscatterDiffraction
@@ -280,7 +288,9 @@ By studying the energy loss spectrum, researchers can identify the types of atom
                                           rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                           rdfs:label "Feldemissionskanone"@de ,
                                                      "Field Emission Gun"@en ;
-                                          <https://w3id.org/pmd/co/abbreviation> "FEG"@en .
+                                          <http://www.w3.org/2004/02/skos/core#definition> "A Field Emission Gun is an electron gun used in electron microscopes to produce an electron beam with extremely high brightness and coherence. It relies on the phenomenon of field emission, where electrons are emitted from a sharp emitter tip under the influence of a strong electric field. FEGs are capable of producing highly focused electron beams, leading to enhanced imaging resolution and analytical capabilities."@en ;
+                                          <https://w3id.org/pmd/co/abbreviation> "FEG"@en ;
+                                          <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  http://w3id.org/pmd/co/FocusedIonBeamScanningElectronMicroscopy
@@ -313,7 +323,9 @@ FTIR is extensively used in a wide range of fields, including chemistry, biology
                                           rdfs:subClassOf <http://w3id.org/pmd/co/ImageFilter> ;
                                           rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                           rdfs:label "Gatan Abbildungsfilter"@de ,
-                                                     "Gatan Image Filter"@en .
+                                                     "Gatan Image Filter"@en ;
+                                          <http://www.w3.org/2004/02/skos/core#definition> "A Gatan Image Filter refers to an image filter manufactured by Gatan, Inc., a company specializing in electron microscopy and related products. Gatan's image filters are designed for electron microscopes and electron energy loss spectroscopy (EELS) applications. These filters allow researchers to control and enhance the acquisition of electron energy loss spectra while obtaining high-resolution images of the sample under investigation."@en ;
+                                          <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  http://w3id.org/pmd/co/Gun
@@ -321,7 +333,9 @@ FTIR is extensively used in a wide range of fields, including chemistry, biology
                              rdfs:subClassOf <https://w3id.org/pmd/co/ProcessingNode> ;
                              rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                              rdfs:label "Gun"@en ,
-                                        "Kanone"@de .
+                                        "Kanone"@de ;
+                             <http://www.w3.org/2004/02/skos/core#definition> "In the context of electron microscopy and particle acceleration, a \"gun\" typically refers to an electron or particle source that generates and emits the particles. In electron microscopy, an electron gun is used to generate a beam of electrons for imaging or analysis. In particle accelerators, a particle gun generates and launches particles at high speeds for various experimental purposes."@en ;
+                             <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  http://w3id.org/pmd/co/HighAngleAnnularDarkFieldScanningTransmissionElectronMicroscope
@@ -347,7 +361,9 @@ FTIR is extensively used in a wide range of fields, including chemistry, biology
                                      rdfs:subClassOf <https://w3id.org/pmd/co/ProcessingNode> ;
                                      rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                      rdfs:label "Abbildungsfilter"@de ,
-                                                "Image Filter"@en .
+                                                "Image Filter"@en ;
+                                     <http://www.w3.org/2004/02/skos/core#definition> "An image filter is a device or component used in imaging systems, such as microscopy or photography, to modify the appearance of an image by selectively altering certain characteristics. Filters can be used to adjust contrast, brightness, color balance, and other image properties. They are often used to enhance specific features or to correct for distortions caused by lighting conditions or optical imperfections."@en ;
+                                     <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  http://w3id.org/pmd/co/InelasticScattering
@@ -381,7 +397,13 @@ FTIR is extensively used in a wide range of fields, including chemistry, biology
                                              rdfs:subClassOf <https://w3id.org/pmd/co/ManufacturingProcess> ;
                                              rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                              rdfs:label "Mechanical Polishing"@en ,
-                                                        "Mechanisches Polieren"@de .
+                                                        "Mechanisches Polieren"@de ;
+                                             <http://www.w3.org/2004/02/skos/core#definition> """Mechanical polishing is a material preparation technique used to enhance the surface quality and finish of a sample by removing thin layers of material through abrasion. It involves using abrasive materials, such as polishing cloths, diamond suspensions, or abrasive pastes, along with a polishing machine or device. The process typically includes several steps, each using progressively finer abrasives to achieve a smooth and mirror-like surface.
+
+During mechanical polishing, the sample is pressed against the rotating polishing medium with controlled pressure. The abrasive particles embedded in the medium gradually remove surface irregularities, scratches, and imperfections, resulting in improved flatness, clarity, and reflectivity. The process can be adjusted to target specific levels of surface roughness and precision.
+
+Mechanical polishing is commonly used in various scientific and industrial applications, such as metallography, materials science, electronics, and optics. It is an essential step before further analyses like microscopy, spectroscopy, or surface profiling, as it provides a pristine surface for accurate characterization and observation of material properties."""@en ;
+                                             <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  http://w3id.org/pmd/co/Monochromator
@@ -710,7 +732,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                                           rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                           rdfs:label "Confocal Laser Scanning Microscopy"@en ,
                                                                      "Konfokale Laser-Scanning-Mikroskopie"@de ;
-                                                          <https://w3id.org/pmd/co/abbreviation> "CLSM"@en .
+                                                          <http://www.w3.org/2004/02/skos/core#definition> "Confocal Laser Scanning Microscopy (CLSM) is an optical imaging technique that enhances resolution and eliminates out-of-focus blur by using a spatial pinhole and laser illumination. A focused laser beam is scanned across the sample's surface or depth, and only the light emitted from the focal plane (or a defined section) passes through the pinhole to form an image. CLSM provides high-resolution three-dimensional images, making it popular for biological imaging and studying fluorescently labeled samples."@en ;
+                                                          <https://w3id.org/pmd/co/abbreviation> "CLSM"@en ;
+                                                          <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  https://w3id.org/pmd/co/Cryo-ScanningElectronMicroscope
@@ -802,7 +826,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                                  rdfs:subClassOf <https://w3id.org/pmd/co/LightMicroscopy> ;
                                                  rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                  rdfs:label "Fluorescence Microscopy"@en ,
-                                                            "Fluoreszenzmikroskopie"@de .
+                                                            "Fluoreszenzmikroskopie"@de ;
+                                                 <http://www.w3.org/2004/02/skos/core#definition> "Fluorescence Microscopy is an optical imaging technique used to visualize biological structures and molecules that fluoresce when illuminated with specific wavelengths of light. Fluorescent molecules absorb light energy and then emit light of a longer wavelength, allowing the visualization of specific molecules or cellular components. Fluorescence microscopy is widely used in cell biology, molecular biology, and medical research."@en ;
+                                                 <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  https://w3id.org/pmd/co/FocusedIonBeam-ScanningElectronMicroscope
@@ -905,7 +931,9 @@ This technique is widely used in various scientific fields, including chemistry,
                                                    rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
                                                    rdfs:label "Polarisationslichtmikroskopie"@de ,
                                                               "Polarized Light Microscopy"@en ;
-                                                   <https://w3id.org/pmd/co/abbreviation> "PLM"@en .
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "Polarized Light Microscopy is a technique that uses polarized light to enhance the contrast and reveal structural information in transparent samples. Light waves vibrate in specific directions, and by using polarizers to control the orientation of light waves, polarized light microscopy can highlight birefringent materials, anisotropic structures, and stress patterns within samples. This technique is valuable for studying crystalline structures, fibers, and anisotropic materials."@en ;
+                                                   <https://w3id.org/pmd/co/abbreviation> "PLM"@en ;
+                                                   <https://w3id.org/pmd/co/definitionSource> "ChatGPT 3.5"@en .
 
 
 ###  https://w3id.org/pmd/co/ScanningElectronMicroscope
