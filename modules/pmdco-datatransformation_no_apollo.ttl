@@ -12,7 +12,6 @@
                                                  <http://purl.obolibrary.org/obo/iao/2022-11-07/iao.owl> ,
                                                  <http://purl.obolibrary.org/obo/obi/2023-09-20/obi.owl> ,
                                                  <http://purl.obolibrary.org/obo/ro/releases/2023-08-18/core.owl> ,
-												 <http://purl.obolibrary.org/obo/apollo_sv.owl>,
                                                  <https://github.com/kgubaev/core-ontology/blob/develop-3.0.0/modules/pmdco-materials.ttl> ,
                                                  <https://github.com/kgubaev/core-ontology/blob/develop-3.0.0/modules/pmdco-qualities.ttl> ;
                                      <http://purl.org/dc/terms/created> "2023-11-17" ;
@@ -140,8 +139,8 @@
                                                                                       ]
                                                                  ] ;
                                              rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000015> ;
-                                             <http://purl.obolibrary.org/obo/IAO_0000111> "planned process" ,
-                                                                                          "planned process"@en ;
+                                             <http://purl.obolibrary.org/obo/IAO_0000111> "planned process"@en ,
+                                                                                          "planned process" ;
                                              <http://purl.obolibrary.org/obo/IAO_0000112> "Injecting mice with a vaccine in order to test its efficacy" ;
                                              <http://purl.obolibrary.org/obo/IAO_0000114> <http://purl.obolibrary.org/obo/IAO_0000122> ;
                                              <http://purl.obolibrary.org/obo/IAO_0000115> "A process that realizes a plan which is the concretization of a plan specification."@en ;
@@ -150,8 +149,8 @@
 objectives is a planned process.""" ;
                                              <http://purl.obolibrary.org/obo/IAO_0000117> "Bjoern Peters" ;
                                              <http://purl.obolibrary.org/obo/IAO_0000119> "branch derived" ;
-                                             <http://purl.obolibrary.org/obo/IAO_0000232> "6/11/9: Edited at workshop. Used to include: is initiated by an agent" ,
-                                                                                          "This class merges the previously separated objective driven process and planned process, as they the separation proved hard to maintain. (1/22/09, branch call)"@en ;
+                                             <http://purl.obolibrary.org/obo/IAO_0000232> "This class merges the previously separated objective driven process and planned process, as they the separation proved hard to maintain. (1/22/09, branch call)"@en ,
+                                                                                          "6/11/9: Edited at workshop. Used to include: is initiated by an agent" ;
                                              <http://purl.obolibrary.org/obo/IAO_0000412> <http://purl.obolibrary.org/obo/obi.owl> ;
                                              rdfs:label "planned process"@en .
 

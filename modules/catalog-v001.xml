@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="User Entered Import Resolution" name="http://purl.obolibrary.org/obo/apollo_sv.owl" uri="file:/C:/Users/khu/Documents/GitHub/imports/apollo_sv.owl"/>
     <uri id="User Entered Import Resolution" name="http://purl.obolibrary.org/obo/bfo/2020/bfo" uri="file:/C:/Users/khu/Documents/GitHub/imports/bfo.owl"/>
     <uri id="User Entered Import Resolution" name="https://github.com/kgubaev/core-ontology/blob/develop-3.0.0/modules/pmdco-qualities.ttl" uri="file:/C:/Users/khu/Documents/GitHub/imports/pmdco-qualities.ttl"/>
     <uri id="User Entered Import Resolution" name="https://github.com/kgubaev/core-ontology/blob/develop-3.0.0/modules/pmdco-materials.ttl" uri="file:/C:/Users/khu/Documents/GitHub/imports/pmdco-materials.ttl"/>
