@@ -36,24 +36,60 @@
 <http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/2004/02/skos/core#altLabel
+<http://www.w3.org/2004/02/skos/core#altLabel> rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.w3.org/2004/02/skos/core#definition
 <http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+<http://www.w3.org/2004/02/skos/core#prefLabel> rdf:type owl:AnnotationProperty .
 
 
 #################################################################
 #    Object Properties
 #################################################################
 
-###  https://w3id.org/pmd/co/datatrans#hasDimension
+###  https://w3id.org/pmd/co/hasDimension
 :hasDimension rdf:type owl:ObjectProperty ;
               rdfs:domain :ParametricInputGrid ;
               rdfs:range :ParametricDimension .
 
 
-###  https://w3id.org/pmd/co/datatrans#hasParameter
+###  https://w3id.org/pmd/co/hasLeftBoundary
+:hasLeftBoundary rdf:type owl:ObjectProperty ;
+                 owl:inverseOf :isLeftBoundaryOf ;
+                 rdfs:domain :ParametricDimension ;
+                 rdfs:range <http://purl.obolibrary.org/obo/OBI_0001931> .
+
+
+###  https://w3id.org/pmd/co/hasParameter
 :hasParameter rdf:type owl:ObjectProperty ;
               rdfs:domain :ParametricDimension ;
-              rdfs:range :ThermodynamicParameter .
+              rdfs:range :SimulatedThermodynamicParameter .
+
+
+###  https://w3id.org/pmd/co/hasRightBoundary
+:hasRightBoundary rdf:type owl:ObjectProperty ;
+                  owl:inverseOf :isRightBoundaryOf ;
+                  rdfs:domain :ParametricDimension ;
+                  rdfs:range <http://purl.obolibrary.org/obo/OBI_0001931> .
+
+
+###  https://w3id.org/pmd/co/datatrans#definedForConditions
+:definedForConditions rdf:type owl:ObjectProperty ;
+                      rdfs:domain :ParametricallyDefinedValueSpecification ;
+                      rdfs:range :ParametricInputGrid .
+
+
+###  https://w3id.org/pmd/co/datatrans#isLeftBoundaryOf
+:isLeftBoundaryOf rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/pmd/co/datatrans#isRightBoundaryOf
+:isRightBoundaryOf rdf:type owl:ObjectProperty .
 
 
 #################################################################
@@ -63,6 +99,24 @@
 ###  http://purl.obolibrary.org/obo/OBI_0001937
 <http://purl.obolibrary.org/obo/OBI_0001937> rdf:type owl:DatatypeProperty ;
                                              rdfs:comment "has specified numeric value" .
+
+
+###  https://w3id.org/pmd/co/datatrans#isDerivativeOfEnergyOrder
+:isDerivativeOfEnergyOrder rdf:type owl:DatatypeProperty ;
+                           rdfs:domain :SimulatedPhysicalQuality ;
+                           rdfs:range [ rdf:type rdfs:Datatype ;
+                                        owl:oneOf [ rdf:type rdf:List ;
+                                                    rdf:first 0 ;
+                                                    rdf:rest [ rdf:type rdf:List ;
+                                                               rdf:first 1 ;
+                                                               rdf:rest [ rdf:type rdf:List ;
+                                                                          rdf:first 2 ;
+                                                                          rdf:rest rdf:nil
+                                                                        ]
+                                                             ]
+                                                  ]
+                                      ] ;
+                           rdfs:comment "Relation of the corresponding physical property to one of the thermodynamic free energy values" .
 
 
 #################################################################
@@ -231,14 +285,492 @@ objectives is a planned process.""" ;
                                              rdfs:label "value specification" .
 
 
+###  https://w3id.org/pmd/co/AccusticQuality
+:AccusticQuality rdf:type owl:Class ;
+                 rdfs:subClassOf :PhysicalQuality ;
+                 <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+                 rdfs:label "Accustic Quality"@en ,
+                            "Akustische Qualität"@de ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "Acoustic Quality is a quality that pertains to the properties or characteristics of an entity related to sound or the science of sound. It may encompass a variety of aspects such as pitch, volume, tone, timbre, echo, absorption, or propagation of sound waves."@en .
+
+
+###  https://w3id.org/pmd/co/BreakingStrength
+:BreakingStrength rdf:type owl:Class ;
+                  rdfs:subClassOf :Toughness ;
+                  <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+                  <http://purl.obolibrary.org/obo/IAO_0000119> "https://en.wikipedia.org/wiki/Fracture"@en ,
+                                                               "https://en.wikipedia.org/wiki/Bulk_modulus" ;
+                  rdfs:comment "Where the Ultimate Strength is the maximum recorded stress, the breaking strength is the last stress recorded when the break event of the experiment occures."@en ;
+                  rdfs:label "Breaking Strength"@en ,
+                             "Bruchfestigkeit"@de ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Bruchspannung"@de ,
+                                                                 "Fracture Stress"@en ,
+                                                                 "Strength at Break"@en ;
+                  <http://www.w3.org/2004/02/skos/core#definition> "Fracture strength, also known as breaking strength, is the stress at which a specimen fails via fracture.[2] This is usually determined for a given specimen by a tensile test, which charts the stress–strain curve (see image). The final recorded point is the fracture strength."@en .
+
+
+###  https://w3id.org/pmd/co/BulkModulus
+:BulkModulus rdf:type owl:Class ;
+             rdfs:subClassOf :Stiffness ;
+             <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+             <http://purl.obolibrary.org/obo/IAO_0000119> "https://en.wikipedia.org/wiki/Bulk_modulus" ;
+             rdfs:label "Bulk Modulus"@en ,
+                        "Kompressionsmodul"@de ;
+             <http://www.w3.org/2004/02/skos/core#altLabel> "Kompressionsmodul"@de ;
+             <http://www.w3.org/2004/02/skos/core#definition> "The bulk modulus (K or B or k) of a substance is a measure of the resistance of a substance to bulk compression. It is defined as the ratio of the infinitesimal pressure increase to the resulting relative decrease of the volume."@en ;
+             <http://www.w3.org/2004/02/skos/core#prefLabel> "Bulk Modulus"@en .
+
+
+###  https://w3id.org/pmd/co/CreepModulus
+:CreepModulus rdf:type owl:Class ;
+              rdfs:subClassOf :Viscoelasticity ;
+              <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+              rdfs:label "Creep Modulus"@en ,
+                         "Kriechmodul"@de ;
+              <http://www.w3.org/2004/02/skos/core#definition> "Der Kriechmodul ist ein Maß für die Viskoelastizität eines Materials, das seine Fähigkeit zur Verformung unter Belastung im Laufe der Zeit beschreibt."@de ,
+                                                               "The creep modulus is a measure of the viscoelasticity of a material, which is its ability to deform under stress over time."@en ;
+              <http://www.w3.org/2004/02/skos/core#prefLabel> "Creep Modulus"@en ,
+                                                              "Kriechmodul"@de .
+
+
+###  https://w3id.org/pmd/co/Ductility
+:Ductility rdf:type owl:Class ;
+           rdfs:subClassOf :MechanicalQuality ;
+           <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+           rdfs:label "Ductility"@en ,
+                      "Duktilität"@de ;
+           <http://www.w3.org/2004/02/skos/core#altLabel> "Biegsamkeit"@de ,
+                                                          "Flexibility"@en ;
+           <http://www.w3.org/2004/02/skos/core#definition> "Die Fähigkeit eines Materials, plastisch zu verformen, ohne zu brechen"@de ,
+                                                            "The ability of a material to deform plastically without breaking"@en ;
+           <http://www.w3.org/2004/02/skos/core#prefLabel> "Ductility"@en ,
+                                                           "Duktilität"@de .
+
+
+###  https://w3id.org/pmd/co/DynamicViscosity
+:DynamicViscosity rdf:type owl:Class ;
+                  rdfs:subClassOf :Viscosity ;
+                  <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+                  rdfs:label "Dynamic Viscosity"@en ,
+                             "Dynamische Viskosität"@de ;
+                  <http://www.w3.org/2004/02/skos/core#definition> "Die dynamische Viskosität ist ein Maß für den Widerstand eines Fluids gegen eine allmähliche Verformung durch Scher- oder Zugspannung. Es ist ein Maß für den inneren Widerstand des Fluids gegen den Fluss und kann als Maß für die Flüssigkeitsreibung betrachtet werden."@de ,
+                                                                   "Dynamic viscosity is the measure of a fluid's resistance to gradual deformation by shear stress or tensile stress. It is a measure of the fluid's internal resistance to flow and may be thought of as a measure of fluid friction."@en ;
+                  <http://www.w3.org/2004/02/skos/core#prefLabel> "Dynamic Viscosity"@en ,
+                                                                  "Dynamische Viskosität"@de .
+
+
+###  https://w3id.org/pmd/co/ElasticModulus
+:ElasticModulus rdf:type owl:Class ;
+                rdfs:subClassOf :Stiffness ;
+                <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+                rdfs:label "Elastic Modulus"@en ,
+                           "Elastizitätsmodul"@de ;
+                <http://www.w3.org/2004/02/skos/core#altLabel> "Modulus Of Elasticity"@en ,
+                                                               "Young's Modulus"@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> """Quotient der Änderung der Spannung ΔR und Änderung der prozentualen Dehnung Δe in dem untersuchten Bereich multipliziert mit 100 % 
+
+Anmerkung: Es wird empfohlen, den Wert in GPa, gerundet auf 0,1 GPa, und nach ISO 80000-1 anzugeben."""@de ,
+                                                                 """quotient of change of stress ΔR and change of percentage extension Δe in the range of evaluation, multiplied by 100 %
+
+Note: It is recommended to report the value in GPa rounded to the nearest 0.1 GPa and according to ISO 80000-1."""@en .
+
+
+###  https://w3id.org/pmd/co/Elasticity
+:Elasticity rdf:type owl:Class ;
+            rdfs:subClassOf :Strength ;
+            <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+            rdfs:label "Elasticity"@en ,
+                       "Elastizität"@de ;
+            <http://www.w3.org/2004/02/skos/core#altLabel> "Elastic"@en ,
+                                                           "Elastisch"@de ,
+                                                           "Resilience"@en ,
+                                                           "Widerstandsfähigkeit"@de ;
+            <http://www.w3.org/2004/02/skos/core#definition> "Elasticity is the ability of an object or material to resume its normal shape after deformation."@en ,
+                                                             "Elastizität ist die Fähigkeit eines Objekts oder Materials, nach Deformation seine normale Form wiederherzustellen."@de ;
+            <http://www.w3.org/2004/02/skos/core#prefLabel> "Elasticity"@en ,
+                                                            "Elastizität"@de .
+
+
+###  https://w3id.org/pmd/co/ElectricalQuality
+:ElectricalQuality rdf:type owl:Class ;
+                   rdfs:subClassOf :PhysicalQuality ;
+                   <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+                   rdfs:label "Electrical Quality"@en ,
+                              "Elektrische Qualität"@de ;
+                   <http://www.w3.org/2004/02/skos/core#definition> "Electrical Quality is a quality that characterizes an material entity's behavior or state in relation to electricity."@en .
+
+
+###  https://w3id.org/pmd/co/ExtentionalViscosity
+:ExtentionalViscosity rdf:type owl:Class ;
+                      rdfs:subClassOf :Viscosity ;
+                      <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+                      rdfs:label "Dehnviskosität"@de ,
+                                 "Extentional Viscosity"@en ;
+                      <http://www.w3.org/2004/02/skos/core#definition> "Die Messung des Widerstands einer Flüssigkeit gegen den Fluss bei Dehnspannung"@de ,
+                                                                       "The measure of a fluid's resistance to tension flow"@en .
+
+
+###  https://w3id.org/pmd/co/FlexuralStrength
+:FlexuralStrength rdf:type owl:Class ;
+                  rdfs:subClassOf :BreakingStrength ;
+                  <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+                  rdfs:label "Biegefestigkeit"@de ,
+                             "Flexural Strength"@en ;
+                  <http://www.w3.org/2004/02/skos/core#altLabel> "Bending Strength"@en ;
+                  <http://www.w3.org/2004/02/skos/core#definition> "Die Fähigkeit eines Materials, unter Biegelast Deformationen zu widerstehen."@de ,
+                                                                   "The ability of a material to resist deformation under flexual load."@en ;
+                  <http://www.w3.org/2004/02/skos/core#prefLabel> "Biegefestigkeit"@de ,
+                                                                  "Flexural Strength"@en .
+
+
+###  https://w3id.org/pmd/co/Hardness
+:Hardness rdf:type owl:Class ;
+          rdfs:subClassOf :Strength ;
+          <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+          rdfs:label "Hardness"@en ,
+                     "Härte"@de ;
+          <http://www.w3.org/2004/02/skos/core#definition> "Die Widerstandsfähigkeit eines Materials gegen lokalisierte Verformung oder Plastizität, die durch mechanische Einwirkung wie Biegen, Quetschen oder Kratzen verursacht wird."@de ,
+                                                           "The resistance of a material to localized deformation or plasticity caused by mechanical action, such as bending, crushing, or scratching."@en ;
+          <http://www.w3.org/2004/02/skos/core#prefLabel> "Hardness"@en ,
+                                                          "Härte"@de .
+
+
+###  https://w3id.org/pmd/co/ImpactStrenght
+:ImpactStrenght rdf:type owl:Class ;
+                rdfs:subClassOf :Toughness ;
+                <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+                rdfs:label "Impact Strenght"@en ,
+                           "Schlagzähigkeit"@de ;
+                <http://www.w3.org/2004/02/skos/core#altLabel> "Impact Strength"@en ,
+                                                               "Schlagfestigkeit"@de ;
+                <http://www.w3.org/2004/02/skos/core#definition> "Die Fähigkeit eines Materials, Energie zu absorbieren und bei Anwendung einer dynamischen Last plastisch zu verformen, ohne dass es bricht"@de ,
+                                                                 "The ability of a material to absorb energy and plastically deform without fracturing when a dynamic load is applied"@en ;
+                <http://www.w3.org/2004/02/skos/core#prefLabel> "Impact Strenght"@en ,
+                                                                "Schlagzähigkeit"@de .
+
+
+###  https://w3id.org/pmd/co/IndentationHardness
+:IndentationHardness rdf:type owl:Class ;
+                     rdfs:subClassOf :Hardness ;
+                     <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+                     rdfs:label "Indentation Hardness"@en ,
+                                "Indentationshärte"@de ;
+                     <http://www.w3.org/2004/02/skos/core#definition> "Die Indentationshärte ist ein Maß für die Widerstandsfähigkeit eines Materials gegen Eindringen."@de ,
+                                                                      "Identation hardness is a measure of the resistance of a material to indentation."@en ;
+                     <http://www.w3.org/2004/02/skos/core#prefLabel> "Identation Hardness"@en ,
+                                                                     "Indentationshärte"@de .
+
+
+###  https://w3id.org/pmd/co/KinematicViscosity
+:KinematicViscosity rdf:type owl:Class ;
+                    rdfs:subClassOf :Viscosity ;
+                    <http://purl.obolibrary.org/obo/IAO_0000114> <http://purl.obolibrary.org/obo/IAO_0000428> ;
+                    <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+                    rdfs:label "Kinematic Viscosity"@en ,
+                               "Kinematische Viskosität"@de ;
+                    <http://www.w3.org/2004/02/skos/core#altLabel> "Kinetic Viscosity"@en ,
+                                                                   "Kinetische Viskosität"@de ;
+                    <http://www.w3.org/2004/02/skos/core#definition> "Die kinematische Viskosität ist das Verhältnis der dynamischen Viskosität zur Dichte."@de ,
+                                                                     "Kinematic viscosity is the ratio of dynamic viscosity to density."@en ;
+                    <http://www.w3.org/2004/02/skos/core#prefLabel> "Kinematic Viscosity"@en ,
+                                                                    "Kinematische Viskosität"@de .
+
+
+###  https://w3id.org/pmd/co/LeftBoundarySpecification
+:LeftBoundarySpecification rdf:type owl:Class ;
+                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :isLeftBoundaryOf ;
+                                                 owl:someValuesFrom :ParametricDimension
+                                               ] ;
+                           rdfs:subClassOf <http://purl.obolibrary.org/obo/OBI_0001931> .
+
+
+###  https://w3id.org/pmd/co/LinearThermalExpansionCoefficient
+:LinearThermalExpansionCoefficient rdf:type owl:Class ;
+                                   rdfs:subClassOf :ThermalExpansionCoefficient ;
+                                   <http://purl.obolibrary.org/obo/IAO_0000114> <http://purl.obolibrary.org/obo/IAO_0000428> ;
+                                   <http://purl.obolibrary.org/obo/IAO_0000116> "IRI conficts with that of https://w3id.org/pmd/co/Linear_Thermal_Expansion_Coefficient (Volumetric Thermal Expansion Coefficient)" ;
+                                   <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+                                   rdfs:label "Linear Thermal Expansion Coefficient"@en ,
+                                              "Linearer Thermischer Ausdehnungkoeffizient"@de ;
+                                   <http://www.w3.org/2004/02/skos/core#definition> "The Linear Thermal Expansion Coefficient is a thermal expansion coefficent that quantifies the degree to which a material expands upon heating into on specific axial direction."@en .
+
+
+###  https://w3id.org/pmd/co/Linear_Thermal_Expansion_Coefficient
+:Linear_Thermal_Expansion_Coefficient rdf:type owl:Class ;
+                                      rdfs:subClassOf :ThermalExpansionCoefficient ;
+                                      <http://purl.obolibrary.org/obo/IAO_0000114> <http://purl.obolibrary.org/obo/IAO_0000428> ;
+                                      <http://purl.obolibrary.org/obo/IAO_0000116> "IRI confilicts with Linear Thermal Expansion Coefficient" ;
+                                      <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+                                      rdfs:label "Thermischer Volumenausdehnungskoeffizient"@de ,
+                                                 "Volumetric Thermal Expansion Coefficient"@en ;
+                                      <http://www.w3.org/2004/02/skos/core#definition> "The Volumetric Thermal Expansion Coefficient is a thermal expansion coefficent that quantifies the degree to which a material expands upon heating into all three axial directions at once."@en .
+
+
+###  https://w3id.org/pmd/co/LowerYieldStrength
+:LowerYieldStrength rdf:type owl:Class ;
+                    rdfs:subClassOf :YieldStrength ;
+                    <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+                    <http://purl.obolibrary.org/obo/IAO_0000119> "https://en.wikipedia.org/wiki/Yield_(engineering)"@en ;
+                    rdfs:label "Lower Yield Strength"@en ,
+                               "Untere Streckgrenze"@de ;
+                    <http://www.w3.org/2004/02/skos/core#altLabel> "Lower Yield Stress"@en ,
+                                                                   "Untere Fließspannung"@de .
+
+
+###  https://w3id.org/pmd/co/MagneticQuality
+:MagneticQuality rdf:type owl:Class ;
+                 rdfs:subClassOf :PhysicalQuality ;
+                 <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+                 rdfs:label "Magnetic Quality"@en ,
+                            "Magnetische Qualität"@de ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "Magnetic Quality is a quality that characterizes an material entity's behavior or state when exposed to a external magetic field or is emiting a magnatic field on its own."@en .
+
+
+###  https://w3id.org/pmd/co/Malleability
+:Malleability rdf:type owl:Class ;
+              rdfs:subClassOf :Ductility ;
+              <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+              rdfs:label "Formbarkeit"@de ,
+                         "Malleability"@en ;
+              <http://www.w3.org/2004/02/skos/core#altLabel> "Malleable"@en ,
+                                                             "formbar"@de ;
+              <http://www.w3.org/2004/02/skos/core#definition> "Im Vergleich zu Duktilität, werden Materialen als formbar angesehen, wenn sie durch Hammern oder Walzen bearbeitet werden können"@de ,
+                                                               "In contrast to Ductility, materials were considered malleable if they were amenable to forming by hammering or rolling"@en ;
+              <http://www.w3.org/2004/02/skos/core#prefLabel> "Formbarkeit"@de ,
+                                                              "Malleability"@en .
+
+
+###  https://w3id.org/pmd/co/MechanicalQuality
+:MechanicalQuality rdf:type owl:Class ;
+                   rdfs:subClassOf :PhysicalQuality ;
+                   <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+                   rdfs:label "Mechanical Quality"@en ,
+                              "Mechanische Qualität"@de ;
+                   <http://www.w3.org/2004/02/skos/core#definition> "A quality that is related the performance of a material when enduring mechanical loads"@en .
+
+
+###  https://w3id.org/pmd/co/MorphologicQuality
+:MorphologicQuality rdf:type owl:Class ;
+                    rdfs:subClassOf :PhysicalQuality ;
+                    <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+                    rdfs:label "Morphologic Quality"@en ,
+                               "Morphologische Qualität"@de ;
+                    <http://www.w3.org/2004/02/skos/core#definition> "A quality that is related to the size, shape and appearence of a material."@en .
+
+
+###  https://w3id.org/pmd/co/OpticalQuality
+:OpticalQuality rdf:type owl:Class ;
+                rdfs:subClassOf :PhysicalQuality ;
+                <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+                rdfs:label "Optical Quality"@en ,
+                           "Optische Qualität"@de ;
+                <http://www.w3.org/2004/02/skos/core#definition> "The Quality that decribes the result of interaction of a metarial entities with all kinds of light emissions or light emissions generated by the entity itself."@en .
+
+
+###  https://w3id.org/pmd/co/ParametricDimension
+:ParametricDimension rdf:type owl:Class ;
+                     owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :hasLeftBoundary ;
+                                                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                  owl:onClass <http://purl.obolibrary.org/obo/OBI_0001931>
+                                                                ]
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :hasParameter ;
+                                                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                  owl:onClass :SimulatedProcessParameter
+                                                                ]
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :hasRightBoundary ;
+                                                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                  owl:onClass <http://purl.obolibrary.org/obo/OBI_0001931>
+                                                                ]
+                                                              ) ;
+                                           rdf:type owl:Class
+                                         ] ;
+                     rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000030> .
+
+
+###  https://w3id.org/pmd/co/ParametricInputGrid
+:ParametricInputGrid rdf:type owl:Class ;
+                     owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty <http://purl.obolibrary.org/obo/OBI_0000295> ;
+                                                                  owl:someValuesFrom <http://purl.obolibrary.org/obo/OBI_0000011>
+                                                                ]
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :hasDimension ;
+                                                                  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                  owl:onClass :ParametricDimension
+                                                                ]
+                                                              ) ;
+                                           rdf:type owl:Class
+                                         ] ;
+                     rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000030> ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasDimension ;
+                                       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass :ParametricDimension
+                                     ] .
+
+
+###  https://w3id.org/pmd/co/PhysicalQuality
+:PhysicalQuality rdf:type owl:Class ;
+                 rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000019> ;
+                 rdfs:label "Physical Quality"@en ,
+                            "Physische Qualität"@de ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "Physical Quality is a quality that pertains to the properties or characteristics of an entity related to it pyhsical presents or physical interaction with influences but do not depend on other entities to exists."@en .
+
+
+###  https://w3id.org/pmd/co/Plasticity
+:Plasticity rdf:type owl:Class ;
+            rdfs:subClassOf :Strength ;
+            <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+            rdfs:label "Plasticity"@en ,
+                       "Plastizität"@de ;
+            <http://www.w3.org/2004/02/skos/core#definition> "Plasticity is the ability of a material to undergo permanent deformation without breaking or cracking."@en ,
+                                                             "Plastizität ist die Fähigkeit eines Materials, dauerhafte Verformungen ohne Bruch oder Riss zu erleiden."@de ;
+            <http://www.w3.org/2004/02/skos/core#prefLabel> "Plasticity"@en ,
+                                                            "Plastizität"@de .
+
+
+###  https://w3id.org/pmd/co/PoissonEffect
+:PoissonEffect rdf:type owl:Class ;
+               rdfs:subClassOf :MechanicalQuality ;
+               <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+               <http://purl.obolibrary.org/obo/IAO_0000119> "https://en.wikipedia.org/wiki/Poisson%27s_ratio" ;
+               rdfs:label "Poisson Effect"@en ,
+                          "Querkontraktion"@de ;
+               <http://www.w3.org/2004/02/skos/core#definition> "The Poisson effect is the deformation (expansion or contraction) of a material in directions perpendicular to the specific direction of loading.  The effect is named after the French mathematician and physicist Siméon Poisson."@en .
+
+
+###  https://w3id.org/pmd/co/PoissonRatio
+:PoissonRatio rdf:type owl:Class ;
+              rdfs:subClassOf :PoissonEffect ;
+              <http://purl.obolibrary.org/obo/IAO_0000114> <http://purl.obolibrary.org/obo/IAO_0000428> ;
+              <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+              <http://purl.obolibrary.org/obo/IAO_0000119> "https://en.wikipedia.org/wiki/Poisson%27s_ratio" ;
+              rdfs:label "Poisson's Ratio"@en ,
+                         "Poissonzahl"@de ;
+              <http://www.w3.org/2004/02/skos/core#definition> """The Poisson's ratio 
+nu  (nu) is a measure of the Poisson effect. Most materials have Poisson's ratio values ranging between 0.0 and 0.5. For soft materials, such as rubber, where the bulk modulus is much higher than the shear modulus, Poisson's ratio is near 0.5. For open-cell polymer foams, Poisson's ratio is near zero, since the cells tend to collapse in compression. Many typical solids have Poisson's ratios in the range of 0.2–0.3."""@en .
+
+
 ###  https://w3id.org/pmd/co/Pressure
 :Pressure rdf:type owl:Class ;
-          rdfs:subClassOf :ThermodynamicParameter .
+          rdfs:subClassOf :SimulatedThermodynamicParameter .
+
+
+###  https://w3id.org/pmd/co/RadiologicQuality
+:RadiologicQuality rdf:type owl:Class ;
+                   rdfs:subClassOf :PhysicalQuality ;
+                   <http://purl.obolibrary.org/obo/IAO_0000114> <http://purl.obolibrary.org/obo/IAO_0000428> ;
+                   <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+                   rdfs:label "Radiologic Quality"@en ,
+                              "Radiologische Qualität"@de ;
+                   <http://www.w3.org/2004/02/skos/core#definition> "Radiologic Quality is a quality that pertains to the properties or characteristics of an entity related to radiant energy produced or withstand it."@en .
+
+
+###  https://w3id.org/pmd/co/ReboundHardness
+:ReboundHardness rdf:type owl:Class ;
+                 rdfs:subClassOf :Hardness ;
+                 <http://purl.obolibrary.org/obo/IAO_0000114> <http://purl.obolibrary.org/obo/IAO_0000428> ;
+                 <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+                 rdfs:label "Rebound Hardness"@en ,
+                            "Rückprallhärte"@de ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "Die Rückprallhärte ist ein Maß für die Elastizität eines Materials, das als Verhältnis der Rückprallgeschwindigkeit zur Aufprallgeschwindigkeit eines Standardballs definiert wird, der auf eine Oberfläche geworfen wird."@de ,
+                                                                  "Rebound hardness is a measure of the elasticity of a material, which is defined as the ratio of the rebound velocity to the impact velocity of a standard ball dropped onto a surface."@en ;
+                 <http://www.w3.org/2004/02/skos/core#prefLabel> "Rebound hardness"@en ,
+                                                                 "Rückprallhärte"@de .
+
+
+###  https://w3id.org/pmd/co/RightBoundarySpecification
+:RightBoundarySpecification rdf:type owl:Class ;
+                            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :isRightBoundaryOf ;
+                                                  owl:someValuesFrom :ParametricDimension
+                                                ] ;
+                            rdfs:subClassOf <http://purl.obolibrary.org/obo/OBI_0001931> .
+
+
+###  https://w3id.org/pmd/co/ScratchHardness
+:ScratchHardness rdf:type owl:Class ;
+                 rdfs:subClassOf :Hardness ;
+                 <http://purl.obolibrary.org/obo/IAO_0000114> <http://purl.obolibrary.org/obo/IAO_0000428> ;
+                 <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+                 rdfs:label "Kratzhärte"@de ,
+                            "Scratch Hardness"@en ;
+                 <http://www.w3.org/2004/02/skos/core#altLabel> "Kratzbeständigkeit"@de ,
+                                                                "Scratch Resistance"@en ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "Die Fähigkeit eines Materials, Kratzern zu widerstehen"@de ,
+                                                                  "The ability of a material to resist being scratched"@en ;
+                 <http://www.w3.org/2004/02/skos/core#prefLabel> "Kratzfestigkeit"@de ,
+                                                                 "Scratch Hardness"@en .
+
+
+###  https://w3id.org/pmd/co/ShearModulus
+:ShearModulus rdf:type owl:Class ;
+              rdfs:subClassOf :Stiffness ;
+              <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+              <http://purl.obolibrary.org/obo/IAO_0000119> "https://en.wikipedia.org/wiki/Shear_modulus" ;
+              rdfs:label "Schubmodul"@de ,
+                         "Shear Modulus"@en ;
+              <http://www.w3.org/2004/02/skos/core#definition> "In materials science, shear modulus or modulus of rigidity, denoted by G, or sometimes S or μ, is a measure of the elastic shear stiffness of a material and is defined as the ratio of shear stress to the shear strain."@en .
+
+
+###  https://w3id.org/pmd/co/ShearViscosity
+:ShearViscosity rdf:type owl:Class ;
+                rdfs:subClassOf :Viscosity ;
+                <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+                rdfs:label "Scherviskosität"@de ,
+                           "Shear Viscosity"@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "Die Messung des Widerstands einer Flüssigkeit gegen den Fluss bei Scherspannung"@de ,
+                                                                 "The measure of a fluid's resistance to shear flow"@en ;
+                <http://www.w3.org/2004/02/skos/core#prefLabel> "Scherviskosität"@de ,
+                                                                "Shear Viscosity"@en .
+
+
+###  https://w3id.org/pmd/co/SimuationMeasurementDatum
+:SimuationMeasurementDatum rdf:type owl:Class ;
+                           owl:equivalentClass [ owl:intersectionOf ( <http://purl.obolibrary.org/obo/IAO_0000109>
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty <http://purl.obolibrary.org/obo/OBI_0000312> ;
+                                                                        owl:someValuesFrom :SimulationProcess
+                                                                      ]
+                                                                    ) ;
+                                                 rdf:type owl:Class
+                                               ] ;
+                           rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000109> ;
+                           rdfs:comment "Measurement datum, which is the specified output of some simulation process" .
 
 
 ###  https://w3id.org/pmd/co/SimulatedObject
 :SimulatedObject rdf:type owl:Class ;
-                 rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000030> .
+                 rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000030> ;
+                 rdfs:comment "Apollo Simulation, purely intentional entity?" .
+
+
+###  https://w3id.org/pmd/co/SimulatedPhysicalQuality
+:SimulatedPhysicalQuality rdf:type owl:Class ;
+                          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                owl:onProperty <http://purl.obolibrary.org/obo/IAO_0000221> ;
+                                                owl:someValuesFrom :PhysicalQuality
+                                              ] ;
+                          rdfs:subClassOf :SimuationMeasurementDatum .
+
+
+###  https://w3id.org/pmd/co/SimulatedProcessParameter
+:SimulatedProcessParameter rdf:type owl:Class ;
+                           rdfs:subClassOf :SimulatedObject .
+
+
+###  https://w3id.org/pmd/co/SimulatedThermodynamicParameter
+:SimulatedThermodynamicParameter rdf:type owl:Class ;
+                                 rdfs:subClassOf :SimulatedProcessParameter ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :hasParameter ;
+                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onClass :SimulatedThermodynamicParameter
+                                                 ] .
 
 
 ###  https://w3id.org/pmd/co/SimulationProcess
@@ -262,48 +794,210 @@ objectives is a planned process.""" ;
                    <http://www.w3.org/2004/02/skos/core#definition> "An analysis process that is used for a simulation" .
 
 
+###  https://w3id.org/pmd/co/SpecificHeatCapacity
+:SpecificHeatCapacity rdf:type owl:Class ;
+                      rdfs:subClassOf :ThermoDynamicQuality ;
+                      <http://purl.obolibrary.org/obo/IAO_0000114> <http://purl.obolibrary.org/obo/IAO_0000428> ;
+                      <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+                      rdfs:label "Specific Heat Capacity"@en ,
+                                 "Spezifische Wärmekapazität"@de .
+
+
+###  https://w3id.org/pmd/co/Stiffness
+:Stiffness rdf:type owl:Class ;
+           rdfs:subClassOf :Elasticity ;
+           <http://purl.obolibrary.org/obo/IAO_0000116> "While Stiffness characterizes a bodies response, taking into account its geometry and materials. Elastic Modulus aims to be agnostic to geometry and specific for the material."@en ;
+           <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+           rdfs:isDefinedBy <https://w3id.org/pmd/co> ;
+           rdfs:label "Steifigkeit"@de ,
+                      "Stiffness"@en ;
+           <http://www.w3.org/2004/02/skos/core#definition> "Die Steifigkeit ist das Maß, bis zu dem ein Objekt einer Verformung als Reaktion auf eine einwirkende Kraft widersteht."@de ,
+                                                            "Stiffness is the extent to which an object resists deformation in response to an applied force."@en .
+
+
+###  https://w3id.org/pmd/co/Strength
+:Strength rdf:type owl:Class ;
+          rdfs:subClassOf :MechanicalQuality ;
+          <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+          rdfs:label "Strength"@en ,
+                     "Stärke"@de ;
+          <http://www.w3.org/2004/02/skos/core#altLabel> "Festigkeit"@de ;
+          <http://www.w3.org/2004/02/skos/core#definition> "Die Fähigkeit eines Objekts oder Stoffes, großer Kraft oder Druck standzuhalten."@de ,
+                                                           "The capacity of an object or substance to withstand great force or pressure."@en ;
+          <http://www.w3.org/2004/02/skos/core#prefLabel> "Strength"@en ,
+                                                          "Stärke"@de .
+
+
 ###  https://w3id.org/pmd/co/Temperature
 :Temperature rdf:type owl:Class ;
-             rdfs:subClassOf :ThermodynamicParameter .
+             rdfs:subClassOf :SimulatedThermodynamicParameter .
+
+
+###  https://w3id.org/pmd/co/TensileStrength
+:TensileStrength rdf:type owl:Class ;
+                 rdfs:subClassOf :BreakingStrength ;
+                 <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+                 rdfs:label "Tensile Strength"@en ,
+                            "Zugfestigkeit"@de ;
+                 <http://www.w3.org/2004/02/skos/core#altLabel> "Ultimate Tensile Strength"@en ;
+                 <http://www.w3.org/2004/02/skos/core#prefLabel> "Ultimate Tensile Strength"@en ,
+                                                                 "Zugfestigkeit"@de .
+
+
+###  https://w3id.org/pmd/co/ThermalExpansionCoefficient
+:ThermalExpansionCoefficient rdf:type owl:Class ;
+                             rdfs:subClassOf :ThermoDynamicQuality ;
+                             <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+                             rdfs:label "Thermal Expansion Coefficient"@en ,
+                                        "Thermischer Ausdehnungkoeffizient"@de ;
+                             <http://www.w3.org/2004/02/skos/core#definition> "The Thermal Expansion Coefficient is a thermodynamic quality that quantifies the degree to which a material expands upon heating. It represents the fractional change in size per degree change in temperature at a constant pressure. It is an inherent property of materials and is often used in engineering and material science to predict the behavior of substances under varying thermal conditions."@en .
+
+
+###  https://w3id.org/pmd/co/ThermoDynamicQuality
+:ThermoDynamicQuality rdf:type owl:Class ;
+                      rdfs:subClassOf :PhysicalQuality ;
+                      <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+                      rdfs:label "Thermo Dynamic Quality"@en ,
+                                 "Thermodynamische Qualität"@de ;
+                      <http://www.w3.org/2004/02/skos/core#definition> "Thermal Quality is a quality that characterizes an material entity's behavior or state in relation to thermal heating or cooling."@en .
+
+
+###  https://w3id.org/pmd/co/Toughness
+:Toughness rdf:type owl:Class ;
+           rdfs:subClassOf :Strength ;
+           <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+           rdfs:label "Toughness"@en ,
+                      "Zähigkeit"@de ;
+           <http://www.w3.org/2004/02/skos/core#definition> "Toughness or tenacity describes the resistance of a material to fracture or crack propagation. Toughness is determined by the ability to absorb mechanical energy during plastic deformation."@en ,
+                                                            "Zähigkeit oder Tenazität beschreibt die Widerstandsfähigkeit eines Werkstoffs gegen Bruch oder Rissausbreitung. Die Zähigkeit wird durch die Fähigkeit zur Absorption von mechanischer Energie bei plastischer Verformung bestimmt."@de ;
+           <http://www.w3.org/2004/02/skos/core#prefLabel> "Toughness"@en ,
+                                                           "Zähigkeit"@de .
+
+
+###  https://w3id.org/pmd/co/UpperYieldStrength
+:UpperYieldStrength rdf:type owl:Class ;
+                    rdfs:subClassOf :YieldStrength ;
+                    <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+                    <http://purl.obolibrary.org/obo/IAO_0000119> "https://en.wikipedia.org/wiki/Yield_(engineering)"@en ;
+                    rdfs:label "Obere Streckgrenze"@de ,
+                               "Upper Yield Strength"@en ;
+                    <http://www.w3.org/2004/02/skos/core#altLabel> "Obere Fließspannung"@de ,
+                                                                   "Upper Yield Stress"@en .
+
+
+###  https://w3id.org/pmd/co/Viscoelasticity
+:Viscoelasticity rdf:type owl:Class ;
+                 rdfs:subClassOf :Strength ;
+                 <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+                 rdfs:label "Viscoelasticity"@en ,
+                            "Viscoelastizität"@de ;
+                 <http://www.w3.org/2004/02/skos/core#altLabel> "Elasticity of viscosity"@en ,
+                                                                "Viskoelastizität"@de ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "Viscoelasticity is the property of materials that exhibit both viscous and elastic characteristics when undergoing deformation."@en ,
+                                                                  "Viscoelastizität ist die Eigenschaft von Materialien, die sowohl viskose als auch elastische Eigenschaften aufweisen, wenn sie sich verformen."@de ;
+                 <http://www.w3.org/2004/02/skos/core#prefLabel> "Viscoelasticity"@en ,
+                                                                 "Viscoelastizität"@de .
+
+
+###  https://w3id.org/pmd/co/Viscosity
+:Viscosity rdf:type owl:Class ;
+           rdfs:subClassOf :Plasticity ;
+           <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+           rdfs:label "Viscosity"@en ,
+                      "Viskosität"@de ;
+           <http://www.w3.org/2004/02/skos/core#definition> "Die Messung des Widerstands einer Flüssigkeit gegen den Fluss"@de ,
+                                                            "The measure of a fluid's resistance to flow"@en ;
+           <http://www.w3.org/2004/02/skos/core#prefLabel> "Viscosity"@en ,
+                                                           "Viskosität"@de .
 
 
 ###  https://w3id.org/pmd/co/Volume
 :Volume rdf:type owl:Class ;
-        rdfs:subClassOf :ThermodynamicParameter .
+        rdfs:subClassOf :SimulatedThermodynamicParameter .
 
 
-###  https://w3id.org/pmd/co/datatrans#ParametricDimension
-:ParametricDimension rdf:type owl:Class ;
-                     rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000030> .
+###  https://w3id.org/pmd/co/VolumeViscosity
+:VolumeViscosity rdf:type owl:Class ;
+                 rdfs:subClassOf :Viscosity ;
+                 <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+                 rdfs:label "Volume Viscosity"@en ,
+                            "Volumenviskosität"@de ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "Die Messung des Widerstands einer Flüssigkeit gegen den Fluss bei Volumenspannung"@de ,
+                                                                  "The measure of a fluid's resistance to volumetric stress"@en .
 
 
-###  https://w3id.org/pmd/co/datatrans#ParametricInputGrid
-:ParametricInputGrid rdf:type owl:Class ;
-                     rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000030> ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :hasDimension ;
-                                       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                       owl:onClass :ParametricDimension
-                                     ] .
+###  https://w3id.org/pmd/co/YieldStrength
+:YieldStrength rdf:type owl:Class ;
+               rdfs:subClassOf :Plasticity ;
+               <http://purl.obolibrary.org/obo/IAO_0000117> "PERSON: Thomas Hanke" ;
+               <http://purl.obolibrary.org/obo/IAO_0000119> "https://en.wikipedia.org/wiki/Yield_(engineering)"@en ;
+               rdfs:label "Fließgrenze"@de ,
+                          "Yield Strength"@en ;
+               <http://www.w3.org/2004/02/skos/core#altLabel> "Yield Stress"@en .
 
 
-###  https://w3id.org/pmd/co/datatrans#ScalarIntervalSpecification
-:ScalarIntervalSpecification rdf:type owl:Class ;
-                             rdfs:subClassOf <http://purl.obolibrary.org/obo/OBI_0001931> ,
-                                             [ rdf:type owl:Restriction ;
-                                               owl:onProperty <http://purl.obolibrary.org/obo/OBI_0001937> ;
-                                               owl:cardinality "2"^^xsd:nonNegativeInteger
-                                             ] .
+###  https://w3id.org/pmd/co/datatrans#AnisotropicPressure
+:AnisotropicPressure rdf:type owl:Class ;
+                     rdfs:subClassOf :Pressure .
 
 
-###  https://w3id.org/pmd/co/datatrans#ThermodynamicParameter
-:ThermodynamicParameter rdf:type owl:Class ;
-                        rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000030> ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty :hasParameter ;
-                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                          owl:onClass :ThermodynamicParameter
-                                        ] .
+###  https://w3id.org/pmd/co/datatrans#Concentration
+:Concentration rdf:type owl:Class ;
+               rdfs:subClassOf :SimulatedThermodynamicParameter .
+
+
+###  https://w3id.org/pmd/co/datatrans#Deformation
+:Deformation rdf:type owl:Class ;
+             rdfs:subClassOf :SimulatedThermodynamicParameter .
+
+
+###  https://w3id.org/pmd/co/datatrans#FirstDerivativeOfEnergy
+:FirstDerivativeOfEnergy rdf:type owl:Class ;
+                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                               owl:onProperty :isDerivativeOfEnergyOrder ;
+                                               owl:hasValue 1
+                                             ] ;
+                         rdfs:subClassOf :SimulatedPhysicalQuality .
+
+
+###  https://w3id.org/pmd/co/datatrans#HydrostaticPressure
+:HydrostaticPressure rdf:type owl:Class ;
+                     rdfs:subClassOf :Pressure .
+
+
+###  https://w3id.org/pmd/co/datatrans#ParametricallyDefinedValueSpecification
+:ParametricallyDefinedValueSpecification rdf:type owl:Class ;
+                                         owl:equivalentClass [ owl:intersectionOf ( <http://purl.obolibrary.org/obo/OBI_0001933>
+                                                                                    [ rdf:type owl:Restriction ;
+                                                                                      owl:onProperty :definedForConditions ;
+                                                                                      owl:someValuesFrom :ParametricInputGrid
+                                                                                    ]
+                                                                                  ) ;
+                                                               rdf:type owl:Class
+                                                             ] ;
+                                         rdfs:subClassOf <http://purl.obolibrary.org/obo/OBI_0001933> ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <http://purl.obolibrary.org/obo/IAO_0000039> ;
+                                                           owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                                         ] .
+
+
+###  https://w3id.org/pmd/co/datatrans#SecondDerivativeOfEnergy
+:SecondDerivativeOfEnergy rdf:type owl:Class ;
+                          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                owl:onProperty :isDerivativeOfEnergyOrder ;
+                                                owl:hasValue 2
+                                              ] ;
+                          rdfs:subClassOf :SimulatedPhysicalQuality .
+
+
+###  https://w3id.org/pmd/co/datatrans#ZeroDerivativeOfEnergy
+:ZeroDerivativeOfEnergy rdf:type owl:Class ;
+                        owl:equivalentClass [ rdf:type owl:Restriction ;
+                                              owl:onProperty :isDerivativeOfEnergyOrder ;
+                                              owl:hasValue 0
+                                            ] ;
+                        rdfs:subClassOf :SimulatedPhysicalQuality .
 
 
 #################################################################
@@ -323,6 +1017,14 @@ objectives is a planned process.""" ;
   owl:members ( :Pressure
                 :Temperature
                 :Volume
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :FirstDerivativeOfEnergy
+                :SecondDerivativeOfEnergy
+                :ZeroDerivativeOfEnergy
               )
 ] .
 
