@@ -54,43 +54,48 @@
 
 ###  https://w3id.org/pmd/co/definedForConditions
 :definedForConditions rdf:type owl:ObjectProperty ;
-                      rdfs:domain :ParametricallyDefinedValueSpecification ,
-                                  :SimulatedPhysicalQuality ;
-                      rdfs:range :ParametricInputGrid .
+                      rdfs:range :ParametricSpace .
+
+
+###  https://w3id.org/pmd/co/hasCMSOStructure
+:hasCMSOStructure rdf:type owl:ObjectProperty ;
+                  rdfs:domain :CMSOMaterial ;
+                  rdfs:range :CMSOStructureType .
 
 
 ###  https://w3id.org/pmd/co/hasDimension
 :hasDimension rdf:type owl:ObjectProperty ;
-              rdfs:domain :ParametricInputGrid ;
+              rdfs:domain :ParametricSpace ;
               rdfs:range :ParametricDimension .
 
 
-###  https://w3id.org/pmd/co/hasLeftBoundary
-:hasLeftBoundary rdf:type owl:ObjectProperty ;
-                 owl:inverseOf :isLeftBoundaryOf ;
-                 rdfs:domain :ParametricDimension ;
-                 rdfs:range <http://purl.obolibrary.org/obo/OBI_0001931> .
-
-
-###  https://w3id.org/pmd/co/hasParameter
-:hasParameter rdf:type owl:ObjectProperty ;
-              rdfs:domain :ParametricDimension ;
-              rdfs:range :SimulatedThermodynamicParameter .
-
-
-###  https://w3id.org/pmd/co/hasRightBoundary
-:hasRightBoundary rdf:type owl:ObjectProperty ;
-                  owl:inverseOf :isRightBoundaryOf ;
+###  https://w3id.org/pmd/co/hasLowerBoundary
+:hasLowerBoundary rdf:type owl:ObjectProperty ;
+                  owl:inverseOf :isLowerBoundaryOf ;
                   rdfs:domain :ParametricDimension ;
                   rdfs:range <http://purl.obolibrary.org/obo/OBI_0001931> .
 
 
-###  https://w3id.org/pmd/co/isLeftBoundaryOf
-:isLeftBoundaryOf rdf:type owl:ObjectProperty .
+###  https://w3id.org/pmd/co/hasParameter
+:hasParameter rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf <http://purl.obolibrary.org/obo/IAO_0000219> ;
+              rdfs:domain :ParametricDimension ;
+              rdfs:range :SimulatedThermodynamicQuality .
 
 
-###  https://w3id.org/pmd/co/isRightBoundaryOf
-:isRightBoundaryOf rdf:type owl:ObjectProperty .
+###  https://w3id.org/pmd/co/hasUpperBoundary
+:hasUpperBoundary rdf:type owl:ObjectProperty ;
+                  owl:inverseOf :isUpperBoundaryOf ;
+                  rdfs:domain :ParametricDimension ;
+                  rdfs:range <http://purl.obolibrary.org/obo/OBI_0001931> .
+
+
+###  https://w3id.org/pmd/co/isLowerBoundaryOf
+:isLowerBoundaryOf rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/pmd/co/isUpperBoundaryOf
+:isUpperBoundaryOf rdf:type owl:ObjectProperty .
 
 
 ###  https://w3id.org/pmd/co/simulatesCMSOMaterial
@@ -99,10 +104,10 @@
                        rdfs:range :CMSOMaterial .
 
 
-###  https://w3id.org/pmd/co/datatrans#hasCMSOStructure
-:hasCMSOStructure rdf:type owl:ObjectProperty ;
-                  rdfs:domain :CMSOMaterial ;
-                  rdfs:range :CMSOStructureType .
+###  https://w3id.org/pmd/co/datatrans#isDerivativeOfEnergyBy
+:isDerivativeOfEnergyBy rdf:type owl:ObjectProperty ;
+                        rdfs:domain :PhysicalDisposition ;
+                        rdfs:range :SimulatedThermodynamicQuality .
 
 
 #################################################################
@@ -114,9 +119,14 @@
                                              rdfs:comment "has specified numeric value" .
 
 
+###  https://w3id.org/pmd/co/hasNumerOfPoints
+:hasNumerOfPoints rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :ParametricDimension ;
+                  rdfs:range xsd:decimal .
+
+
 ###  https://w3id.org/pmd/co/isDerivativeOfEnergyOrder
 :isDerivativeOfEnergyOrder rdf:type owl:DatatypeProperty ;
-                           rdfs:domain :SimulatedPhysicalQuality ;
                            rdfs:range [ rdf:type rdfs:Datatype ;
                                         owl:oneOf [ rdf:type rdf:List ;
                                                     rdf:first 0 ;
@@ -130,12 +140,6 @@
                                                   ]
                                       ] ;
                            rdfs:comment "Relation of the corresponding physical property to one of the thermodynamic free energy values" .
-
-
-###  https://w3id.org/pmd/co/datatrans#hasNumerOfPoints
-:hasNumerOfPoints rdf:type owl:DatatypeProperty ;
-                  rdfs:domain :ParametricDimension ;
-                  rdfs:range xsd:decimal .
 
 
 #################################################################
@@ -486,17 +490,17 @@ Note: It is recommended to report the value in GPa rounded to the nearest 0.1 GP
 
 ###  https://w3id.org/pmd/co/EquilibriumAtomicVolume
 :EquilibriumAtomicVolume rdf:type owl:Class ;
-                         rdfs:subClassOf :GeometryRelated .
+                         rdfs:subClassOf :VolumeRelated .
 
 
 ###  https://w3id.org/pmd/co/EquilibriumDensity
 :EquilibriumDensity rdf:type owl:Class ;
-                    rdfs:subClassOf :GeometryRelated .
+                    rdfs:subClassOf :VolumeRelated .
 
 
 ###  https://w3id.org/pmd/co/EquilibriumLatticeConstant
 :EquilibriumLatticeConstant rdf:type owl:Class ;
-                            rdfs:subClassOf :GeometryRelated .
+                            rdfs:subClassOf :VolumeRelated .
 
 
 ###  https://w3id.org/pmd/co/ExtentionalViscosity
@@ -515,7 +519,7 @@ Note: It is recommended to report the value in GPa rounded to the nearest 0.1 GP
                                                owl:onProperty :isDerivativeOfEnergyOrder ;
                                                owl:hasValue 1
                                              ] ;
-                         rdfs:subClassOf :SimulatedPhysicalQuality .
+                         rdfs:subClassOf :PhysicalDisposition .
 
 
 ###  https://w3id.org/pmd/co/FlexuralStrength
@@ -534,11 +538,6 @@ Note: It is recommended to report the value in GPa rounded to the nearest 0.1 GP
 ###  https://w3id.org/pmd/co/FormationEnergy
 :FormationEnergy rdf:type owl:Class ;
                  rdfs:subClassOf :CompositionRelated .
-
-
-###  https://w3id.org/pmd/co/GeometryRelated
-:GeometryRelated rdf:type owl:Class ;
-                 rdfs:subClassOf :FirstDerivativeOfEnergy .
 
 
 ###  https://w3id.org/pmd/co/GibbsFreeEnergy
@@ -607,15 +606,6 @@ Note: It is recommended to report the value in GPa rounded to the nearest 0.1 GP
                                                                      "Kinematic viscosity is the ratio of dynamic viscosity to density."@en ;
                     <http://www.w3.org/2004/02/skos/core#prefLabel> "Kinematic Viscosity"@en ,
                                                                     "Kinematische Viskosität"@de .
-
-
-###  https://w3id.org/pmd/co/LeftBoundarySpecification
-:LeftBoundarySpecification rdf:type owl:Class ;
-                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                 owl:onProperty :isLeftBoundaryOf ;
-                                                 owl:someValuesFrom :ParametricDimension
-                                               ] ;
-                           rdfs:subClassOf <http://purl.obolibrary.org/obo/OBI_0001931> .
 
 
 ###  https://w3id.org/pmd/co/LinearElasticModulus
@@ -727,65 +717,43 @@ Note: It is recommended to report the value in GPa rounded to the nearest 0.1 GP
 
 ###  https://w3id.org/pmd/co/ParametricDimension
 :ParametricDimension rdf:type owl:Class ;
-                     owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                                  owl:onProperty :hasLeftBoundary ;
-                                                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                  owl:onClass <http://purl.obolibrary.org/obo/OBI_0001931>
-                                                                ]
-                                                                [ rdf:type owl:Restriction ;
-                                                                  owl:onProperty :hasParameter ;
-                                                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                  owl:onClass :SimulatedProcessParameter
-                                                                ]
-                                                                [ rdf:type owl:Restriction ;
-                                                                  owl:onProperty :hasRightBoundary ;
-                                                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                  owl:onClass <http://purl.obolibrary.org/obo/OBI_0001931>
-                                                                ]
-                                                              ) ;
-                                           rdf:type owl:Class
+                     owl:equivalentClass [ rdf:type owl:Restriction ;
+                                           owl:onProperty :hasParameter ;
+                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onClass <http://purl.obolibrary.org/obo/BFO_0000001>
                                          ] ;
-                     rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000030> .
+                     rdfs:subClassOf :SimulationEntitty ;
+                     rdfs:comment "Integer or float values is fine. Should we include categorical dimensions here? E.g., cold, warm, hot dimension?" ;
+                     <http://www.w3.org/2004/02/skos/core#definition> """Simulation entity which denotes an enlisted range of values of an arbitrary measurable quantity (parameter) put on some axis in ascending or descending order with certain scale. 
+
+Examples:
+ -  hardnesses of an ordered list of metals
+ -  moments of time of when some process had stopped, e.g,, times when heat oven reached 1000K temperature, provided for different repetitions of this process.
+
+Since \"measurable quantity\" can be both occurent and continuant, ParametricDimension has an entity class as its parameter.
+
+Should we include categorical values, though? E.g., cold,warm, hot?
+
+Non-examples (enlisted, but not ascending/descending):
+ - a set of social roles a person can have in a different set of situations
+ - a set of processes occuring at different stages of embrion growth
+ - a set of 1-D, 2-D or 3-D spacial regions, denoting the defects, induced by some impact. E.g., we hit a car door with a bullet at different speeds/angles and see the result.""" .
 
 
-###  https://w3id.org/pmd/co/ParametricInputGrid
-:ParametricInputGrid rdf:type owl:Class ;
-                     owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
-                                                                  owl:onProperty <http://purl.obolibrary.org/obo/OBI_0000295> ;
-                                                                  owl:someValuesFrom <http://purl.obolibrary.org/obo/OBI_0000011>
-                                                                ]
-                                                                [ rdf:type owl:Restriction ;
-                                                                  owl:onProperty :hasDimension ;
-                                                                  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                                  owl:onClass :ParametricDimension
-                                                                ]
-                                                              ) ;
-                                           rdf:type owl:Class
-                                         ] ;
-                     rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000030> ,
-                                     [ rdf:type owl:Restriction ;
+###  https://w3id.org/pmd/co/ParametricSpace
+:ParametricSpace rdf:type owl:Class ;
+                 owl:equivalentClass [ rdf:type owl:Restriction ;
                                        owl:onProperty :hasDimension ;
                                        owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                        owl:onClass :ParametricDimension
-                                     ] .
-
-
-###  https://w3id.org/pmd/co/ParametricallyDefinedValueSpecification
-:ParametricallyDefinedValueSpecification rdf:type owl:Class ;
-                                         owl:equivalentClass [ owl:intersectionOf ( <http://purl.obolibrary.org/obo/OBI_0001933>
-                                                                                    [ rdf:type owl:Restriction ;
-                                                                                      owl:onProperty :definedForConditions ;
-                                                                                      owl:someValuesFrom :ParametricInputGrid
-                                                                                    ]
-                                                                                  ) ;
-                                                               rdf:type owl:Class
-                                                             ] ;
-                                         rdfs:subClassOf <http://purl.obolibrary.org/obo/OBI_0001933> ,
-                                                         [ rdf:type owl:Restriction ;
-                                                           owl:onProperty <http://purl.obolibrary.org/obo/IAO_0000039> ;
-                                                           owl:minCardinality "1"^^xsd:nonNegativeInteger
-                                                         ] ;
-                                         rdfs:comment "do we need it? Can go with SimualtedQuality only" .
+                                     ] ;
+                 rdfs:subClassOf :SimulationEntitty ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasDimension ;
+                                   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :ParametricDimension
+                                 ] ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "Simulation entity representing a space, which dimensions are parametric dimensions. E.g., pressure-volume space of a phase diagram, red-green-blue space of color representation, valence-arousal emotional space" .
 
 
 ###  https://w3id.org/pmd/co/PhaseBoundary
@@ -855,6 +823,15 @@ Note: It is recommended to report the value in GPa rounded to the nearest 0.1 GP
 nu  (nu) is a measure of the Poisson effect. Most materials have Poisson's ratio values ranging between 0.0 and 0.5. For soft materials, such as rubber, where the bulk modulus is much higher than the shear modulus, Poisson's ratio is near 0.5. For open-cell polymer foams, Poisson's ratio is near zero, since the cells tend to collapse in compression. Many typical solids have Poisson's ratios in the range of 0.2–0.3."""@en .
 
 
+###  https://w3id.org/pmd/co/PressureDimension
+:PressureDimension rdf:type owl:Class ;
+                   owl:equivalentClass [ rdf:type owl:Restriction ;
+                                         owl:onProperty :hasParameter ;
+                                         owl:hasValue :PressureParameter
+                                       ] ;
+                   rdfs:subClassOf :ParametricDimension .
+
+
 ###  https://w3id.org/pmd/co/RadiologicQuality
 :RadiologicQuality rdf:type owl:Class ;
                    rdfs:subClassOf :PhysicalQuality ;
@@ -878,15 +855,6 @@ nu  (nu) is a measure of the Poisson effect. Most materials have Poisson's ratio
                                                                  "Rückprallhärte"@de .
 
 
-###  https://w3id.org/pmd/co/RightBoundarySpecification
-:RightBoundarySpecification rdf:type owl:Class ;
-                            owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                  owl:onProperty :isRightBoundaryOf ;
-                                                  owl:someValuesFrom :ParametricDimension
-                                                ] ;
-                            rdfs:subClassOf <http://purl.obolibrary.org/obo/OBI_0001931> .
-
-
 ###  https://w3id.org/pmd/co/ScratchHardness
 :ScratchHardness rdf:type owl:Class ;
                  rdfs:subClassOf :Hardness ;
@@ -908,7 +876,7 @@ nu  (nu) is a measure of the Poisson effect. Most materials have Poisson's ratio
                                                 owl:onProperty :isDerivativeOfEnergyOrder ;
                                                 owl:hasValue 2
                                               ] ;
-                          rdfs:subClassOf :SimulatedPhysicalQuality .
+                          rdfs:subClassOf :PhysicalDisposition .
 
 
 ###  https://w3id.org/pmd/co/ShearModulus
@@ -936,15 +904,12 @@ nu  (nu) is a measure of the Poisson effect. Most materials have Poisson's ratio
 
 ###  https://w3id.org/pmd/co/SimuationMeasurementDatum
 :SimuationMeasurementDatum rdf:type owl:Class ;
-                           owl:equivalentClass [ owl:intersectionOf ( <http://purl.obolibrary.org/obo/IAO_0000109>
-                                                                      [ rdf:type owl:Restriction ;
-                                                                        owl:onProperty <http://purl.obolibrary.org/obo/OBI_0000312> ;
-                                                                        owl:someValuesFrom :SimulationProcess
-                                                                      ]
-                                                                    ) ;
-                                                 rdf:type owl:Class
+                           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                 owl:onProperty <http://purl.obolibrary.org/obo/OBI_0000312> ;
+                                                 owl:someValuesFrom :SimulationProcess
                                                ] ;
-                           rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000109> ;
+                           rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000109> ,
+                                           :SimulationEntitty ;
                            rdfs:comment "Measurement datum, which is the specified output of some simulation process" .
 
 
@@ -963,33 +928,32 @@ nu  (nu) is a measure of the Poisson effect. Most materials have Poisson's ratio
                                          owl:onProperty :simulatesCMSOMaterial ;
                                          owl:someValuesFrom :CMSOMaterial
                                        ] ;
-                   rdfs:subClassOf :SimulatedObject .
+                   rdfs:subClassOf :SimulationEntitty .
 
 
-###  https://w3id.org/pmd/co/SimulatedObject
-:SimulatedObject rdf:type owl:Class ;
-                 rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000030> ;
-                 rdfs:comment "Apollo Simulation, purely intentional entity?" .
+###  https://w3id.org/pmd/co/SimulatedThermodynamicQuality
+:SimulatedThermodynamicQuality rdf:type owl:Class ;
+                               owl:equivalentClass [ rdf:type owl:Class ;
+                                                     owl:oneOf ( :ConcentrationParameter
+                                                                 :PressureParameter
+                                                                 :TemperatureParameter
+                                                                 :VolumeParameter
+                                                               )
+                                                   ] ;
+                               rdfs:subClassOf :SimulatedQuality ;
+                               rdfs:comment "Simulates EMMO Therm. Par." .
 
 
-###  https://w3id.org/pmd/co/SimulatedPhysicalQuality
-:SimulatedPhysicalQuality rdf:type owl:Class ;
-                          owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                owl:onProperty <http://purl.obolibrary.org/obo/IAO_0000221> ;
-                                                owl:someValuesFrom :PhysicalQuality
-                                              ] ;
-                          rdfs:subClassOf :SimuationMeasurementDatum .
-
-
-###  https://w3id.org/pmd/co/SimulatedProcessParameter
-:SimulatedProcessParameter rdf:type owl:Class ;
-                           rdfs:subClassOf :SimulatedObject .
-
-
-###  https://w3id.org/pmd/co/SimulatedThermodynamicParameter
-:SimulatedThermodynamicParameter rdf:type owl:Class ;
-                                 rdfs:subClassOf :SimulatedProcessParameter ;
-                                 rdfs:comment "Simulates EMMO Therm. Par." .
+###  https://w3id.org/pmd/co/SimulationEntitty
+:SimulationEntitty rdf:type owl:Class ;
+                   rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000027> ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty <http://purl.obolibrary.org/obo/IAO_0000219> ;
+                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                     owl:onClass <http://purl.obolibrary.org/obo/BFO_0000001>
+                                   ] ;
+                   rdfs:comment "Apollo Simulation, purely intentional entity?" ;
+                   <http://www.w3.org/2004/02/skos/core#definition> "An entity which denotes a digital representation of some BFO entity: either material or immaterial , i.e., piece of metal, metric space, quality, behavior of a system of particles or organisms." .
 
 
 ###  https://w3id.org/pmd/co/SimulationProcess
@@ -1045,6 +1009,15 @@ nu  (nu) is a measure of the Poisson effect. Most materials have Poisson's ratio
                                                            "The capacity of an object or substance to withstand great force or pressure."@en ;
           <http://www.w3.org/2004/02/skos/core#prefLabel> "Strength"@en ,
                                                           "Stärke"@de .
+
+
+###  https://w3id.org/pmd/co/TemperatureDimension
+:TemperatureDimension rdf:type owl:Class ;
+                      owl:equivalentClass [ rdf:type owl:Restriction ;
+                                            owl:onProperty :hasParameter ;
+                                            owl:hasValue :TemperatureParameter
+                                          ] ;
+                      rdfs:subClassOf :ParametricDimension .
 
 
 ###  https://w3id.org/pmd/co/TensileStrength
@@ -1153,6 +1126,20 @@ nu  (nu) is a measure of the Poisson effect. Most materials have Poisson's ratio
                                                            "Viskosität"@de .
 
 
+###  https://w3id.org/pmd/co/VolumeDimension
+:VolumeDimension rdf:type owl:Class ;
+                 owl:equivalentClass [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasParameter ;
+                                       owl:hasValue :VolumeParameter
+                                     ] ;
+                 rdfs:subClassOf :ParametricDimension .
+
+
+###  https://w3id.org/pmd/co/VolumeRelated
+:VolumeRelated rdf:type owl:Class ;
+               rdfs:subClassOf :FirstDerivativeOfEnergy .
+
+
 ###  https://w3id.org/pmd/co/VolumeViscosity
 :VolumeViscosity rdf:type owl:Class ;
                  rdfs:subClassOf :Viscosity ;
@@ -1184,49 +1171,128 @@ nu  (nu) is a measure of the Poisson effect. Most materials have Poisson's ratio
                                               owl:onProperty :isDerivativeOfEnergyOrder ;
                                               owl:hasValue 0
                                             ] ;
-                        rdfs:subClassOf :SimulatedPhysicalQuality .
+                        rdfs:subClassOf :PhysicalDisposition .
 
 
-###  https://w3id.org/pmd/co/datatrans#PressureDimension
-:PressureDimension rdf:type owl:Class ;
-                   owl:equivalentClass [ rdf:type owl:Restriction ;
-                                         owl:onProperty :hasParameter ;
-                                         owl:hasValue :PressureParameter
-                                       ] ;
-                   rdfs:subClassOf :ParametricDimension .
-
-
-###  https://w3id.org/pmd/co/datatrans#TemperatureDimension
-:TemperatureDimension rdf:type owl:Class ;
-                      owl:equivalentClass [ rdf:type owl:Restriction ;
-                                            owl:onProperty :hasParameter ;
-                                            owl:hasValue :TemperatureParameter
-                                          ] ;
-                      rdfs:subClassOf :ParametricDimension .
-
-
-###  https://w3id.org/pmd/co/datatrans#VolumeDimension
-:VolumeDimension rdf:type owl:Class ;
-                 owl:equivalentClass [ rdf:type owl:Restriction ;
-                                       owl:onProperty :hasParameter ;
-                                       owl:hasValue :VolumeParameter
-                                     ] ;
-                 rdfs:subClassOf :ParametricDimension .
-
-
-###  https://w3id.org/pmd/co/datatrans#pressureUnit
+###  https://w3id.org/pmd/co/pressureUnit
 :pressureUnit rdf:type owl:Class ;
               rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000003> .
 
 
-###  https://w3id.org/pmd/co/datatrans#temperatureUnit
+###  https://w3id.org/pmd/co/temperatureUnit
 :temperatureUnit rdf:type owl:Class ;
                  rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000003> .
 
 
-###  https://w3id.org/pmd/co/datatrans#volumeUnit
+###  https://w3id.org/pmd/co/volumeUnit
 :volumeUnit rdf:type owl:Class ;
             rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000003> .
+
+
+###  https://w3id.org/pmd/co/datatrans#Equation
+:Equation rdf:type owl:Class ;
+          rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000104> .
+
+
+###  https://w3id.org/pmd/co/datatrans#EquilibriumPressure
+:EquilibriumPressure rdf:type owl:Class ;
+                     rdfs:subClassOf :PressureRelated .
+
+
+###  https://w3id.org/pmd/co/datatrans#EquilibriumTemperature
+:EquilibriumTemperature rdf:type owl:Class ;
+                        rdfs:subClassOf :TemperatureRelated .
+
+
+###  https://w3id.org/pmd/co/datatrans#ParametricInterval
+:ParametricInterval rdf:type owl:Class ;
+                    owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :hasLowerBoundary ;
+                                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                 owl:onClass <http://purl.obolibrary.org/obo/OBI_0001931>
+                                                               ]
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :hasUpperBoundary ;
+                                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                 owl:onClass <http://purl.obolibrary.org/obo/OBI_0001931>
+                                                               ]
+                                                             ) ;
+                                          rdf:type owl:Class
+                                        ] ;
+                    rdfs:subClassOf :ParametricDimension .
+
+
+###  https://w3id.org/pmd/co/datatrans#PhysicalDisposition
+:PhysicalDisposition rdf:type owl:Class ;
+                     owl:equivalentClass [ rdf:type owl:Restriction ;
+                                           owl:onProperty <http://purl.obolibrary.org/obo/IAO_0000219> ;
+                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onClass <http://purl.obolibrary.org/obo/BFO_0000016>
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty :isDerivativeOfEnergyOrder ;
+                                           owl:someValuesFrom xsd:integer
+                                         ] ;
+                     rdfs:subClassOf :SimulateDisposition ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :isDerivativeOfEnergyBy ;
+                                       owl:someValuesFrom :SimulatedThermodynamicQuality
+                                     ] .
+
+
+###  https://w3id.org/pmd/co/datatrans#PressureRelated
+:PressureRelated rdf:type owl:Class ;
+                 rdfs:subClassOf :FirstDerivativeOfEnergy .
+
+
+###  https://w3id.org/pmd/co/datatrans#SimulateDisposition
+:SimulateDisposition rdf:type owl:Class ;
+                     owl:equivalentClass [ rdf:type owl:Restriction ;
+                                           owl:onProperty <http://purl.obolibrary.org/obo/IAO_0000219> ;
+                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                           owl:onClass <http://purl.obolibrary.org/obo/BFO_0000016>
+                                         ] ;
+                     rdfs:subClassOf :SimulationEntitty ;
+                     rdfs:comment "As opposite to simulated quality, it denotes The behavior of the material which is put into some given conditions (i.e, specifying its qualities)" .
+
+
+###  https://w3id.org/pmd/co/datatrans#SimulatedObject
+:SimulatedObject rdf:type owl:Class ;
+                 owl:equivalentClass [ rdf:type owl:Restriction ;
+                                       owl:onProperty <http://purl.obolibrary.org/obo/IAO_0000219> ;
+                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass <http://purl.obolibrary.org/obo/BFO_0000030>
+                                     ] ;
+                 rdfs:subClassOf :SimulationEntitty ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty <http://purl.obolibrary.org/obo/IAO_0000219> ;
+                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass <http://purl.obolibrary.org/obo/BFO_0000030>
+                                 ] .
+
+
+###  https://w3id.org/pmd/co/datatrans#SimulatedQuality
+:SimulatedQuality rdf:type owl:Class ;
+                  owl:equivalentClass [ rdf:type owl:Restriction ;
+                                        owl:onProperty <http://purl.obolibrary.org/obo/IAO_0000219> ;
+                                        owl:someValuesFrom :PhysicalQuality
+                                      ] ;
+                  rdfs:subClassOf :SimulationEntitty ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty <http://purl.obolibrary.org/obo/IAO_0000219> ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <http://purl.obolibrary.org/obo/BFO_0000019>
+                                  ] .
+
+
+###  https://w3id.org/pmd/co/datatrans#SimulationPlan
+:SimulationPlan rdf:type owl:Class ;
+                rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000104> .
+
+
+###  https://w3id.org/pmd/co/datatrans#TemperatureRelated
+:TemperatureRelated rdf:type owl:Class ;
+                    rdfs:subClassOf :FirstDerivativeOfEnergy .
 
 
 #################################################################
@@ -1244,15 +1310,41 @@ nu  (nu) is a measure of the Poisson effect. Most materials have Poisson's ratio
              :Unary .
 
 
+###  https://w3id.org/pmd/co/CelsiusDegree
+:CelsiusDegree rdf:type owl:NamedIndividual ,
+                        :temperatureUnit .
+
+
+###  https://w3id.org/pmd/co/ConcentrationParameter
+:ConcentrationParameter rdf:type owl:NamedIndividual ,
+                                 :SimulatedThermodynamicQuality .
+
+
 ###  https://w3id.org/pmd/co/Cu
 :Cu rdf:type owl:NamedIndividual ,
              :CMSOMaterial ,
              :Unary .
 
 
+###  https://w3id.org/pmd/co/Cu-fcc
+:Cu-fcc rdf:type owl:NamedIndividual ,
+                 :Unary ;
+        :hasCMSOStructure :fccStructure .
+
+
 ###  https://w3id.org/pmd/co/Fe
 :Fe rdf:type owl:NamedIndividual ,
              :Unary .
+
+
+###  https://w3id.org/pmd/co/KelvinDegree
+:KelvinDegree rdf:type owl:NamedIndividual ,
+                       :temperatureUnit .
+
+
+###  https://w3id.org/pmd/co/Pascal
+:Pascal rdf:type owl:NamedIndividual ,
+                 :pressureUnit .
 
 
 ###  https://w3id.org/pmd/co/Pd
@@ -1261,9 +1353,29 @@ nu  (nu) is a measure of the Poisson effect. Most materials have Poisson's ratio
              :Unary .
 
 
+###  https://w3id.org/pmd/co/PressureParameter
+:PressureParameter rdf:type owl:NamedIndividual ,
+                            :SimulatedThermodynamicQuality .
+
+
+###  https://w3id.org/pmd/co/TemperatureParameter
+:TemperatureParameter rdf:type owl:NamedIndividual ,
+                               :SimulatedThermodynamicQuality .
+
+
+###  https://w3id.org/pmd/co/VolumeParameter
+:VolumeParameter rdf:type owl:NamedIndividual ,
+                          :SimulatedThermodynamicQuality .
+
+
 ###  https://w3id.org/pmd/co/amorphousStructure
 :amorphousStructure rdf:type owl:NamedIndividual ,
                              :NonCrystal .
+
+
+###  https://w3id.org/pmd/co/atm
+:atm rdf:type owl:NamedIndividual ,
+              :pressureUnit .
 
 
 ###  https://w3id.org/pmd/co/bccStructure
@@ -1283,6 +1395,29 @@ nu  (nu) is a measure of the Poisson effect. Most materials have Poisson's ratio
                       :CrystalPeriodic .
 
 
+###  https://w3id.org/pmd/co/test1_InputGrid
+:test1_InputGrid rdf:type owl:NamedIndividual ,
+                          :ParametricSpace ;
+                 <http://purl.obolibrary.org/obo/OBI_0000295> :test1_Simulation ;
+                 :hasDimension :test1_PressureInterval ,
+                               :test1_Temp.Interval .
+
+
+###  https://w3id.org/pmd/co/test1_PressureInterval
+:test1_PressureInterval rdf:type owl:NamedIndividual ,
+                                 :PressureDimension ;
+                        :hasLowerBoundary :test1_minP ;
+                        :hasParameter :PressureParameter ;
+                        :hasUpperBoundary :test1_maxP ;
+                        :hasNumerOfPoints 0 .
+
+
+###  https://w3id.org/pmd/co/test1_Simul.Material
+:test1_Simul.Material rdf:type owl:NamedIndividual ,
+                               :SimulatedMaterial ;
+                      :simulatesCMSOMaterial :Cu-fcc .
+
+
 ###  https://w3id.org/pmd/co/test1_Simulated_Cp
 :test1_Simulated_Cp rdf:type owl:NamedIndividual ,
                              :ConstantPressureHeatCapacity ;
@@ -1295,106 +1430,37 @@ nu  (nu) is a measure of the Poisson effect. Most materials have Poisson's ratio
                            :SimulationProcess .
 
 
-###  https://w3id.org/pmd/co/datatrans#CelsiusDegree
-:CelsiusDegree rdf:type owl:NamedIndividual ,
-                        :temperatureUnit .
-
-
-###  https://w3id.org/pmd/co/datatrans#ConcentrationParameter
-:ConcentrationParameter rdf:type owl:NamedIndividual ,
-                                 :SimulatedThermodynamicParameter .
-
-
-###  https://w3id.org/pmd/co/datatrans#Cu-fcc
-:Cu-fcc rdf:type owl:NamedIndividual ,
-                 :Unary ;
-        :hasCMSOStructure :fccStructure .
-
-
-###  https://w3id.org/pmd/co/datatrans#KelvinDegree
-:KelvinDegree rdf:type owl:NamedIndividual ,
-                       :temperatureUnit .
-
-
-###  https://w3id.org/pmd/co/datatrans#Pascal
-:Pascal rdf:type owl:NamedIndividual ,
-                 :pressureUnit .
-
-
-###  https://w3id.org/pmd/co/datatrans#PressureParameter
-:PressureParameter rdf:type owl:NamedIndividual ,
-                            :SimulatedThermodynamicParameter .
-
-
-###  https://w3id.org/pmd/co/datatrans#TemperatureParameter
-:TemperatureParameter rdf:type owl:NamedIndividual ,
-                               :SimulatedThermodynamicParameter .
-
-
-###  https://w3id.org/pmd/co/datatrans#VolumeParameter
-:VolumeParameter rdf:type owl:NamedIndividual ,
-                          :SimulatedThermodynamicParameter .
-
-
-###  https://w3id.org/pmd/co/datatrans#atm
-:atm rdf:type owl:NamedIndividual ,
-              :pressureUnit .
-
-
-###  https://w3id.org/pmd/co/datatrans#test1_InputGrid
-:test1_InputGrid rdf:type owl:NamedIndividual ,
-                          :ParametricInputGrid ;
-                 <http://purl.obolibrary.org/obo/OBI_0000295> :test1_Simulation ;
-                 :hasDimension :test1_PressureInterval ,
-                               :test1_Temp.Interval .
-
-
-###  https://w3id.org/pmd/co/datatrans#test1_PressureInterval
-:test1_PressureInterval rdf:type owl:NamedIndividual ,
-                                 :PressureDimension ;
-                        :hasLeftBoundary :test1_minP ;
-                        :hasParameter :PressureParameter ;
-                        :hasRightBoundary :test1_maxP ;
-                        :hasNumerOfPoints 0 .
-
-
-###  https://w3id.org/pmd/co/datatrans#test1_Simul.Material
-:test1_Simul.Material rdf:type owl:NamedIndividual ,
-                               :SimulatedMaterial ;
-                      :simulatesCMSOMaterial :Cu-fcc .
-
-
-###  https://w3id.org/pmd/co/datatrans#test1_Temp.Interval
+###  https://w3id.org/pmd/co/test1_Temp.Interval
 :test1_Temp.Interval rdf:type owl:NamedIndividual ,
                               :TemperatureDimension ;
-                     :hasLeftBoundary :test1_minT ;
+                     :hasLowerBoundary :test1_minT ;
                      :hasParameter :TemperatureParameter ;
-                     :hasRightBoundary :test1_maxT ;
+                     :hasUpperBoundary :test1_maxT ;
                      :hasNumerOfPoints 3 .
 
 
-###  https://w3id.org/pmd/co/datatrans#test1_maxP
+###  https://w3id.org/pmd/co/test1_maxP
 :test1_maxP rdf:type owl:NamedIndividual ,
                      <http://purl.obolibrary.org/obo/OBI_0001931> ;
             <http://purl.obolibrary.org/obo/IAO_0000039> :Pascal ;
             <http://purl.obolibrary.org/obo/OBI_0001937> 0 .
 
 
-###  https://w3id.org/pmd/co/datatrans#test1_maxT
+###  https://w3id.org/pmd/co/test1_maxT
 :test1_maxT rdf:type owl:NamedIndividual ,
                      <http://purl.obolibrary.org/obo/OBI_0001931> ;
             <http://purl.obolibrary.org/obo/IAO_0000039> :KelvinDegree ;
             <http://purl.obolibrary.org/obo/OBI_0001937> 900 .
 
 
-###  https://w3id.org/pmd/co/datatrans#test1_minP
+###  https://w3id.org/pmd/co/test1_minP
 :test1_minP rdf:type owl:NamedIndividual ,
                      <http://purl.obolibrary.org/obo/OBI_0001931> ;
             <http://purl.obolibrary.org/obo/IAO_0000039> :Pascal ;
             <http://purl.obolibrary.org/obo/OBI_0001937> 0 .
 
 
-###  https://w3id.org/pmd/co/datatrans#test1_minT
+###  https://w3id.org/pmd/co/test1_minT
 :test1_minT rdf:type owl:NamedIndividual ,
                      <http://purl.obolibrary.org/obo/OBI_0001931> ;
             <http://purl.obolibrary.org/obo/IAO_0000039> :KelvinDegree ;
@@ -1430,4 +1496,4 @@ nu  (nu) is a measure of the Poisson effect. Most materials have Poisson's ratio
 ] .
 
 
-###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
