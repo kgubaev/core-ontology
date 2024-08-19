@@ -52,9 +52,14 @@
 #    Object Properties
 #################################################################
 
-###  https://w3id.org/pmd/co/definedForConditions
-:definedForConditions rdf:type owl:ObjectProperty ;
-                      rdfs:range :ParametricSpace .
+###  http://purl.obolibrary.org/obo/OBI_0001927
+<http://purl.obolibrary.org/obo/OBI_0001927> rdf:type owl:ObjectProperty ;
+                                             rdfs:subPropertyOf <http://purl.obolibrary.org/obo/IAO_0000136> ;
+                                             rdfs:domain <http://purl.obolibrary.org/obo/OBI_0001933> ;
+                                             <http://purl.obolibrary.org/obo/IAO_0000111> "specifies value of" ;
+                                             <http://purl.obolibrary.org/obo/IAO_0000114> <http://purl.obolibrary.org/obo/IAO_0000123> ;
+                                             <http://purl.obolibrary.org/obo/IAO_0000115> "A relation between a value specification and an entity which the specification is about." ;
+                                             rdfs:label "specifies value of" .
 
 
 ###  https://w3id.org/pmd/co/hasCMSOStructure
@@ -71,6 +76,7 @@
 
 ###  https://w3id.org/pmd/co/hasLowerBoundary
 :hasLowerBoundary rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :hasPoint ;
                   owl:inverseOf :isLowerBoundaryOf ;
                   rdfs:domain :ParametricDimension ;
                   rdfs:range <http://purl.obolibrary.org/obo/OBI_0001931> .
@@ -78,13 +84,15 @@
 
 ###  https://w3id.org/pmd/co/hasParameter
 :hasParameter rdf:type owl:ObjectProperty ;
-              rdfs:subPropertyOf <http://purl.obolibrary.org/obo/IAO_0000219> ;
+              rdfs:subPropertyOf <http://purl.obolibrary.org/obo/IAO_0000136> ;
               rdfs:domain :ParametricDimension ;
-              rdfs:range :SimulatedThermodynamicQuality .
+              rdfs:range :SimulatedQuality ;
+              <http://www.w3.org/2004/02/skos/core#definition> "Relation between ParametricDimension and which SimulatedQuality, which tells that the points on this dimension axis are measured values of this quality." .
 
 
 ###  https://w3id.org/pmd/co/hasUpperBoundary
 :hasUpperBoundary rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :hasPoint ;
                   owl:inverseOf :isUpperBoundaryOf ;
                   rdfs:domain :ParametricDimension ;
                   rdfs:range <http://purl.obolibrary.org/obo/OBI_0001931> .
@@ -92,22 +100,61 @@
 
 ###  https://w3id.org/pmd/co/isDerivativeOfEnergyBy
 :isDerivativeOfEnergyBy rdf:type owl:ObjectProperty ;
-                        rdfs:domain :PhysicalDisposition ;
-                        rdfs:range :SimulatedThermodynamicQuality .
+                        rdfs:domain :SimulatedPhysicalDisposition ;
+                        rdfs:range :SimulatedPhysicalQuality .
 
 
 ###  https://w3id.org/pmd/co/isLowerBoundaryOf
-:isLowerBoundaryOf rdf:type owl:ObjectProperty .
+:isLowerBoundaryOf rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :isPointOf .
 
 
 ###  https://w3id.org/pmd/co/isUpperBoundaryOf
-:isUpperBoundaryOf rdf:type owl:ObjectProperty .
+:isUpperBoundaryOf rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :isPointOf .
 
 
-###  https://w3id.org/pmd/co/simulatesCMSOMaterial
-:simulatesCMSOMaterial rdf:type owl:ObjectProperty ;
-                       rdfs:domain :SimulatedMaterial ;
-                       rdfs:range :CMSOMaterial .
+###  https://w3id.org/pmd/co/datatrans#acquiresValueOf
+:acquiresValueOf rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf <http://purl.obolibrary.org/obo/IAO_0000136> ;
+                 rdfs:domain :SimulationPlan ;
+                 rdfs:range :SimulatedPhysicalDisposition ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "Property used to relate the SimulationPlanSpecification to the output of the corresponding SimulationProcess, realized by this plan." .
+
+
+###  https://w3id.org/pmd/co/datatrans#hasInputParameterSpace
+:hasInputParameterSpace rdf:type owl:ObjectProperty ;
+                        rdfs:domain :SimulationPlan ;
+                        rdfs:range :ParametricSpace .
+
+
+###  https://w3id.org/pmd/co/datatrans#hasPoint
+:hasPoint rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf owl:topObjectProperty ;
+          owl:inverseOf :isPointOf ;
+          rdfs:domain :ParametricDimension ;
+          rdfs:range <http://purl.obolibrary.org/obo/OBI_0001931> .
+
+
+###  https://w3id.org/pmd/co/datatrans#isPointOf
+:isPointOf rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty .
+
+
+###  https://w3id.org/pmd/co/datatrans#providesSimulationNumber
+:providesSimulationNumber rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf <http://purl.obolibrary.org/obo/IAO_0000136> ;
+                          rdfs:domain :SimulationPlan ;
+                          rdfs:range :SimulationProcess ;
+                          <http://www.w3.org/2004/02/skos/core#definition> "Property used to relate the SimulationPlanSpecification to number of the corresponding SimulationProcess, realized by this plan." .
+
+
+###  https://w3id.org/pmd/co/datatrans#providesValueFor
+:providesValueFor rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf <http://purl.obolibrary.org/obo/IAO_0000136> ;
+                  rdfs:domain :SimulationPlan ;
+                  rdfs:range :SimulatedPhysicalQuality ;
+                  <http://www.w3.org/2004/02/skos/core#definition> "Property used to relate the SimulationPlanSpecification to the input of the corresponding SimulationProcess, realized by this plan." .
 
 
 #################################################################
@@ -122,7 +169,8 @@
 ###  https://w3id.org/pmd/co/hasNumerOfPoints
 :hasNumerOfPoints rdf:type owl:DatatypeProperty ;
                   rdfs:domain :ParametricDimension ;
-                  rdfs:range xsd:decimal .
+                  rdfs:range xsd:integer ;
+                  <http://www.w3.org/2004/02/skos/core#definition> "A data property which tells how many points the ParametricDimension has" .
 
 
 ###  https://w3id.org/pmd/co/isDerivativeOfEnergyOrder
@@ -140,6 +188,14 @@
                                                   ]
                                       ] ;
                            rdfs:comment "Relation of the corresponding physical property to one of the thermodynamic free energy values" .
+
+
+###  https://w3id.org/pmd/co/datatrans#hasSimulationNumber
+:hasSimulationNumber rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf owl:topDataProperty ;
+                     rdfs:domain :SimulationProcess ;
+                     rdfs:range xsd:integer ;
+                     <http://www.w3.org/2004/02/skos/core#definition> "A data property that tells the number of the SimulationProcess inside the SimulationPlanSpecification. It is used to link the certain process instance with the corresponding values of input and output." .
 
 
 #################################################################
@@ -319,7 +375,8 @@ objectives is a planned process.""" ;
 
 ###  https://w3id.org/pmd/co/AdiabaticCompressibility
 :AdiabaticCompressibility rdf:type owl:Class ;
-                          rdfs:subClassOf :Compressibility .
+                          rdfs:subClassOf :Compressibility ;
+                          <http://www.w3.org/2004/02/skos/core#definition> "Compressibility at constant enthropy (fast)" .
 
 
 ###  https://w3id.org/pmd/co/Binary
@@ -371,14 +428,31 @@ objectives is a planned process.""" ;
 
 ###  https://w3id.org/pmd/co/CompositionRelated
 :CompositionRelated rdf:type owl:Class ;
+                    owl:equivalentClass [ rdf:type owl:Restriction ;
+                                          owl:onProperty :isDerivativeOfEnergyBy ;
+                                          owl:hasValue :ConcentrationParameter
+                                        ] ;
                     rdfs:subClassOf :FirstDerivativeOfEnergy ;
                     <http://www.w3.org/2004/02/skos/core#definition> "Derivatives over concentration" .
 
 
 ###  https://w3id.org/pmd/co/Compressibility
 :Compressibility rdf:type owl:Class ;
+                 owl:equivalentClass [ rdf:type owl:Restriction ;
+                                       owl:onProperty :isDerivativeOfEnergyBy ;
+                                       owl:hasValue :PressureParameter
+                                     ] ;
                  rdfs:subClassOf :SecondDerivativeOfEnergy ;
                  <http://www.w3.org/2004/02/skos/core#definition> "Second derivative of free energy over pressure" .
+
+
+###  https://w3id.org/pmd/co/ConcentrationDimension
+:ConcentrationDimension rdf:type owl:Class ;
+                        owl:equivalentClass [ rdf:type owl:Restriction ;
+                                              owl:onProperty :hasParameter ;
+                                              owl:hasValue :ConcentrationParameter
+                                            ] ;
+                        rdfs:subClassOf :ThermodynamicDimension .
 
 
 ###  https://w3id.org/pmd/co/ConstantPressureHeatCapacity
@@ -491,11 +565,6 @@ Note: It is recommended to report the value in GPa rounded to the nearest 0.1 GP
           rdfs:subClassOf :PhaseRegion .
 
 
-###  https://w3id.org/pmd/co/Equation
-:Equation rdf:type owl:Class ;
-          rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000104> .
-
-
 ###  https://w3id.org/pmd/co/EquilibriumAtomicVolume
 :EquilibriumAtomicVolume rdf:type owl:Class ;
                          rdfs:subClassOf :VolumeRelated ;
@@ -539,10 +608,15 @@ Note: It is recommended to report the value in GPa rounded to the nearest 0.1 GP
 ###  https://w3id.org/pmd/co/FirstDerivativeOfEnergy
 :FirstDerivativeOfEnergy rdf:type owl:Class ;
                          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                               owl:onProperty :isDerivativeOfEnergyBy ;
+                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                               owl:onClass :SimulatedPhysicalQuality
+                                             ] ,
+                                             [ rdf:type owl:Restriction ;
                                                owl:onProperty :isDerivativeOfEnergyOrder ;
                                                owl:hasValue 1
                                              ] ;
-                         rdfs:subClassOf :PhysicalDisposition ;
+                         rdfs:subClassOf :SimulatedPhysicalDisposition ;
                          <http://www.w3.org/2004/02/skos/core#definition> "A Physical Disposition specifying the first derivative of one of the energies at certain region of thermodynamic (Pressure, Volume, Temperature, Concentration) space." .
 
 
@@ -613,9 +687,15 @@ Note: It is recommended to report the value in GPa rounded to the nearest 0.1 GP
                                                                      "Indentationshärte"@de .
 
 
+###  https://w3id.org/pmd/co/InternalEnergy
+:InternalEnergy rdf:type owl:Class ;
+                rdfs:subClassOf :PhaseRegion .
+
+
 ###  https://w3id.org/pmd/co/IsothermalCompressibility
 :IsothermalCompressibility rdf:type owl:Class ;
-                           rdfs:subClassOf :Compressibility .
+                           rdfs:subClassOf :Compressibility ;
+                           <http://www.w3.org/2004/02/skos/core#definition> "Compressibility at constant temperature (slow)" .
 
 
 ###  https://w3id.org/pmd/co/KinematicViscosity
@@ -640,6 +720,10 @@ Note: It is recommended to report the value in GPa rounded to the nearest 0.1 GP
 
 ###  https://w3id.org/pmd/co/LinearElastisityModulus
 :LinearElastisityModulus rdf:type owl:Class ;
+                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                               owl:onProperty :isDerivativeOfEnergyBy ;
+                                               owl:hasValue :VolumeParameter
+                                             ] ;
                          rdfs:subClassOf :SecondDerivativeOfEnergy ,
                                          [ rdf:type owl:Restriction ;
                                            owl:onProperty <http://purl.obolibrary.org/obo/IAO_0000221> ;
@@ -805,6 +889,12 @@ Non-examples (enlisted, but not ascending/descending):
                <http://www.w3.org/2004/02/skos/core#definition> "Subclass of PhaseDifference which specifies exactly zero value of energy difference in some region of thermodynamic (Pressure,Temperature,Volume,Concentration) space." .
 
 
+###  https://w3id.org/pmd/co/PhaseDifference
+:PhaseDifference rdf:type owl:Class ;
+                 rdfs:subClassOf :ZeroDerivativeOfEnergy ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "Disposition which specifies value(s) of the energy difference between two phases in some region of thermodynamic (Pressure,Temperature,Volume,Concentration) space." .
+
+
 ###  https://w3id.org/pmd/co/PhaseRegion
 :PhaseRegion rdf:type owl:Class ;
              rdfs:subClassOf :ZeroDerivativeOfEnergy ;
@@ -824,25 +914,6 @@ Non-examples (enlisted, but not ascending/descending):
 ###  https://w3id.org/pmd/co/PhaseTransitionVolume
 :PhaseTransitionVolume rdf:type owl:Class ;
                        rdfs:subClassOf :PhaseBoundary .
-
-
-###  https://w3id.org/pmd/co/PhysicalDisposition
-:PhysicalDisposition rdf:type owl:Class ;
-                     owl:equivalentClass [ rdf:type owl:Restriction ;
-                                           owl:onProperty <http://purl.obolibrary.org/obo/IAO_0000219> ;
-                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                           owl:onClass <http://purl.obolibrary.org/obo/BFO_0000016>
-                                         ] ,
-                                         [ rdf:type owl:Restriction ;
-                                           owl:onProperty :isDerivativeOfEnergyOrder ;
-                                           owl:someValuesFrom xsd:integer
-                                         ] ;
-                     rdfs:subClassOf :SimulateDisposition ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :isDerivativeOfEnergyBy ;
-                                       owl:someValuesFrom :SimulatedThermodynamicQuality
-                                     ] ;
-                     rdfs:comment "Dispositions which carry dependency to the one of the free energies quantities (Gibbs or Helmholtz one) used in physics. Instantiating physical results as instances of this class will allow to find connexions between different properties." .
 
 
 ###  https://w3id.org/pmd/co/PhysicalQuality
@@ -898,6 +969,10 @@ nu  (nu) is a measure of the Poisson effect. Most materials have Poisson's ratio
 
 ###  https://w3id.org/pmd/co/PressureRelated
 :PressureRelated rdf:type owl:Class ;
+                 owl:equivalentClass [ rdf:type owl:Restriction ;
+                                       owl:onProperty :isDerivativeOfEnergyBy ;
+                                       owl:hasValue :PressureParameter
+                                     ] ;
                  rdfs:subClassOf :FirstDerivativeOfEnergy ;
                  <http://www.w3.org/2004/02/skos/core#definition> "Derivatives over pressure" .
 
@@ -942,11 +1017,24 @@ nu  (nu) is a measure of the Poisson effect. Most materials have Poisson's ratio
 
 ###  https://w3id.org/pmd/co/SecondDerivativeOfEnergy
 :SecondDerivativeOfEnergy rdf:type owl:Class ;
-                          owl:equivalentClass [ rdf:type owl:Restriction ;
+                          owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :isDerivativeOfEnergyBy ;
+                                                                       owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                                       owl:onClass :SimulatedPhysicalQuality
+                                                                     ]
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :isDerivativeOfEnergyBy ;
+                                                                       owl:maxQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+                                                                       owl:onClass :SimulatedPhysicalQuality
+                                                                     ]
+                                                                   ) ;
+                                                rdf:type owl:Class
+                                              ] ,
+                                              [ rdf:type owl:Restriction ;
                                                 owl:onProperty :isDerivativeOfEnergyOrder ;
                                                 owl:hasValue 2
                                               ] ;
-                          rdfs:subClassOf :PhysicalDisposition ;
+                          rdfs:subClassOf :SimulatedPhysicalDisposition ;
                           <http://www.w3.org/2004/02/skos/core#definition> """A Physical Disposition specifying the second derivative of one of the energies at certain region of thermodynamic (Pressure, Volume, Temperature, Concentration) space.
 
 Sometimes called response functions, many of the materials properties are actually second derivatives of the free energy over some thermodynamic qualities (Pressure, Temperature, Volume). For Concentration I am not sure.
@@ -991,19 +1079,23 @@ https://phys.uri.edu/gerhard/PHY525/tln7.pdf""" .
                            <http://www.w3.org/2004/02/skos/core#definition> "Measurement datum, which is the specified output of some simulation process" .
 
 
-###  https://w3id.org/pmd/co/SimulateDisposition
-:SimulateDisposition rdf:type owl:Class ;
-                     owl:equivalentClass [ rdf:type owl:Restriction ;
-                                           owl:onProperty <http://purl.obolibrary.org/obo/IAO_0000219> ;
-                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                           owl:onClass <http://purl.obolibrary.org/obo/BFO_0000016>
-                                         ] ;
-                     rdfs:subClassOf :SimulationEntitty ;
-                     <http://www.w3.org/2004/02/skos/core#definition> "As opposite to simulated quality, it denotes the behavior of the material which is put into some given conditions (i.e, specifying its qualities)" .
+###  https://w3id.org/pmd/co/SimulatedDisposition
+:SimulatedDisposition rdf:type owl:Class ;
+                      owl:equivalentClass [ rdf:type owl:Restriction ;
+                                            owl:onProperty <http://purl.obolibrary.org/obo/IAO_0000219> ;
+                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                            owl:onClass <http://purl.obolibrary.org/obo/BFO_0000016>
+                                          ] ;
+                      rdfs:subClassOf :SimulationEntitty ;
+                      <http://www.w3.org/2004/02/skos/core#definition> "As opposite to simulated quality, it denotes the behavior of the material which is put into some given conditions (i.e, specifying its qualities)" .
 
 
 ###  https://w3id.org/pmd/co/SimulatedHeatCapacity
 :SimulatedHeatCapacity rdf:type owl:Class ;
+                       owl:equivalentClass [ rdf:type owl:Restriction ;
+                                             owl:onProperty :isDerivativeOfEnergyBy ;
+                                             owl:hasValue :TemperatureParameter
+                                           ] ;
                        rdfs:subClassOf :SecondDerivativeOfEnergy ,
                                        [ rdf:type owl:Restriction ;
                                          owl:onProperty <http://purl.obolibrary.org/obo/IAO_0000221> ;
@@ -1015,7 +1107,7 @@ https://phys.uri.edu/gerhard/PHY525/tln7.pdf""" .
 ###  https://w3id.org/pmd/co/SimulatedMaterial
 :SimulatedMaterial rdf:type owl:Class ;
                    owl:equivalentClass [ rdf:type owl:Restriction ;
-                                         owl:onProperty :simulatesCMSOMaterial ;
+                                         owl:onProperty <http://purl.obolibrary.org/obo/IAO_0000219> ;
                                          owl:someValuesFrom :CMSOMaterial
                                        ] ;
                    rdfs:subClassOf :SimulationEntitty ;
@@ -1038,11 +1130,43 @@ https://phys.uri.edu/gerhard/PHY525/tln7.pdf""" .
                  <http://www.w3.org/2004/02/skos/core#definition> "Simulation Entity denoting some BFO:object" .
 
 
+###  https://w3id.org/pmd/co/SimulatedPhysicalDisposition
+:SimulatedPhysicalDisposition rdf:type owl:Class ;
+                              owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                    owl:onProperty <http://purl.obolibrary.org/obo/IAO_0000219> ;
+                                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                    owl:onClass <http://purl.obolibrary.org/obo/BFO_0000016>
+                                                  ] ,
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :isDerivativeOfEnergyOrder ;
+                                                    owl:someValuesFrom xsd:integer
+                                                  ] ;
+                              rdfs:subClassOf :SimulatedDisposition ,
+                                              [ rdf:type owl:Restriction ;
+                                                owl:onProperty :isDerivativeOfEnergyBy ;
+                                                owl:someValuesFrom :SimulatedPhysicalQuality
+                                              ] ;
+                              rdfs:comment "Dispositions which carry dependency to the one of the free energies quantities (Gibbs or Helmholtz one) used in physics. Instantiating physical results as instances of this class will allow to find connexions between different properties." .
+
+
+###  https://w3id.org/pmd/co/SimulatedPhysicalQuality
+:SimulatedPhysicalQuality rdf:type owl:Class ;
+                          owl:equivalentClass [ rdf:type owl:Class ;
+                                                owl:oneOf ( :ConcentrationParameter
+                                                            :PressureParameter
+                                                            :TemperatureParameter
+                                                            :VolumeParameter
+                                                          )
+                                              ] ;
+                          rdfs:subClassOf :SimulatedQuality ;
+                          <http://www.w3.org/2004/02/skos/core#definition> "Special class which denotes qualites, on which many physical properties (qualities or dispositions) depend. In particular, PhysicalDisposition class." .
+
+
 ###  https://w3id.org/pmd/co/SimulatedQuality
 :SimulatedQuality rdf:type owl:Class ;
                   owl:equivalentClass [ rdf:type owl:Restriction ;
                                         owl:onProperty <http://purl.obolibrary.org/obo/IAO_0000219> ;
-                                        owl:someValuesFrom :PhysicalQuality
+                                        owl:someValuesFrom <http://purl.obolibrary.org/obo/BFO_0000019>
                                       ] ;
                   rdfs:subClassOf :SimulationEntitty ,
                                   [ rdf:type owl:Restriction ;
@@ -1053,27 +1177,14 @@ https://phys.uri.edu/gerhard/PHY525/tln7.pdf""" .
                   rdfs:comment "SimulationEntity denoting Quality" .
 
 
-###  https://w3id.org/pmd/co/SimulatedThermodynamicQuality
-:SimulatedThermodynamicQuality rdf:type owl:Class ;
-                               owl:equivalentClass [ rdf:type owl:Class ;
-                                                     owl:oneOf ( :ConcentrationParameter
-                                                                 :PressureParameter
-                                                                 :TemperatureParameter
-                                                                 :VolumeParameter
-                                                               )
-                                                   ] ;
-                               rdfs:subClassOf :SimulatedQuality ;
-                               <http://www.w3.org/2004/02/skos/core#definition> "Special class which denotes qualites, on which many physical properties (qualities or dispositions) depend. In particular, PhysicalDisposition class." .
-
-
 ###  https://w3id.org/pmd/co/SimulationEntitty
 :SimulationEntitty rdf:type owl:Class ;
-                   rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000027> ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty <http://purl.obolibrary.org/obo/IAO_0000219> ;
-                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                     owl:onClass <http://purl.obolibrary.org/obo/BFO_0000001>
-                                   ] ;
+                   owl:equivalentClass [ rdf:type owl:Restriction ;
+                                         owl:onProperty <http://purl.obolibrary.org/obo/IAO_0000219> ;
+                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                         owl:onClass <http://purl.obolibrary.org/obo/BFO_0000001>
+                                       ] ;
+                   rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000027> ;
                    rdfs:comment "Apollo Simulation, purely intentional entity?" ;
                    <http://www.w3.org/2004/02/skos/core#definition> "An entity which denotes a digital representation of some BFO entity: either material or immaterial , i.e., piece of metal, metric space, quality, behavior of a system of particles or organisms." .
 
@@ -1150,6 +1261,10 @@ https://phys.uri.edu/gerhard/PHY525/tln7.pdf""" .
 
 ###  https://w3id.org/pmd/co/TemperatureRelated
 :TemperatureRelated rdf:type owl:Class ;
+                    owl:equivalentClass [ rdf:type owl:Restriction ;
+                                          owl:onProperty :isDerivativeOfEnergyBy ;
+                                          owl:hasValue :TemperatureParameter
+                                        ] ;
                     rdfs:subClassOf :FirstDerivativeOfEnergy ;
                     <http://www.w3.org/2004/02/skos/core#definition> "Derivatives over temperature" .
 
@@ -1167,6 +1282,17 @@ https://phys.uri.edu/gerhard/PHY525/tln7.pdf""" .
 
 ###  https://w3id.org/pmd/co/ThermalExpansion
 :ThermalExpansion rdf:type owl:Class ;
+                  owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :isDerivativeOfEnergyBy ;
+                                                               owl:hasValue :PressureParameter
+                                                             ]
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :isDerivativeOfEnergyBy ;
+                                                               owl:hasValue :TemperatureParameter
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] ;
                   rdfs:subClassOf :SecondDerivativeOfEnergy ;
                   <http://www.w3.org/2004/02/skos/core#definition> "Second mixed derivative of free energy over pressure&temperature" .
 
@@ -1182,20 +1308,14 @@ https://phys.uri.edu/gerhard/PHY525/tln7.pdf""" .
 
 ###  https://w3id.org/pmd/co/ThermalLinearExpansion
 :ThermalLinearExpansion rdf:type owl:Class ;
-                        rdfs:subClassOf :ThermalExpansion ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty <http://purl.obolibrary.org/obo/IAO_0000221> ;
-                                          owl:someValuesFrom :LinearThermalExpansionCoefficient
-                                        ] .
+                        rdfs:subClassOf :ThermalExpansion ;
+                        <http://www.w3.org/2004/02/skos/core#definition> "Measure of relative linear deformation with temperature" .
 
 
 ###  https://w3id.org/pmd/co/ThermalVolumeExpansion
 :ThermalVolumeExpansion rdf:type owl:Class ;
-                        rdfs:subClassOf :ThermalExpansion ,
-                                        [ rdf:type owl:Restriction ;
-                                          owl:onProperty <http://purl.obolibrary.org/obo/IAO_0000221> ;
-                                          owl:someValuesFrom :Linear_Thermal_Expansion_Coefficient
-                                        ] .
+                        rdfs:subClassOf :ThermalExpansion ;
+                        <http://www.w3.org/2004/02/skos/core#definition> "Measure of relative volume change with temperature" .
 
 
 ###  https://w3id.org/pmd/co/ThermoDynamicQuality
@@ -1205,6 +1325,16 @@ https://phys.uri.edu/gerhard/PHY525/tln7.pdf""" .
                       rdfs:label "Thermo Dynamic Quality"@en ,
                                  "Thermodynamische Qualität"@de ;
                       <http://www.w3.org/2004/02/skos/core#definition> "Thermal Quality is a quality that characterizes an material entity's behavior or state in relation to thermal heating or cooling."@en .
+
+
+###  https://w3id.org/pmd/co/ThermodynamicDimension
+:ThermodynamicDimension rdf:type owl:Class ;
+                        owl:equivalentClass [ rdf:type owl:Restriction ;
+                                              owl:onProperty :hasParameter ;
+                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                              owl:onClass :SimulatedPhysicalQuality
+                                            ] ;
+                        rdfs:subClassOf :ParametricDimension .
 
 
 ###  https://w3id.org/pmd/co/Toughness
@@ -1272,6 +1402,10 @@ https://phys.uri.edu/gerhard/PHY525/tln7.pdf""" .
 
 ###  https://w3id.org/pmd/co/VolumeRelated
 :VolumeRelated rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty :isDerivativeOfEnergyBy ;
+                                     owl:hasValue :VolumeParameter
+                                   ] ;
                rdfs:subClassOf :FirstDerivativeOfEnergy ;
                <http://www.w3.org/2004/02/skos/core#definition> "Derivatives over length/volume" .
 
@@ -1304,10 +1438,15 @@ https://phys.uri.edu/gerhard/PHY525/tln7.pdf""" .
 ###  https://w3id.org/pmd/co/ZeroDerivativeOfEnergy
 :ZeroDerivativeOfEnergy rdf:type owl:Class ;
                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                              owl:onProperty :isDerivativeOfEnergyBy ;
+                                              owl:qualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+                                              owl:onClass :SimulatedPhysicalQuality
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
                                               owl:onProperty :isDerivativeOfEnergyOrder ;
                                               owl:hasValue 0
                                             ] ;
-                        rdfs:subClassOf :PhysicalDisposition .
+                        rdfs:subClassOf :SimulatedPhysicalDisposition .
 
 
 ###  https://w3id.org/pmd/co/pressureUnit
@@ -1325,44 +1464,44 @@ https://phys.uri.edu/gerhard/PHY525/tln7.pdf""" .
             rdfs:subClassOf <http://purl.obolibrary.org/obo/IAO_0000003> .
 
 
-###  https://w3id.org/pmd/co/datatrans#BulkModulus
-:BulkModulus rdf:type owl:Class ;
-             rdfs:subClassOf :LinearElastisityModulus .
+###  https://w3id.org/pmd/co/datatrans#PhysicalSimulationPlan
+:PhysicalSimulationPlan rdf:type owl:Class ;
+                        rdfs:subClassOf :SimulationPlan .
 
 
-###  https://w3id.org/pmd/co/datatrans#ConcentrationDimension
-:ConcentrationDimension rdf:type owl:Class ;
-                        owl:equivalentClass [ rdf:type owl:Restriction ;
-                                              owl:onProperty :hasParameter ;
-                                              owl:hasValue :ConcentrationParameter
-                                            ] ;
-                        rdfs:subClassOf :ThermodynamicDimension .
+###  https://w3id.org/pmd/co/datatrans#PhysicalSimulationProcess
+:PhysicalSimulationProcess rdf:type owl:Class ;
+                           owl:equivalentClass [ owl:intersectionOf ( <http://purl.obolibrary.org/obo/OBI_0000011>
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty <http://purl.obolibrary.org/obo/OBI_0000293> ;
+                                                                        owl:someValuesFrom :SimulatedPhysicalQuality
+                                                                      ]
+                                                                      [ rdf:type owl:Restriction ;
+                                                                        owl:onProperty <http://purl.obolibrary.org/obo/OBI_0000299> ;
+                                                                        owl:someValuesFrom :SimulatedPhysicalDisposition
+                                                                      ]
+                                                                    ) ;
+                                                 rdf:type owl:Class
+                                               ] ;
+                           rdfs:subClassOf :SimulationProcess .
 
 
-###  https://w3id.org/pmd/co/datatrans#InternalEnergy
-:InternalEnergy rdf:type owl:Class ;
-                rdfs:subClassOf :PhaseRegion .
+###  https://w3id.org/pmd/co/datatrans#TheoreticalBulkModulus
+:TheoreticalBulkModulus rdf:type owl:Class ;
+                        rdfs:subClassOf :LinearElastisityModulus ;
+                        rdfs:comment "Added Theoretical not to mix with real physical property" .
 
 
-###  https://w3id.org/pmd/co/datatrans#PhaseDifference
-:PhaseDifference rdf:type owl:Class ;
-                 rdfs:subClassOf :ZeroDerivativeOfEnergy ;
-                 <http://www.w3.org/2004/02/skos/core#definition> "Disposition which specifies value(s) of the energy difference between two phases in some region of thermodynamic (Pressure,Temperature,Volume,Concentration) space." .
+###  https://w3id.org/pmd/co/datatrans#TheoreticalShearModulus
+:TheoreticalShearModulus rdf:type owl:Class ;
+                         rdfs:subClassOf :LinearElastisityModulus ;
+                         rdfs:comment "Added Theoretical not to mix with real physical property" .
 
 
-###  https://w3id.org/pmd/co/datatrans#ShearModulus
-:ShearModulus rdf:type owl:Class ;
-              rdfs:subClassOf :LinearElastisityModulus .
-
-
-###  https://w3id.org/pmd/co/datatrans#ThermodynamicDimension
-:ThermodynamicDimension rdf:type owl:Class ;
-                        rdfs:subClassOf :ParametricDimension .
-
-
-###  https://w3id.org/pmd/co/datatrans#YoungModulus
-:YoungModulus rdf:type owl:Class ;
-              rdfs:subClassOf :LinearElastisityModulus .
+###  https://w3id.org/pmd/co/datatrans#TheoreticalYoungModulus
+:TheoreticalYoungModulus rdf:type owl:Class ;
+                         rdfs:subClassOf :LinearElastisityModulus ;
+                         rdfs:comment "Added Theoretical not to mix with real physical property" .
 
 
 #################################################################
@@ -1380,6 +1519,11 @@ https://phys.uri.edu/gerhard/PHY525/tln7.pdf""" .
              :Unary .
 
 
+###  https://w3id.org/pmd/co/Atmospheres
+:Atmospheres rdf:type owl:NamedIndividual ,
+                      :pressureUnit .
+
+
 ###  https://w3id.org/pmd/co/CelsiusDegree
 :CelsiusDegree rdf:type owl:NamedIndividual ,
                         :temperatureUnit .
@@ -1387,7 +1531,7 @@ https://phys.uri.edu/gerhard/PHY525/tln7.pdf""" .
 
 ###  https://w3id.org/pmd/co/ConcentrationParameter
 :ConcentrationParameter rdf:type owl:NamedIndividual ,
-                                 :SimulatedThermodynamicQuality .
+                                 :SimulatedPhysicalQuality .
 
 
 ###  https://w3id.org/pmd/co/Cu
@@ -1425,17 +1569,17 @@ https://phys.uri.edu/gerhard/PHY525/tln7.pdf""" .
 
 ###  https://w3id.org/pmd/co/PressureParameter
 :PressureParameter rdf:type owl:NamedIndividual ,
-                            :SimulatedThermodynamicQuality .
+                            :SimulatedPhysicalQuality .
 
 
 ###  https://w3id.org/pmd/co/TemperatureParameter
 :TemperatureParameter rdf:type owl:NamedIndividual ,
-                               :SimulatedThermodynamicQuality .
+                               :SimulatedPhysicalQuality .
 
 
 ###  https://w3id.org/pmd/co/VolumeParameter
 :VolumeParameter rdf:type owl:NamedIndividual ,
-                          :SimulatedThermodynamicQuality .
+                          :SimulatedPhysicalQuality .
 
 
 ###  https://w3id.org/pmd/co/amorphousStructure
@@ -1443,17 +1587,14 @@ https://phys.uri.edu/gerhard/PHY525/tln7.pdf""" .
                              :NonCrystal .
 
 
-###  https://w3id.org/pmd/co/atm
-:atm rdf:type owl:NamedIndividual ,
-              :pressureUnit .
-
-
 ###  https://w3id.org/pmd/co/bccStructure
-:bccStructure rdf:type owl:NamedIndividual .
+:bccStructure rdf:type owl:NamedIndividual ,
+                       :CrystalPeriodic .
 
 
 ###  https://w3id.org/pmd/co/fccStructure
-:fccStructure rdf:type owl:NamedIndividual .
+:fccStructure rdf:type owl:NamedIndividual ,
+                       :CrystalPeriodic .
 
 
 ###  https://w3id.org/pmd/co/liquidStructure
@@ -1468,31 +1609,37 @@ https://phys.uri.edu/gerhard/PHY525/tln7.pdf""" .
 ###  https://w3id.org/pmd/co/test1_InputGrid
 :test1_InputGrid rdf:type owl:NamedIndividual ,
                           :ParametricSpace ;
-                 <http://purl.obolibrary.org/obo/OBI_0000295> :test1_Simulation ;
                  :hasDimension :test1_PressureInterval ,
                                :test1_Temp.Interval .
+
+
+###  https://w3id.org/pmd/co/test1_P0
+:test1_P0 rdf:type owl:NamedIndividual ,
+                   <http://purl.obolibrary.org/obo/OBI_0001931> ;
+          <http://purl.obolibrary.org/obo/IAO_0000039> :Atmospheres ;
+          <http://purl.obolibrary.org/obo/OBI_0001927> :PressureParameter ;
+          <http://purl.obolibrary.org/obo/OBI_0001937> 1 .
 
 
 ###  https://w3id.org/pmd/co/test1_PressureInterval
 :test1_PressureInterval rdf:type owl:NamedIndividual ,
                                  :PressureDimension ;
-                        :hasLowerBoundary :test1_minP ;
+                        :hasLowerBoundary :test1_P0 ;
                         :hasParameter :PressureParameter ;
-                        :hasUpperBoundary :test1_maxP ;
-                        :hasNumerOfPoints 0 .
+                        :hasUpperBoundary :test1_P2 ;
+                        :hasPoint :test1_P1 ;
+                        :hasNumerOfPoints 3 .
 
 
 ###  https://w3id.org/pmd/co/test1_Simul.Material
 :test1_Simul.Material rdf:type owl:NamedIndividual ,
-                               :SimulatedMaterial ;
-                      :simulatesCMSOMaterial :Cu-fcc .
+                               :SimulatedMaterial .
 
 
-###  https://w3id.org/pmd/co/test1_Simulated_Cp
-:test1_Simulated_Cp rdf:type owl:NamedIndividual ,
-                             :ConstantPressureHeatCapacity ;
-                    <http://purl.obolibrary.org/obo/OBI_0000312> :test1_Simulation ;
-                    :definedForConditions :test1_InputGrid .
+###  https://w3id.org/pmd/co/test1_Simulated_B_0
+:test1_Simulated_B_0 rdf:type owl:NamedIndividual ,
+                              :TheoreticalBulkModulus ;
+                     <http://purl.obolibrary.org/obo/OBI_0000312> :test1_Simulation .
 
 
 ###  https://w3id.org/pmd/co/test1_Simulation
@@ -1500,41 +1647,59 @@ https://phys.uri.edu/gerhard/PHY525/tln7.pdf""" .
                            :SimulationProcess .
 
 
+###  https://w3id.org/pmd/co/test1_T0
+:test1_T0 rdf:type owl:NamedIndividual ,
+                   <http://purl.obolibrary.org/obo/OBI_0001931> ;
+          <http://purl.obolibrary.org/obo/IAO_0000039> :KelvinDegree ;
+          <http://purl.obolibrary.org/obo/OBI_0001927> :TemperatureParameter ;
+          <http://purl.obolibrary.org/obo/OBI_0001937> 300 .
+
+
 ###  https://w3id.org/pmd/co/test1_Temp.Interval
 :test1_Temp.Interval rdf:type owl:NamedIndividual ,
                               :TemperatureDimension ;
-                     :hasLowerBoundary :test1_minT ;
                      :hasParameter :TemperatureParameter ;
-                     :hasUpperBoundary :test1_maxT ;
-                     :hasNumerOfPoints 3 .
+                     :hasPoint :test1_T0 ;
+                     :hasNumerOfPoints 1 .
 
 
-###  https://w3id.org/pmd/co/test1_maxP
-:test1_maxP rdf:type owl:NamedIndividual ,
-                     <http://purl.obolibrary.org/obo/OBI_0001931> ;
-            <http://purl.obolibrary.org/obo/IAO_0000039> :Pascal ;
-            <http://purl.obolibrary.org/obo/OBI_0001937> 0 .
+###  https://w3id.org/pmd/co/datatrans#SimulationPlan_test1
+:SimulationPlan_test1 rdf:type owl:NamedIndividual ,
+                               :PhysicalSimulationPlan .
 
 
-###  https://w3id.org/pmd/co/test1_maxT
-:test1_maxT rdf:type owl:NamedIndividual ,
-                     <http://purl.obolibrary.org/obo/OBI_0001931> ;
-            <http://purl.obolibrary.org/obo/IAO_0000039> :KelvinDegree ;
-            <http://purl.obolibrary.org/obo/OBI_0001937> 900 .
+###  https://w3id.org/pmd/co/datatrans#SimulationProcess_test1_0
+:SimulationProcess_test1_0 rdf:type owl:NamedIndividual ,
+                                    :PhysicalSimulationProcess ;
+                           :hasSimulationNumber 0 .
 
 
-###  https://w3id.org/pmd/co/test1_minP
-:test1_minP rdf:type owl:NamedIndividual ,
-                     <http://purl.obolibrary.org/obo/OBI_0001931> ;
-            <http://purl.obolibrary.org/obo/IAO_0000039> :Pascal ;
-            <http://purl.obolibrary.org/obo/OBI_0001937> 0 .
+###  https://w3id.org/pmd/co/datatrans#SimulationProcess_test1_1
+:SimulationProcess_test1_1 rdf:type owl:NamedIndividual ,
+                                    :PhysicalSimulationProcess ;
+                           :hasSimulationNumber 1 .
 
 
-###  https://w3id.org/pmd/co/test1_minT
-:test1_minT rdf:type owl:NamedIndividual ,
-                     <http://purl.obolibrary.org/obo/OBI_0001931> ;
-            <http://purl.obolibrary.org/obo/IAO_0000039> :KelvinDegree ;
-            <http://purl.obolibrary.org/obo/OBI_0001937> 100 .
+###  https://w3id.org/pmd/co/datatrans#SimulationProcess_test1_2
+:SimulationProcess_test1_2 rdf:type owl:NamedIndividual ,
+                                    :PhysicalSimulationProcess ;
+                           :hasSimulationNumber 2 .
+
+
+###  https://w3id.org/pmd/co/datatrans#test1_P1
+:test1_P1 rdf:type owl:NamedIndividual ,
+                   <http://purl.obolibrary.org/obo/OBI_0001931> ;
+          <http://purl.obolibrary.org/obo/IAO_0000039> :Atmospheres ;
+          <http://purl.obolibrary.org/obo/OBI_0001927> :PressureParameter ;
+          <http://purl.obolibrary.org/obo/OBI_0001937> 5 .
+
+
+###  https://w3id.org/pmd/co/datatrans#test1_P2
+:test1_P2 rdf:type owl:NamedIndividual ,
+                   <http://purl.obolibrary.org/obo/OBI_0001931> ;
+          <http://purl.obolibrary.org/obo/IAO_0000039> :Atmospheres ;
+          <http://purl.obolibrary.org/obo/OBI_0001927> :PressureParameter ;
+          <http://purl.obolibrary.org/obo/OBI_0001937> 20 .
 
 
 #################################################################
