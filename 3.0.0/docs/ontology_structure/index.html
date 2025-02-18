@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Ontology Structure - PMD Core Ontology</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Ontology Structure";
+        var mkdocs_page_input_path = "ontology_structure.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> PMD Core Ontology
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Welcome</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../intro/">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../background_and_context/">Background and Context</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Ontology Structure</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#key-components">Key Components</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#properties">Properties</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#individuals">Individuals</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hierarchy">Hierarchy</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#annotations">Annotations</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#aristotelian-definition">Aristotelian definition:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#constraints-and-rules">Constraints and Rules</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../design_and_methodology/">Design and Methodology</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../patterns/">Patterns</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../usage_guidelines/">Usage Guidelines</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../examples_and_usecases/">Examples and Use Cases</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../validation_and_evaluation/">Validation and Evaluation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../glossary_and_tools/">Glossary and Tools</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../versions/">Versions</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../contributing/">Contributing</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../publications/">Publications</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../references/">References</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../acknowledgements/">Acknowledgements</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">PMD Core Ontology</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Ontology Structure</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="ontology-structure">Ontology Structure</h1>
+<p>TODO:</p>
+<blockquote>
+<ul>
+<li><strong>Key Components</strong>:</li>
+<li><strong>Classes</strong>: Define the primary categories or entities.</li>
+<li><strong>Properties</strong>: Describe relationships (object properties) and attributes (data properties).</li>
+<li><strong>Individuals</strong>: Provide examples of specific instances.</li>
+<li><strong>Hierarchy</strong>:</li>
+<li>Present the taxonomy or class hierarchy (e.g., parent-child relationships).</li>
+<li>Use diagrams for clarity.</li>
+<li><strong>Annotations</strong>: Document metadata for classes, properties, and individuals (e.g., labels, comments, descriptions).</li>
+<li><strong>Constraints and Rules</strong>: Define any restrictions (e.g., cardinality constraints, domain/range specifications).</li>
+</ul>
+</blockquote>
+<h2 id="key-components">Key Components</h2>
+<p>The key components within PMDco are based on classic ontology development, so that classes, object properties, data properties, individuals, and annotations are defined and specified in PMDco. </p>
+<h3 id="classes">Classes</h3>
+<p>PMDco defines several primary categories central to materials science and engineering (MSE) as classes. Notable classes include:</p>
+<ul>
+<li><strong>Material</strong>: A Material is a portion of matter that has the disposition to participate in some manufacturing process and whose shape is not relevant for its disposition to participate in the manufacuring process.</li>
+<li><strong>Manufacturing Process</strong>: Denotes a planned process that is driven by the primary intent to transform objects. A manufacturing process is always a transformative process.</li>
+<li><strong>Mechanical Property Analyzing Process</strong>: Refers to an assay that evaluates the mechanical characteristics of materials, such as strength, hardness, elasticity, and tensile properties, often through tests that measure response to forces and loads.</li>
+<li><strong>Material Property</strong>: A material property is a material trait in terms of the kind and magnitude of response to a specific imposed stimulus. Generally, definitions of properties are made independent of material shape and size.</li>
+</ul>
+<h3 id="properties">Properties</h3>
+<p>PMDco includes properties that define relationships and attributes:</p>
+<ul>
+<li><strong>Object Properties</strong>:</li>
+<li><strong>stimulates</strong>: Links a stimulating process to a material property involved.</li>
+<li>
+<p><strong>composed of</strong>: The property specifies of which kind of general portion of material something is built of.</p>
+</li>
+<li>
+<p><strong>Data Properties</strong>:</p>
+</li>
+<li><strong>hasValue</strong>: Assigns a specific value to a property, such as a numerical measurement.</li>
+<li><strong>hasUnit</strong>: Specifies the unit of measurement for a given value.</li>
+</ul>
+<h3 id="individuals">Individuals</h3>
+<p>While PMDco serves as a mid-level ontology and may not define specific instances, it provides a framework for users to instantiate individuals pertinent to their domain. Therefore, however, it does not contain individuals in its pure form.</p>
+<h2 id="hierarchy">Hierarchy</h2>
+<p>PMDco presents a structured taxonomy with parent-child relationships among classes (class/subclass-relations). For example:</p>
+<ul>
+<li><strong>Entity</strong></li>
+<li><strong>Continuant</strong><ul>
+<li><strong>Independent Continuant</strong></li>
+<li><strong>Material Entity</strong><ul>
+<li><strong>Material Entity Aggregate</strong></li>
+<li><strong>Portion of Matter</strong><ul>
+<li><strong>Material</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Occurrent</strong><ul>
+<li><strong>Process</strong></li>
+<li><strong>Planned Process</strong><ul>
+<li><strong>Manufacturing Process</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Block depiction:
+<code>Entity
+  ├── Continuant
+  │   ├── Independent Continuant
+  │   │   ├── Material Entity
+  │   │   │   ├── Material Entity Aggregate
+  │   │   │   │   ├── Portion of Matter
+  │   │   │   │   │   └── Material
+  ├── Occurrent
+  │   ├── Process
+  │   │   ├── Planned Process
+  │   │   │   └── Manufacturing Process</code></p>
+<p>This hierarchical structure facilitates organized data representation and promotes interoperability across MSE domains.</p>
+<h2 id="annotations">Annotations</h2>
+<p>PMDco employs annotations to enrich classes and properties with metadata and human readable information, enhancing clarity and usability. This information may be provided in different natural languages (e.g., English and German).</p>
+<ul>
+<li><strong>Labels</strong> | <strong><em>rdfs:label</em></strong>: Provide human-readable names for ontology elements.</li>
+<li><strong>Comments</strong> | <strong><em>rdfs:comment</em></strong>: Offer detailed descriptions, usage notes, clarifications of definitions, or additional relevant information. They may enhance the understanding of the terms regarded.</li>
+<li><strong>Definitions</strong> | <strong><em>skos:definition</em></strong>: Delivers formal, human readable explanations and descriptions of classes and properties. Preferably, <a href="#aristotelian-definition">Aristotelian definitions</a> are used that support in finding subclass relationships.</li>
+<li><strong>Definition Source</strong> | <strong><em>obo:IAO_0000119</em></strong>: If the definition was obtained from a specific source (e.g., a well-known work from the field of MSE, a dictionary, or a URI/URL), this is specified as definition source, also citing the original document.</li>
+</ul>
+<blockquote>
+<h4 id="aristotelian-definition">Aristotelian definition:</h4>
+<p>An <strong>Aristotelian definition</strong> typically refers to defining something by its genus (general category) and differentia (specific characteristics that distinguish it from other members of the same genus). This method is rooted in Aristotle's philosophy and is often used in ontology development to define classes in relation to their superclasses. For more information, please see <a href="https://www.merriam-webster.com/dictionary/Aristotelian">Aristotelian</a> and <a href="https://en.wikipedia.org/wiki/Aristotelianism">Aristotelianism</a>.</p>
+</blockquote>
+<p>For instance, the class <strong>Material</strong> may have the following annotations:
+- <strong>Label</strong>: "Material"@en, "Material"@de
+- <strong>Definition</strong>: "A Material is a Portion Of Matter that has the disposition to participate in some Manifacturing Process and whose shape is not relevant for its disposition to participate in the Manifacuring Process."@en
+- <strong>Comment</strong>: "The sum of portions of matter of the same type form a portion of matter of that type."@en</p>
+<h2 id="constraints-and-rules">Constraints and Rules</h2>
+<p>PMDco defines specific constraints to ensure data consistency:</p>
+<ul>
+<li><strong>Cardinality Constraints</strong>: Specify the number of times a property can be associated with a class.</li>
+<li>
+<p>For example, a <strong>Manufacturing Process</strong> may be constrained to have some <strong>material entity</strong> as input using the <strong>has_specified_input</strong> property.</p>
+</li>
+<li>
+<p><strong>Domain and Range Specifications</strong>: Define the applicable classes for properties.</p>
+</li>
+<li>The <strong>stimulates</strong> property (subproperty of <strong>realizes</strong>) has a domain of <strong>Stimulating Process</strong> and a range of <strong>Material Property</strong>.</li>
+</ul>
+<p>These constraints ensure logical consistency and facilitate accurate data representation within the ontology.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../background_and_context/" class="btn btn-neutral float-left" title="Background and Context"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../design_and_methodology/" class="btn btn-neutral float-right" title="Design and Methodology">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../background_and_context/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../design_and_methodology/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

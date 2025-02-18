@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Examples and Use Cases - PMD Core Ontology</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Examples and Use Cases";
+        var mkdocs_page_input_path = "examples_and_usecases.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> PMD Core Ontology
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Welcome</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../intro/">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../background_and_context/">Background and Context</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../ontology_structure/">Ontology Structure</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../design_and_methodology/">Design and Methodology</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../patterns/">Patterns</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../usage_guidelines/">Usage Guidelines</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Examples and Use Cases</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#scenario-tensile-testing">Scenario: Tensile Testing</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#scenario-description-tensile-testing-of-metallic-materials">Scenario Description: Tensile Testing of Metallic Materials</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#steps-involved">Steps Involved</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sample-data">Sample Data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#applications">Applications</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#current-applications">Current Applications</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#possible-future-applications">Possible Future Applications</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#contributions-of-pmdco">Contributions of PMDco</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../validation_and_evaluation/">Validation and Evaluation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../glossary_and_tools/">Glossary and Tools</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../versions/">Versions</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../contributing/">Contributing</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../publications/">Publications</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../references/">References</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../acknowledgements/">Acknowledgements</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">PMD Core Ontology</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Examples and Use Cases</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="examples-and-use-cases">Examples and Use Cases</h1>
+<p>TODO (Ideas):</p>
+<blockquote>
+<ul>
+<li><strong>Scenarios</strong>: Demonstrate how the ontology can be applied in real-world scenarios.</li>
+<li><strong>Sample Data</strong>: Include sample datasets and their representation in the ontology.</li>
+<li><strong>Applications</strong>: Highlight applications where the ontology has been or can be used.</li>
+</ul>
+</blockquote>
+<h2 id="scenario-tensile-testing">Scenario: Tensile Testing</h2>
+<p>Tensile testing is a fundamental and widely used technique in materials science and engineering (MSE) to evaluate the mechanical properties of metallic materials. It involves subjecting a specimen to uniaxial tension until failure which provides data on mechanical properties such as strength, ductility, and elasticity. This scenario refers to how the tensile test ontology (TTO) can be applied to transform classic tensile test data - originally stored in varied formats - into semantically enriched RDF data to ensure data interoperability, transparency, and reproducibility. The TTO was designed on the basis of the PMDco and can be found in a <a href="https://github.com/materialdigital/tensile-test-ontology">repository dedicated to TTO version 3.0</a>.</p>
+<h3 id="scenario-description-tensile-testing-of-metallic-materials">Scenario Description: Tensile Testing of Metallic Materials</h3>
+<p>In this scenario, a series of tensile tests is performed on metallic materials to determine their mechanical properties such as tensile strength, yield strength, and elongation. The tests are conducted in accordance with the ISO 6892-1 test standard, which specifies the method for tensile testing at room temperature.</p>
+<h3 id="steps-involved">Steps Involved</h3>
+<ol>
+<li><strong>Preparation of Test Specimens</strong>: Metallic specimens are prepared according to the test standard specifications.</li>
+<li><strong>Conducting the Tensile Test</strong>: The specimens are subjected to axial tensile loads until failure, and the resulting deformation is measured.</li>
+<li><strong>Data Collection</strong>: Raw data (primary data), including time, force, and elongation, are collected during the test.</li>
+<li><strong>Data Transformation</strong>: The <strong><em>primary data</em></strong> are used to obtain characteristic values of the specimen material. Furthermore, <strong><em>metadata</em></strong> (test machine specifications, environmental conditions) are regarded. Data are transformed into RDF format using the TTO, ensuring that they are semantically enriched and machine-actionable.</li>
+<li><strong>Additional Data Analysis</strong>: The RDF data may be queried and further analyzed to extract key mechanical properties. Thereby, advanced querying and interoperability across datasets is enabled.</li>
+</ol>
+<h3 id="sample-data">Sample Data</h3>
+<p>The tensile testing scenario utilized sample data available in an <a href="https://doi.org/10.5281/zenodo.6778335">open access Zenodo repository</a>. 
+This dataset includes:
+- <strong>Raw test data</strong>: Force-displacement curves and stress-strain data.
+- <strong>Metadata</strong>: Machine configurations, sample dimensions, and test conditions.
+- <strong>Derived data</strong>: Mechanical properties like yield strength, ultimate tensile strength, and elongation at fracture.</p>
+<p>Example RDF snippet representing some aspects of tensile test data (in TTL format):</p>
+<pre><code class="language-turtle">@prefix tto: &lt;https://w3id.org/pmd/tto/&gt;.
+@prefix pmdco: &lt;https://w3id.org/pmd/co/&gt;.
+@prefix obo: &lt;http://purl.obolibrary.org/obo/&gt;.
+
+:pmdao-tto-tt-S355-6_maximumForce_Fm a tto:MaximumForce ;
+    obo:IAO_0000417 tto:pmdao-tto-tt-S355-6_maximumForce_Fm_scalar_measurement_datum .
+
+:pmdao-tto-tt-S355-6_maximumForce_Fm_scalar_measurement_datum a obo:IAO_0000032 ;
+    obo:IAO_0000136 &lt;https://w3id.org/pmd/demodata/tensiletest_S355/testpiece/Zy2&gt; ;
+    obo:OBI_0001938 
+    tto:pmdao-tto-tt-S355-6_maximumForce_Fm_value_specification .
+
+:tto-tt-S355-6_process a obo:OBI_0000011,
+        tto:TensileTest ;
+    obo:BFO_0000055 prefix:pmdao-tto-tt-S355-6_process_plan ;
+    obo:OBI_0000293 &lt;https://w3id.org/pmd/demodata/tensiletest_S355/testpiece/Zy2&gt; ;
+    obo:OBI_0000299        tto:pmdao-tto-tt-S355-6_maximumForce_Fm_scalar_measurement_datum .
+</code></pre>
+<h3 id="applications">Applications</h3>
+<h4 id="current-applications">Current Applications</h4>
+<ul>
+<li><strong>Data Integration</strong>: TTO is already applied to unify disparate tensile test datasets, ensuring standardized descriptions and facilitating cross-institutional collaborations. A demonstration of the combination of different test data stemming from various sources (test methods) is provided by the <a href="https://github.com/materialdigital/demo-orowan">PMD Orowan Demonstrator</a>.</li>
+<li><strong>Advanced Querying</strong>: Researchers use the ontology to perform detailed queries about tensile properties across large datasets.</li>
+<li><strong>Educational Tools</strong>: TTO serves as a teaching tool for demonstrating the benefits of semantic data representation in MSE.</li>
+</ul>
+<h4 id="possible-future-applications">Possible Future Applications</h4>
+<ul>
+<li><strong>Materials Informatics</strong>: By coupling TTO with machine learning algorithms, predictive models for material performance could be developed.</li>
+<li><strong>Digital Twins</strong>: The ontology can be a foundation for creating digital representations of testing setups for simulation purposes.</li>
+</ul>
+<h3 id="contributions-of-pmdco">Contributions of PMDco</h3>
+<p>The PMD Core Ontology (PMDco) underpins the TTO by:</p>
+<ol>
+<li><strong>Providing a Semantic Framework</strong>: The robust mid-level semantic structure of PMDco bridges domain-specific concepts with universal ontological standards.</li>
+<li><strong>Facilitating Interoperability</strong>: By reusing and extending PMDco concepts, TTO ensures compatibility with other MSE ontologies.</li>
+<li><strong>Anchoring Ontological Classes</strong>: Core concepts such as pmd:TestingMachine and pmd:Process serve as templates, reducing duplication and aligning TTO with broader MSE semantic ecosystems.</li>
+</ol>
+<p>By leveraging <a href="https://w3id.org/pmd/co">PMDco</a>, <a href="https://w3id.org/pmd/tto">TTO</a> effectively encapsulates tensile testing knowledge while maintaining interoperability with broader MSE frameworks which enhances data integration and long-term usability.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../usage_guidelines/" class="btn btn-neutral float-left" title="Usage Guidelines"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../validation_and_evaluation/" class="btn btn-neutral float-right" title="Validation and Evaluation">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../usage_guidelines/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../validation_and_evaluation/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

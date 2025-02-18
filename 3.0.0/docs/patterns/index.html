@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Patterns - PMD Core Ontology</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Patterns";
+        var mkdocs_page_input_path = "patterns.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> PMD Core Ontology
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Welcome</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../intro/">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../background_and_context/">Background and Context</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../ontology_structure/">Ontology Structure</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../design_and_methodology/">Design and Methodology</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Patterns</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#inroduction">Inroduction</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#table-of-contents">Table of Contents</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#example-patterns">Example Patterns</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#pattern-1-input-and-output-of-processes">Pattern 1 - Input and Output of Processes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pattern-2-scalar-value-specification-with-value-and-unit">Pattern 2 - Scalar Value Specification with Value and Unit</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pattern-3-object-and-material-specification">Pattern 3 - Object and Material Specification</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pattern-4-object-role-and-process">Pattern 4 - Object, Role, and Process</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pattern-5-process-device-and-function">Pattern 5 - Process, Device, and Function</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pattern-6-device-identifier">Pattern 6 - Device Identifier</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pattern-7-process-chains">Pattern 7 - Process Chains</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pattern-8-process-substeps">Pattern 8 - Process Substeps</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pattern-9-process-and-data-output">Pattern 9 - Process and Data Output</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pattern-10-process-and-material-property">Pattern 10 - Process and Material Property</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../usage_guidelines/">Usage Guidelines</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../examples_and_usecases/">Examples and Use Cases</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../validation_and_evaluation/">Validation and Evaluation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../glossary_and_tools/">Glossary and Tools</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../versions/">Versions</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../contributing/">Contributing</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../publications/">Publications</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../references/">References</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../acknowledgements/">Acknowledgements</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">PMD Core Ontology</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Patterns</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="usage-patterns">Usage Patterns</h1>
+<p>In ontology development and usage, <strong>usage patterns</strong> play a critical role in addressing recurring modeling requirements. These patterns provide standardized, reusable semantic snippets that facilitate consistent representation of relationships between instances and entities. Furthermore, such patterns may be used to create SHACL shapes to include constraints in a knowledge representation. By following usage patterns, ontology users and developers can ensure uniformity, clarity, and reusability in their models.</p>
+<p>The sections below illustrate how to read and apply these patterns. Each pattern includes its purpose, description, relevant properties, visualization, and examples. In particular, patterns are given in more detail in the <a href="https://github.com/materialdigital/core-ontology/tree/develop-3.0.0/patterns">pattern section of the PMDco repository</a>. Although these patterns are already documented separately, they are referenced here as a guide for understanding their structure and applicability.</p>
+<hr />
+<h2 id="inroduction">Inroduction</h2>
+<p>This page uses a tensile testing example to demonstrate interconnected graph patterns within PMDco, beginning with the specification of a steel sheet material. It follows the process of manufacturing test pieces, detailing the roles of each object involved. Each process is guided by a specification or plan and is linked to devices, which include their own identifiers and specifications. The page further illustrates how processes are sequentially chained and subdivided, generating information content entities like time series data. Ultimately, it covers how this data is transformed to derive material properties, providing a foundational approach to modeling workflows in materials science.
+<img alt="TableOfContents" src="https://github.com/user-attachments/assets/3510fa58-9774-4d04-a466-6a6bf7f2ddcd" /></p>
+<hr />
+<h2 id="table-of-contents">Table of Contents</h2>
+<p>Hereby we provide an overview of the patterns used in PMDco 3.0.0:
+- <a href="#Pattern-1---Input-and-Output-of-Processes">Pattern 1</a>: Input and Output of Processes
+- <a href="#Pattern-2---Scalar-Value-Specification-with-Value-and-Unit">Pattern 2</a>: Scalar Value Specification with Value and Unit
+- <a href="#Pattern-3---Object-and-Material-Specification">Pattern 3</a>: Object and Material Specification
+- <a href="#Pattern-4---Object,-Role,-and-Process">Pattern 4</a>: Object, Role, and Process
+- <a href="#Pattern-5---Process,-Device,-and-Function">Pattern 5</a>: Process, Device, and Function
+- <a href="#Pattern-6---Device-Identifier">Pattern 6</a>: Device Identifier
+- <a href="#Pattern-7---Process-Chains">Pattern 7</a>: Process Chains
+- <a href="#Pattern-8---Process-Substeps">Pattern 8</a>: Process Substeps
+- <a href="#Pattern-9---Process-and-Data-Output">Pattern 9</a>: Process and Data Output
+- <a href="#Pattern-10---Process-and-Material-Property">Pattern 10</a>: Process and Material Property</p>
+<hr />
+<h2 id="example-patterns">Example Patterns</h2>
+<h3 id="pattern-1-input-and-output-of-processes">Pattern 1 - Input and Output of Processes</h3>
+<p><strong>Purpose</strong>: Describes how to represent inputs and outputs for planned processes.</p>
+<ul>
+<li><strong>Core Properties</strong>: </li>
+<li><code>has_specified_input</code> (<code>OBI:0000293</code>)</li>
+<li><code>has_specified_output</code> (<code>OBI:0000299</code>)</li>
+<li><strong>Key Insight</strong>: A planned process can have multiple inputs and outputs, typically involving material entities or information-bearing entities.</li>
+<li><strong>How to Interpret</strong>: Inputs and outputs are linked to processes using the above properties to indicate participation.</li>
+</ul>
+<p><img alt="Visualization of Pattern 1" src="https://github.com/materialdigital/core-ontology/blob/develop-3.0.0/patterns/pattern1.png?raw=true" /></p>
+<p><a href="https://github.com/materialdigital/core-ontology/blob/develop-3.0.0/shapes/shape1-data.ttl">Explore Example Data, Pattern 1</a></p>
+<hr />
+<h3 id="pattern-2-scalar-value-specification-with-value-and-unit">Pattern 2 - Scalar Value Specification with Value and Unit</h3>
+<p><strong>Purpose</strong>: Represents scalar physical quantities, combining a numerical value and a unit.</p>
+<ul>
+<li><strong>Core Idea</strong>: Use a BNode for scalar quantities, ensuring each quantity has exactly one value and one unit.</li>
+<li><strong>Example Use Case</strong>: Specifying measurements like length, mass, or time with standard units.</li>
+</ul>
+<p><img alt="Visualization of Pattern 2" src="https://raw.githubusercontent.com/materialdigital/core-ontology/develop-3.0.0/patterns/pattern2.png" /></p>
+<p><a href="https://github.com/materialdigital/core-ontology/blob/develop-3.0.0/shapes/shape2-data1.ttl">Explore Example Data, Pattern 2</a></p>
+<hr />
+<h3 id="pattern-3-object-and-material-specification">Pattern 3 - Object and Material Specification</h3>
+<p><strong>Purpose</strong>: Specify the material, from which the object is made, by stating that it complies with the certain material specification.</p>
+<ul>
+<li><strong>Core Idea</strong>: provide a class pmd:MaterialSpecification as a subclass of iao:InformationContentEntity, to which the material object can adhere.</li>
+<li><strong>Example Use Case</strong>: Specifying the material of a steel sheet to be the steel S355J2.</li>
+</ul>
+<p><img alt="Pat3" src="https://github.com/user-attachments/assets/a57ee61c-ea53-4dcb-abc3-40ce4eb00ab5" /></p>
+<h3 id="pattern-4-object-role-and-process">Pattern 4 - Object, Role, and Process</h3>
+<h3 id="pattern-5-process-device-and-function">Pattern 5 - Process, Device, and Function</h3>
+<hr />
+<h3 id="pattern-6-device-identifier">Pattern 6 - Device Identifier</h3>
+<p><strong>Purpose</strong>: Ensures every device has at least one identifier for unambiguous identification.</p>
+<ul>
+<li><strong>Description</strong>: A device is associated with an identifier (<code>IAO:0020000</code>) or symbol (<code>IAO:0000028</code>), along with a value specification.</li>
+<li><strong>Relevance</strong>: Useful for tracking devices in systems where precise identification is crucial.</li>
+</ul>
+<p><img alt="Visualization of Pattern 6" src="https://raw.githubusercontent.com/materialdigital/core-ontology/develop-3.0.0/patterns/pattern6.png" /></p>
+<p><a href="https://github.com/materialdigital/core-ontology/blob/develop-3.0.0/shapes/shape6-data.ttl">Explore Example Data, Pattern 6</a></p>
+<hr />
+<h3 id="pattern-7-process-chains">Pattern 7 - Process Chains</h3>
+<h3 id="pattern-8-process-substeps">Pattern 8 - Process Substeps</h3>
+<h3 id="pattern-9-process-and-data-output">Pattern 9 - Process and Data Output</h3>
+<h3 id="pattern-10-process-and-material-property">Pattern 10 - Process and Material Property</h3>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../design_and_methodology/" class="btn btn-neutral float-left" title="Design and Methodology"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../usage_guidelines/" class="btn btn-neutral float-right" title="Usage Guidelines">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../design_and_methodology/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../usage_guidelines/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
